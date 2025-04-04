@@ -1,0 +1,6 @@
+2025-04-04 14:29:00.758 [info] Started local extension host with pid 4109.
+2025-04-04 14:29:03.086 [error] Error while getting the latest version for the extension dlasagno.wal-theme. Cannot read properties of undefined (reading 'replace')
+2025-04-04 14:29:03.087 [error] Error while getting the latest version for the extension jdinhlife.gruvbox. Cannot read properties of undefined (reading 'replace')
+2025-04-04 14:29:03.087 [error] Error while getting the latest version for the extension ritwickdey.liveserver. Cannot read properties of undefined (reading 'replace')
+2025-04-04 14:29:03.089 [error] Error while getting the latest version for the extension sainnhe.gruvbox-material. Cannot read properties of undefined (reading 'replace')
+2025-04-04 14:29:03.594 [info] [perf] Render performance baseline is 44ms

@@ -1,0 +1,14 @@
+body{
+    font-size: 1.5em;
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+}
+button{
+    padding: 5px 25px;
+    border-radius: 5px;
+    background-color: teal;
+    color: white;
+}
+button:hover{
+    background-color: blue;
+}

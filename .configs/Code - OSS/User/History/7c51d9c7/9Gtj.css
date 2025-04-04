@@ -1,0 +1,19 @@
+*{
+    text-align: center;
+    color: white;
+    background-color: black;
+}
+button{
+    background-color: rgb(58, 58, 136);
+    padding:1em 2em;
+    border-radius: 12px;
+    transition-duration: .4s;
+}
+button:hover{
+    background-color: rgb(80, 80, 228);
+}
+h4{
+    transition-duration: .4s;
+    font-family: helvetica;
+    animation: fadeIn 3s;
+}

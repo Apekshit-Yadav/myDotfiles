@@ -1,0 +1,7 @@
+2025-04-03 19:05:59.207 [info] Started local extension host with pid 7339.
+2025-04-03 19:06:01.530 [error] Error while getting the latest version for the extension dlasagno.wal-theme. Cannot read properties of undefined (reading 'replace')
+2025-04-03 19:06:01.530 [error] Error while getting the latest version for the extension jdinhlife.gruvbox. Cannot read properties of undefined (reading 'replace')
+2025-04-03 19:06:01.531 [error] Error while getting the latest version for the extension ritwickdey.liveserver. Cannot read properties of undefined (reading 'replace')
+2025-04-03 19:06:01.532 [error] Error while getting the latest version for the extension sainnhe.gruvbox-material. Cannot read properties of undefined (reading 'replace')
+2025-04-03 19:06:02.036 [info] [perf] Render performance baseline is 52ms
+2025-04-03 20:13:28.361 [info] Unable to reload {0}: {1} file:///home/papa/.vscode-oss/extensions/dlasagno.wal-theme-1.1.2-universal/themes/wal.json

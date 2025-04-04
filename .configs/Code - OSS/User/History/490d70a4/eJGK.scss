@@ -1,0 +1,134 @@
+// Colors from wal-generated CSS
+$wallpaper: url("/home/papa/Pictures/Hyprpaper/coffee.png");
+
+// Special
+$bg-color: #0c0f12;
+$fg-color: #c2c3c3;
+$cursor-color: #c2c3c3;
+
+// Colors
+$colors: (
+    0: #0c0f12,
+    1: #354A53,
+    2: #3B5A63,
+    3: #516165,
+    4: #AB4D2F,
+    5: #65807F,
+    6: #E8A64D,
+    7: #c2c3c3,
+    8: #58656c,
+    9: #354A53,
+    10: #3B5A63,
+    11: #516165,
+    12: #AB4D2F,
+    13: #65807F,
+    14: #E8A64D,
+    15: #c2c3c3
+);
+
+window.Bar {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+
+    > centerbox {
+        background: transparent;
+        margin: 0;
+    }
+
+    button {
+        border-radius: 8px;
+        margin: 2px;
+        background: map-get($colors, 1);
+        color: $fg-color;
+        
+        &:hover {
+            background: map-get($colors, 2);
+        }
+        
+        &:active {
+            background: map-get($colors, 4);
+        }
+    }
+
+    .archbtn {
+        background-color: inherit;
+        border: 2px solid map-get($colors, 6);
+        margin: 6px 2px 6px 12px;
+        padding: 0 12px;
+    }
+}
+
+.leftbox, .midbox, .rightbox {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid white;
+    margin: 2px 4px;
+    border-radius: 50px;
+}
+
+.leftbox {
+    margin-left: 2px;
+    border-left: 2px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.midbox {
+    border-radius: 12px;
+}
+
+.rightbox {
+    margin-right: 2px;
+    border-right: 2px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.Battery {
+    border-radius: inherit;
+    margin: 0 18px;
+}
+
+.Workspaces {
+    background-color: inherit;
+    font-family: "JetBrains Mono", monospace;
+    padding: 5px;
+    margin: 0 18px;
+    border-radius: 50px;
+}
+
+.Workspaces button {
+    all: unset;
+    background-color: inherit;
+    color: $fg-color;
+    border-radius: 50px;
+    padding: 6px 10px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+    margin: 0 18px;
+    transition: all 0.2s ease-in;
+}
+
+.Workspaces button.focused {
+    background-color: inherit;
+    color: map-get($colors, 6);
+    border: 2px solid map-get($colors, 6);
+    border-radius: 50px;
+    font-size: 20px;
+}
+
+.Focused {
+    background-color: inherit;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+    border: none;
+    border-radius: 50px;
+    margin: 0 12px;
+    padding: 0 12px;
+}
+
+.Time {
+    background-color: inherit;
+    padding: 2px 12px;
+    border-radius: inherit;
+}

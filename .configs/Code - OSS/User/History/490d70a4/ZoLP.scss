@@ -1,0 +1,53 @@
+@import "catppuccin-mocha";
+
+$bar-bg: rgba(30, 30, 46, 0.8); // Semi-transparent
+$border-radius: 12px;
+$padding: 6px;
+$spacing: 8px;
+
+.Bar {
+    background-color: $bar-bg;
+    border-radius: $border-radius;
+    padding: $padding;
+    margin: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+button, .Workspaces button {
+    background-color: $surface1;
+    color: $text;
+    border-radius: $border-radius;
+    padding: 4px 8px;
+    margin: 0 $spacing;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        background-color: $surface2;
+    }
+}
+
+.Workspaces {
+    display: flex;
+    gap: $spacing;
+}
+
+.Focused {
+    background-color: $surface0;
+    padding: 4px 8px;
+    border-radius: $border-radius;
+}
+
+.SysTray, .Wifi, .AudioSlider, .Battery {
+    display: flex;
+    align-items: center;
+    gap: $spacing;
+}
+
+.AudioSlider slider {
+    min-width: 120px;
+    border-radius: $border-radius;
+}
+
+.Time {
+    font-weight: bold;
+    color: $text;
+}

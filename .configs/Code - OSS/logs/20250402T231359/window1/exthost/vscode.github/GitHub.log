@@ -1,0 +1,4 @@
+2025-04-02 23:14:04.444 [info] Log level: Info
+2025-04-02 23:14:29.692 [info] Log level: Info
+2025-04-02 23:14:31.504 [warning] [GitHubBranchProtectionProvider][updateRepositoryBranchProtection] Failed to update repository branch protection: No GitHub authentication session available.
+2025-04-02 23:45:17.321 [warning] [GitHubSourceControlHistoryItemDetailsProvider][_loadAssignableUsers] Failed to load assignable user(s) for Apekshit-Yadav/coding-projects: Error: No GitHub authentication session available.

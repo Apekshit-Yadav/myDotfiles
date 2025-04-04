@@ -1,0 +1,11 @@
+body{
+    font-family: Helvetica, sans-serif;
+}
+button{
+    border-radius: 5px;
+    background-color: teal;
+    color: white;
+}
+button:hover{
+    background-color: blue;
+}
