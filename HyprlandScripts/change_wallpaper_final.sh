@@ -9,9 +9,13 @@ WALLPAPER=$(find "$WALLPAPER_DIR" -type f | shuf -n 1)
 echo -e  "setting "$WALLPAPER" from "$WALLPAPER_DIR" \n"
 # Set the wallpaper using swww
 #swaybg -i "$WALLPAPER" -m fill &
+WAYBARPOS=$(grep -oP '"position":\s*"\K(top|bottom)' "$HOME/.config/waybar/config.jsonc")
 
-swww img "$WALLPAPER" --resize crop --transition-type outer --transition-duration 3.5 --transition-fps 60 --transition-pos 0.5,0.96 &
-#wal -i $WALLPAPER -n
+if [ "$WAYBARPOS" == "top" ]; then
+  swww img "$WALLPAPER" --resize crop --transition-type outer --transition-duration 3.5 --transition-fps 60 --transition-pos 0.5,0.965 &
+else
+  swww img "$WALLPAPER" --resize crop --transition-type outer --transition-duration 3.5 --transition-fps 60 --transition-pos 0.5,0.035 &
+fi
 
 #setting dark mode
     NEW_MODE="Dark"
