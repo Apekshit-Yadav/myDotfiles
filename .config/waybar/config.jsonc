@@ -12,47 +12,59 @@
     "reload_style_on_change": true,
     // positions generated based on config.ctl //
     "modules-left": [
-      "custom/smallspacer",
+      "custom/padd",
       "custom/appmenu",
+      "custom/smallspacer",
       "hyprland/workspaces",
       "custom/empty_workspace",
       "custom/spacer",
+//      "group/window",
       "hyprland/window",
-      "custom/spacer",
+      "custom/closer",
+      "custom/padd",
       "mpris",
-      "custom/padd",
     ],
-    "modules-center": ["idle_inhibitor","clock","custom/notification",],
+    "modules-center": ["group/midsub",],
     "modules-right": [
-      "custom/padd",
       "custom/l_end",
       "group/expand",
-      "custom/padd",
       "custom/smallspacer",
       "network",
+      "custom/nettext",
       "custom/smallspacer",
+      "custom/smallspacer",
+      "pulseaudio",
       "group/expand-3",
+      "custom/smallspacer",
+      "custom/smallspacer",
+      "backlight",
       "group/expand-2",
+      "custom/smallspacer",
+      "custom/smallspacer",
+      "battery",
       "group/expand-4",
       "custom/smallspacer",
-      "memory",
-      "cpu",
       "custom/smallspacer",
-      "custom/wallchange",
+//      "group/rightsub",//
+      "custom/notification",
       "custom/logout",
-      "custom/smallspacer",
-      "custom/spotify",
+      "custom/padd",
     ],
     // sourced from modules based on config.ctl //
-    "upower": {
-      "icon-size": 24,
-      "format": "<span>{}</span>",
-      "format-alt": "{}<span color='white'>[{time}]</span>",
-      "tooltip": false,
-      "tooltip-spacing": 20,
-      "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-      "on-click-right": "pkill waybar & hyprctl dispatch exec waybar",
-    },
+ //   "upower": {
+      //"icon-size": 24,
+      //"format": "<span>{}</span>",
+  //    "icon-size": 0,
+   //   "format": "<span color='white'>{time}</span>",
+    //  "tooltip": false,
+     // "tooltip-spacing": 20,
+      //"format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+      //"on-click-right": "pkill waybar & hyprctl dispatch exec waybar",
+    //},
+  "upower": {
+   "format": "<span color='white'>{time}</span>",
+    "tooltip": false,
+},
     "upower#headset": {
       "format": " {percentage}",
       "native-path": "/org/freedesktop/UPower/devices/headset_dev_A6_98_9A_0D_D3_49",
@@ -67,8 +79,8 @@
         "transition-to-left": true,
         "click-to-reveal": true,
       },
-      "modules": ["upower", "upower/headset"],
-      //"modules": ["battery", "upower/headset"],
+      //"modules": ["upower", "upower/headset"],
+      "modules": [ "custom/battxt","upower","upower/headset"],
     },
     "custom/smallspacer": {
       "format": " ",
@@ -88,14 +100,15 @@
     },
     "mpris": {
       "format": "{player_icon} {dynamic}",
-      "format-paused": "<span color='grey'>{status_icon} {dynamic}</span>",
-      "max-length": 30,
+      "format-paused": "{status_icon} {dynamic}",
+      // "format-paused": "<span color='grey'>{status_icon} {dynamic}</span>",
+      "max-length": 42,
       "player-icons": {
-        "default": "⏸ ",
-        "mpv": "🎵 ",
+        "default": " ⏸",
+        "mpv": " 🎵",
       },
       "status-icons": {
-        "paused": "▶ ",
+        "paused": " ▶"
       },
       // "ignored-players": ["firefox"]
     },
@@ -120,7 +133,7 @@
     },
     "custom/notification": {
       "tooltip": false,
-      "format": "{icon}",
+      "format": " {icon}",
       "format-icons": {
         "notification": "󰅸 ",
         "none": "󰂜 ",
@@ -139,11 +152,15 @@
       "escape": true,
     },
     "hyprland/window": {
-      "format": "<span  weight='bold'>{class}</span>",
+      //"format":"<span  weight='bold'>  {class} </span>",
+      "format":"{class}",
       "max-length": 120,
       "icon": false,
-      "icon-size": 13,
+      "icon-size": 16,
       "tooltip":true,
+  "exec": "WS=$(hyprctl activeworkspace | awk 'NR==1 {print $3}'); HAS_WIN=$(hyprctl clients | awk '$1 == \"workspace:\" {print $2+0}' | grep -qx \"$WS\" && echo 1 || echo 0); if [ \"$HAS_WIN\" -eq 1 ]; then hyprctl activewindow | awk -F': ' '/class:/ {print $2}'; else echo ''; fi", 
+    //     "exec": "WS=$(hyprctl activeworkspace | awk 'NR==1 {print $3}'); if hyprctl clients | awk '$1 == \"workspace:\" {print $2+0}' | grep -qx \"$WS\"; then echo '{class}'; else echo ''; fi",
+      "interval":1,
       "tooltip-format":"right click to close",
       "on-click-right": "hyprctl dispatch killactive",
     },
@@ -158,16 +175,21 @@
       "format": " | ",
     },
     "hyprland/workspaces": {
-      //"format": "{icon}",
-      "format": "{icon} {name}",
+      "format": "{icon}",
+      //"format": "{icon} {name}",
       "format-icons": {
-        "default": "",
-        "active": "",
-        /*
-              "1": "i",
-              "2": "ii",
-              "3": "iii",
-              "4": "iv"*/
+        "default": "",
+        //"active": "",
+         "1": "一",     // ichi (one)
+         "2": "二",     // ni (two)
+         "3": "三",     // san (three)
+         "4": "四",     // shi/yon
+         "5": "五",
+         "6": "六",
+         "7": "七",
+         "8": "八",
+         "9": "九",
+         "10": "十",
       },
     },
     "wlr/workspaces": {
@@ -287,8 +309,8 @@
       "format": "{icon}",
       "rotate": 0,
       "format-icons": {
-        "activated": "󰥔 ",
-        "deactivated": " ",
+        "activated": " 󰥔 ",
+        "deactivated":"  ",
       },
     },
     "clock": {
@@ -322,28 +344,32 @@
         "warning": 30,
         "critical": 20,
       },
-      "format": "{icon}{capacity}%",
-     // "rotate": 90,
+      "format": "{icon}",
       "rotate": 0,
-      //"format-charging": "<span color='#ffffff'>󱐋{capacity}%</span>",
-      "format-charging": "󱐋{capacity}%",
-      //"format-plugged": "󰂄",
+      "format-charging": " 󱐋 ",
       //"format-plugged": "",
-      //"format-alt": "<<span weight='bold' color='#c2864a'>{time} <span weight='bold' color='white'>| <span weight='bold' color='#82d457'>{capacity}%</span></span></span>",
-      //"format-icons": ["󰝦 ", "󰪞 ", "󰪟 ", "󰪠 ", "󰪡 ", "󰪢 ", "󰪣 ", "󰪤 ", "󰪥 "],
-       "format-icons": [" ", " ", " ", " ", " ", " ", " ", " "],
-      //"format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-      //"on-click-right": "pkill waybar & hyprctl dispatch exec waybar",
-      //  "format-icons": [<i class='fa-solid fa-wifi-slash'></i>],
-    "interval":10,
+      "format-icons": [" 󰂎 ", " 󰁺 ", " 󰁻 ", " 󰁼 ", " 󰁽 ", " 󰁾 ", " 󰁿 ", " 󰂀 ", " 󰂁 ", " 󰂂 ", " 󰁹 "],
+    "interval":5,
+    },
+    "custom/battxt": {
+      "exec": "cat /sys/class/power_supply/BAT1/capacity",
+      "interval": 30,
+      "format": "{}%",
+      "tooltip": false,
     },
     "backlight": {
       "device": "intel_backlight",
       "rotate": 0,
-      "format": "{icon}",
+      "format": " {icon}",
       "format-icons": ["󰃞 ", "󰃝 ", "󰃟 ", "󰃠 "],
       "scroll-step": 1,
       "min-length": 2,
+    },
+    "custom/backlighttxt": {
+"exec": "(curr=$(brightnessctl get); max=$(brightnessctl max); echo $(( curr * 100 / max ))%)",
+        "interval": 1,
+        "return-type": "text",
+        "format": "{}"
     },
     "group/expand-2": {
       "orientation": "horizontal",
@@ -353,7 +379,7 @@
         "transition-to-left": true,
         "click-to-reveal": true,
       },
-      "modules": ["backlight", "backlight/slider"],
+      "modules": ["custom/backlighttxt","backlight/slider"],
     },
     "group/expand-3": {
       "orientation": "horizontal",
@@ -363,37 +389,48 @@
         "transition-to-left": true,
         "click-to-reveal": true,
       },
-      "modules": ["pulseaudio", "pulseaudio/slider"],
+      "modules": ["custom/pulseaudiotxt", "pulseaudio/slider"],
     },
     "network": {
-      "tooltip": true,
-      "format-wifi": "{icon} ",
-      "format-icons": ["󰤟 ", "󰤢 ", "󰤥 "],
-      //  "format-wifi": "<i class='fa-solid fa-wifi-slash'></i>",
+      "tooltip": false,
+      "format-wifi": "{icon}",
+      "format-icons": [" 󰤟 ", " 󰤢 ", " 󰤥 "," 󰤨 ",],
       "rotate": 0,
-      "format-ethernet": "󰈀 ",
+      "format-ethernet": " 󰈀 ",
       "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>",
-      "format-linked": "󰈀 {ifname} (No IP)",
-      "format-disconnected": " ",
+      "format-linked": " 󰈀 {ifname} (No IP)",
+      "format-disconnected": "  ",
       "tooltip-format-disconnected": "Disconnected",
-      "on-click": "/usr/local/bin/ags -t ControlPanel",
-      "interval": 2,
+      "on-click": "kitty -e nmtui",
+      "interval": 5,
     },
+  "custom/nettext":{
+    "exec": "sh -c 'ssid=$(nmcli -t -f active,ssid dev wifi | awk -F: \"/^yes/ {print \\$2}\"); echo \"${ssid:-disconnected}\"'",
+    "interval": 5,
+    "tooltip": false,
+  },
     "pulseaudio": {
       "format": "{icon}",
       "rotate": 0,
-      "format-muted": "󰓄 ",
+      "format-muted": " 󰓄 ",
       "tooltip-format": "{icon} {desc} // {volume}%",
       "scroll-step": 5,
       "format-icons": {
-        "headphone": " ",
-        "hands-free": " ",
-        "headset": " ",
-        "phone": " ",
-        "portable": " ",
-        "car": " ",
-        "default": [" ", " ", " ", "󱄠 "],
+        "headphone": "  ",
+        "hands-free": "  ",
+        "headset": "  ",
+        "phone": "  ",
+        "portable": "  ",
+        "car": "  ",
+        "default": ["  ", "  ", "  "],
       },
+    },
+    "custom/pulseaudiotxt": {
+"exec": "(sink=$(pactl get-default-sink); mute=$(pactl get-sink-mute \"$sink\" | awk '{print $2}'); vol=$(pactl get-sink-volume \"$sink\" | grep -oP '\\d+(?=%)' | head -1); [[ \"$mute\" == \"yes\" || $vol -eq 0 ]] && echo Muted || echo \"${vol}%\")"
+,        
+        "interval": 1,
+        "return-type": "text",
+        "format": "{}"
     },
     "pulseaudio#microphone": {
       "format": "{format_source}",
@@ -506,27 +543,38 @@
     "tooltip": false,
   },
   "custom/empty_workspace": {
-    "format": "{}",  
-    "exec": "WS=$(hyprctl activeworkspace | awk 'NR==1 {print $3}'); if hyprctl clients | awk '$1 == \"workspace:\" {print $2+0}' | grep -qx \"$WS\"; then echo '󰐗'; else echo ''; fi",
+    "format": "󰐗 ",  
+    //"exec": "WS=$(hyprctl activeworkspace | awk 'NR==1 {print $3}'); if hyprctl clients | awk '$1 == \"workspace:\" {print $2+0}' | grep -qx \"$WS\"; then echo '󰐗 '; else echo ''; fi",
     "on-click": "hyprctl dispatch workspace empty",
-    "tooltip": false,
-    "interval": 1
+    "tooltip": true,
+    "tooltip-format": "go to empty WS",
+    //"interval": 1
   },
 
-"group/window": {
-  "orientation": "horizontal",
-  "drawer": {
-    "transition-duration": 400,
-    "children-class": "window-expand",
-    "transition-to-left": true
-  },
-  "modules": ["hyprland/window", "custom/closer"]
-},
+//"group/window": {
+//  "orientation": "horizontal",
+//  "drawer": {
+ //   "transition-duration": 400,
+  //  "children-class": "window-expand",
+   // "transition-to-left": true
+ // },
+//  "modules": ["hyprland/window", "custom/closer"]
+//},
 "custom/closer": {
-  "format": "×",
+  "format": "{}",
   "on-click": "hyprctl dispatch killactive",
-  "tooltip": false
+  "on-click-right": "hyprctl dispatch killactive",
+  "tooltip": false,
+  "exec": "WS=$(hyprctl activeworkspace | awk 'NR==1 {print $3}'); if hyprctl clients | awk '$1 == \"workspace:\" {print $2+0}' | grep -qx \"$WS\"; then echo ' '; else echo ''; fi",
+  "interval":1,  
 },
-
+  "group/rightsub": {
+    "id":"rightpill",
+    "orientation":"horizontal",
+    "modules":["memory","cpu","custom/wallchange"],
+  },
+  "group/midsub":{
+    "orientation":"horizontal",
+    "modules":["idle_inhibitor","clock",],
+  },
 }
-  

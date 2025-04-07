@@ -1,0 +1,36 @@
+@import url(".cache/wal/colors-waybar.css");
+window {
+  margin: 0px;
+  border: 2px solid @color4;
+  border-radius: 15px;
+  background-color: alpha(@background, 0.85);
+  font-family: "Hermit Mono Nerd Font";
+  font-size: 15px;
+  padding: 15px;
+}
+
+#input {
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  background-color: alpha(@color0, 0.3);
+  color: @foreground;
+}
+
+#entry {
+  padding: 8px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  background-color: alpha(@color0, 0.2);
+  color: @foreground;
+}
+
+#entry:selected {
+  background-color: @color4;
+  color: @background;
+}
+
+#scroll {
+  margin: 0px;
+}
+

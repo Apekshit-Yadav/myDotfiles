@@ -1,48 +1,62 @@
+@import url("/home/papa/.cache/wal/colors-waybar.css");
+
 * {
-    font-family: "Hurmit Nerd Font ";
+    font-family: "Hurmit Nerd Font";
     font-weight: bold; 
-    font-size: 15px;
+    font-size: 14px;
 }
 
 #custom-notification {
-    font-family: "Hurmit Nerd Font ";
-    font-size: 17px;
-    color: #d5c4a1; /* Gruvbox pastel foreground */
-    margin: 2px 0px 0px 0px;
+    font-family: "Hurmit Nerd Font";
+    font-size: 20px;
+    color: @foreground; /* #c7c7c8 */
+    margin: 2px 0;
 }
 
 window#waybar {
-    /*background: #282828;*/ /* Gruvbox dark background*/
-    background: rgba(51, 63, 75, 0.6);
-    border: 3px solid rgba(225, 148, 56, 0.45) ;
-    border-radius: 10px;
+    /*background:transparent;*/
+    background: @color1;
+    border: 2px solid @background; /* #C3A47C */
+    border-radius: 12px;
+    opacity : 1;
+}
+
+#window {
+    color: @foreground;
+    background: @color2;
+    border-radius:60px;
+    opacity: 1;
+    font-size: 15px;
+    font-weight: 900;
+    font-family: "Hurmit Nerd Font";
+    margin: 6px 6px;
+    padding: 0px 15px;
 }
 
 tooltip {
-    background: #1e1e1e; /* Darker background for tooltips */
-    color: #d5c4a1; /* Gruvbox pastel foreground */
+    background: @background; /* #201f24 */
+    color: @foreground; /* #c7c7c8 */
     font-size: 13px;
-    border-radius: 7px;
-    border: 2px dotted #2a2a2a; /* Slightly lighter border */
+    border-radius: 12px;
+    border: 2px solid @color6;
+    margin: 6px;
+
 }
 
 #workspaces {
     background: rgba(40, 40, 40, 0.0);
-    color: #a9b665; /* Gruvbox pastel green */
+    color: @color5; /* #C7B58F */
     box-shadow: none;
     text-shadow: none;
-    border-radius: 9px;
+    border-radius: 8px;
     transition: 0.2s ease;
-    padding-left: 4px;
-    padding-right: 4px;
-    padding-top: 1px;
+    padding: 2px 4px ;
 }
 
 #workspaces button {
-    background: rgba(40, 40, 40, 0.0);
     padding: 1px 5px;
     background-color: transparent;
-    color: #d5c4a1; /* Gruvbox pastel foreground */
+    color: @foreground; /* #c7c7c8 */
     box-shadow: none;
     text-shadow: none;
     border-radius: 12px;
@@ -52,22 +66,21 @@ tooltip {
 }
 
 #workspaces button.active {
-    color: #D3869B; /* Gruvbox pastel foreground */
+    background: @foreground;
+    color: @color11; /* #C3A47C */
     transition: all 0.3s ease;
-    padding-left: 4px;
-    padding-right: 4px;
+    margin: 4px;
 }
 
 #workspaces button:hover {
     background: none;
-    box-shadow: inherit;/*new*/
-    /*background-color: rgba(0,153,153,1);new*/
-    color: #83a598; /* Gruvbox pastel blue */
+    box-shadow: inherit;
+    color: @color6; /* #BDC3B1 */
     transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
 #workspaces button.focused {
-background-color: rgba(1,1,1,1);
+    background-color: @color2; /* #A09075 */
 }
 
 #taskbar button {
@@ -80,13 +93,12 @@ background-color: rgba(1,1,1,1);
     margin-left: 0px;
     padding-left: 3px;
     padding-right: 3px;
-    margin-right: 0px;
-    color: #a9b665; /* Gruvbox pastel green */
+    color: @color5; /* #C7B58F */
 }
 
 #taskbar button.active {
-    background: #83a598; /* Gruvbox pastel blue */
-    color: #d5c4a1; /* Gruvbox pastel foreground */
+    background: @color6; /* #BDC3B1 */
+    color: @foreground; 
     margin-left: 3px;
     padding-left: 12px;
     padding-right: 12px;
@@ -96,8 +108,8 @@ background-color: rgba(1,1,1,1);
 }
 
 #taskbar button:hover {
-    background: #d8a657; /* Gruvbox pastel yellow */
-    color: #d5c4a1; /* Gruvbox pastel foreground */
+    background: @color3; /* #C3A47C */
+    color: @foreground; 
     transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
@@ -105,7 +117,7 @@ background-color: rgba(1,1,1,1);
     min-height: 16px;
     font-weight: bold;
     font-size: 13px;
-    color: #d5c4a1; /* Gruvbox pastel foreground */
+    color: @foreground; /* #c7c7c8 */
 }
 
 #tray menu separator {
@@ -123,34 +135,34 @@ background-color: rgba(1,1,1,1);
 #custom-mouse {
     font-size: 14px;
     margin-bottom: 6px;
-    background: #282828; /* Gruvbox dark background */
+    background: @background; /* #201f24 */
 }
 
 #custom-power {
     font-size: 15px;
-    color: #d5c4a1; /* Gruvbox pastel foreground */
+    color: @foreground; /* #c7c7c8 */
     background: rgba(40, 40, 40, 0.9);
-    margin: 6px 0px 6px 0px;
+    margin: 6px 0px;
     padding-left: 4px;
     padding-right: 4px;
 }
 
 #backlight {
-    color: #83a598; /* Gruvbox pastel blue */
+    color: @color6; /* #BDC3B1 */
     background: rgba(40, 40, 40, 0.0);
     font-weight: normal;
     font-size: 19px;
-    margin: 1px 0px 0px 0px;
+    margin: 1px 0;
     padding-left: 0px;
     padding-right: 2px;
 }
 
 #bluetooth,
 #custom-cliphist {
-    color: #d5c4a1; /* Gruvbox pastel foreground */
-    background: #282828; /* Gruvbox dark background */
+    color: @foreground; /* #c7c7c8 */
+    background: @background; /* #201f24 */
     opacity: 1;
-    margin: 4px 0px 4px 0px;
+    margin: 4px 0;
     padding-left: 4px;
     padding-right: 4px;
 }
@@ -158,43 +170,47 @@ background-color: rgba(1,1,1,1);
 #battery {
     font-weight: normal;
     font-size: 22px;
-    color: #a9b665; /* Gruvbox pastel green */
+    color: @color4; /* #A9A793 */
     background: rgba(40, 40, 40, 0.0);
     opacity: 1;
-    margin: 0px 0px 0px 0px;
+    margin: 0;
     padding-left: 0px;
     padding-right: 0px;
 }
 
 #idle_inhibitor {
-    color: #83a598; /* Gruvbox pastel blue */
+    color: @color6; /* #BDC3B1 */
     background: rgba(40, 40, 40, 0.0);
     opacity: 1;
-    margin: 4px 0px 4px 0px;
+    margin: 4px 0;
     padding-left: 4px;
     padding-right: 4px;
 }
 
 #clock {
-    color: #d5c4a1; /* Gruvbox pastel foreground */
+    color: @foreground; /* #c7c7c8 */
     font-size: 15px;
     font-weight: 900;
-    font-family: "Hurmit Nerd Font ";
-    background: rgba(40, 40, 40, 0.0);
+    font-family: "Hurmit Nerd Font";
+    /* background: rgba(40, 40, 40, 0.0); */
+    background: @color2;
     opacity: 1;
-    margin: 3px 0px 0px 0px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border: none;
+    margin: 6px 6px;
+    padding: 0px 15px;
+    border-radius:60px;
+    /* padding-left: 10px; */
+    /* padding-right: 10px; */
+    /* border: 2px solid @color3; */
+    /* border: none; */
 }
 
 #pulseaudio {
     font-weight: normal;
     font-size: 18px;
-    color: #83a598; /* Gruvbox pastel blue */
+    color: @color6; /* #BDC3B1 */
     background: rgba(40, 40, 40, 0.0);
     opacity: 1;
-    margin: 0px 0px 0px 0px;
+    margin: 0;
     padding-left: 3px;
     padding-right: 3px;
 }
@@ -202,7 +218,7 @@ background-color: rgba(1,1,1,1);
 #cpu {
     font-weight: normal;
     font-size: 22px;
-    color: #d3869b; /* Gruvbox pastel purple */
+    color: @color2; /* #A09075 */
 }
 
 #custom-gpuinfo,
@@ -211,11 +227,11 @@ background-color: rgba(1,1,1,1);
 #memory {
     font-weight: normal;
     font-size: 22px;
-    color: #d5c4a1; /* Gruvbox pastel foreground */
+    color: @foreground; /* #c7c7c8 */
 }
 
 #mpris {
-    color: #d5c4a1; /* Gruvbox pastel foreground */
+    color: @foreground; /* #c7c7c8 */
     animation: repeat;
     animation-name: blink;
     animation-duration: 3s;
@@ -224,14 +240,15 @@ background-color: rgba(1,1,1,1);
     animation-direction: alternate;
 }
 
-@keyframes blink {
+/* @keyframes blink {
     to {
-        color: #a1a1a1; /* Light gray */
+        color: @color9;
     }
 }
+*/
 
 #network {
-    color: #d5c4a1; /* Gruvbox pastel foreground */
+    color: @foreground; /* #c7c7c8 */
     font-weight: normal;
     font-size: 19px;
     padding-right: 0px;
@@ -243,9 +260,9 @@ background-color: rgba(1,1,1,1);
 #taskbar,
 #custom-theme,
 #custom-menu {
-    color: #d5c4a1; /* Gruvbox pastel foreground */
+    color: @foreground; /* #c7c7c8 */
     background: rgba(40, 40, 40, 0.0);
-    margin: 0px 0px 0px 0px;
+    margin: 0;
     padding-left: 1px;
     padding-right: 1px;
     opacity: 0.1;
@@ -256,8 +273,8 @@ background-color: rgba(1,1,1,1);
 #custom-wallchange,
 #custom-wbar,
 #window {
-    color: #d5c4a1; /* Gruvbox pastel foreground */
-    font-family: "Martian Mono";
+    color: @foreground; /* #c7c7c8 */
+    /* font-family: "Martian Mono"; */
 }
 
 #custom-l_end,
@@ -268,7 +285,7 @@ background-color: rgba(1,1,1,1);
 #cava,
 #upower#headset,
 #upower {
-    color: #a9b665; /* Gruvbox pastel green */
+    color: @color5; /* #C7B58F */
 }
 
 #mpris {
@@ -277,17 +294,17 @@ background-color: rgba(1,1,1,1);
 
 #custom-rr_end {
     font-weight: normal;
-    color: #d5c4a1; /* Gruvbox pastel foreground */
+    color: @foreground; /* #c7c7c8 */
     background: rgba(40, 40, 40, 0.0);
     opacity: 1;
-    margin: 0px 0px 0px 0px;
+    margin: 0;
     padding-left: 4px;
     padding-right: 4px;
 }
 
 #backlight-slider slider,
 #pulseaudio-slider slider {
-    background: #d5c4a1; /* Gruvbox pastel foreground */
+    background: @foreground; /* #c7c7c8 */
     background-color: transparent;
     box-shadow: none;
     margin-right: 7px;
@@ -300,22 +317,22 @@ background-color: rgba(1,1,1,1);
     min-height: 10px;
     margin-bottom: -4px;
     border-radius: 8px;
-    background: #343434; /* Dark gray */
+    background: @color0; /* #201f24 */
 }
 
 #backlight-slider highlight,
 #pulseaudio-slider highlight {
     border-radius: 8px;
-    background-color: #83a598; /* Gruvbox pastel blue */
+    background-color: @color6; /* #BDC3B1 */
 }
 
 #battery.charging,
 #battery.plugged {
-    color: #d5c4a1; /* Gruvbox pastel foreground */
+    color: @foreground; /* #c7c7c8 */
 }
 
 #battery.critical:not(.charging) {
-    color: #ea6962; /* Gruvbox pastel red */
+    color: @color9; /* #7C847A */
 }
 
 #taskbar {
@@ -360,7 +377,7 @@ background-color: rgba(1,1,1,1);
 
 #custom-expand {
     min-width: 25px;
-    color: #d5c4a1; /* Gruvbox pastel foreground */
+    color: @foreground; /* #c7c7c8 */
     font-size: 16px;
 }
 
@@ -369,6 +386,26 @@ background-color: rgba(1,1,1,1);
     border-left-width: 0.5px;
 }
 
-#logouticon {
-    font-size: 20px;  /* Adjust the font size as needed */
+/*#custom-logout {
+    font-weight: 900;
+    background: @color2;
+    font-size: 20px;
+    padding-right: 2px;
+    padding-left: 8px;
+    margin:4px 0px;
+    border-radius:12px;
+}*/
+
+#custom-appmenu,#custom-logout {
+    font-weight: 900;
+    color: @color2;
+    background: @color7;
+    font-size: 20px;
+    padding-left: 12px;
+    padding-right: 6px;
+    margin-top:6px;
+    margin-bottom:6px;
+    margin-left:6px;
+    margin-right:4px;
+    border-radius:60px;
 }

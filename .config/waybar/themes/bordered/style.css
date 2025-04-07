@@ -10,14 +10,11 @@
     font-family: "Hurmit Nerd Font";
     font-size: 20px;
     color: @foreground; /* #c7c7c8 */
-    margin: 2px;
+    margin: 2px 0;
 }
 
 window#waybar {
-    background:transparent;
-     /* background: rgba(25,25,25,0.34);
-        background: @background;
-        background: @background;  #201f24 */
+    background: alpha(@background,0.1);
     border: 2px solid @color3; /* #C3A47C */
     border-radius: 12px;
     opacity : 1;
@@ -38,11 +35,11 @@ window#waybar {
 tooltip {
     background: @background; /* #201f24 */
     color: @foreground; /* #c7c7c8 */
-    /* font-size: 13px; */
+    font-size: 13px;
     border-radius: 12px;
     border: 2px solid @color6;
-    margin: 6px 0px 6px 0px;
-    padding: 4px 4px;    
+    margin: 6px;
+
 }
 
 #workspaces {
@@ -55,7 +52,7 @@ tooltip {
     padding: 2px 4px ;
 }
 
-#workspaces button {
+#workspaces button , #custom-empty_workspace {
     padding: 1px 5px;
     background-color: transparent;
     color: @foreground; /* #c7c7c8 */
@@ -150,7 +147,7 @@ tooltip {
 }
 
 #backlight {
-    color: @color3; /* #BDC3B1 */
+    color: @color6; /* #BDC3B1 */
     background: rgba(40, 40, 40, 0.0);
     font-weight: normal;
     font-size: 19px;
@@ -170,18 +167,19 @@ tooltip {
 }
 
 #battery {
+    font-family: "Hurmit Nerd Font";
     font-weight: normal;
-    font-size: 22px;
+    font-size: 18px;
     color: @color4; /* #A9A793 */
     background: rgba(40, 40, 40, 0.0);
     opacity: 1;
     margin: 0;
     padding-left: 0px;
-    padding-right: 0px;
+    padding-right: 12px;
 }
 
 #idle_inhibitor {
-    color: @color3; /* #BDC3B1 */
+    color: @color6; /* #BDC3B1 */
     background: rgba(40, 40, 40, 0.0);
     opacity: 1;
     margin: 4px 0;
@@ -197,8 +195,8 @@ tooltip {
     /* background: rgba(40, 40, 40, 0.0); */
     background: @color2;
     opacity: 1;
-    margin: 8px 2px 8px 2px;
-    padding: 2px 15px 0px 15px;
+    margin: 6px 6px;
+    padding: 0px 15px;
     border-radius:60px;
     /* padding-left: 10px; */
     /* padding-right: 10px; */
@@ -209,7 +207,7 @@ tooltip {
 #pulseaudio {
     font-weight: normal;
     font-size: 18px;
-    color: @color3; /* #BDC3B1 */
+    color: @color6; /* #BDC3B1 */
     background: rgba(40, 40, 40, 0.0);
     opacity: 1;
     margin: 0;
@@ -220,7 +218,7 @@ tooltip {
 #cpu {
     font-weight: normal;
     font-size: 22px;
-    color: @color7;
+    color: @color2; /* #A09075 */
 }
 
 #custom-gpuinfo,
@@ -229,8 +227,7 @@ tooltip {
 #memory {
     font-weight: normal;
     font-size: 22px;
-    /*color: @foreground; */
-    color: @color7; /* #c7c7c8 */
+    color: @foreground; /* #c7c7c8 */
 }
 
 #mpris {
@@ -251,7 +248,7 @@ tooltip {
 */
 
 #network {
-    color: @color7; /* #c7c7c8 */
+    color: @foreground; /* #c7c7c8 */
     font-weight: normal;
     font-size: 19px;
     padding-right: 0px;
@@ -288,7 +285,7 @@ tooltip {
 #cava,
 #upower#headset,
 #upower {
-    color: @color3; /* #C7B58F */
+    color: @color5; /* #C7B58F */
 }
 
 #mpris {
@@ -398,13 +395,24 @@ tooltip {
     margin:4px 0px;
     border-radius:12px;
 }*/
+#custom-wallchange{
+    font-family: "Hurmit Nerd Font";
+    font-weight: bold;
+    font-size: 18px;
+    color: @color4; /* #A9A793 */
+    background: rgba(40, 40, 40, 0.0);
+    opacity: 1;
+    margin: 0;
+    padding-left: 0px;
+    padding-right: 12px;
+}
 
 #custom-appmenu,#custom-logout {
     font-weight: 900;
     background: @color2;
     font-size: 20px;
-    padding-left: 12px;
-    padding-right: 6px;
+    padding-left: 14px;
+    padding-right: 18px;
     margin-top:6px;
     margin-bottom:6px;
     margin-left:6px;
@@ -412,5 +420,6 @@ tooltip {
     border-radius:60px;
 }
 
-.batcol{
-  color: @color7;}
+#custom-empty_workspace{
+  font-size: 20px;
+}

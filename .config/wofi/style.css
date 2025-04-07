@@ -1,0 +1,49 @@
+window {
+    font-family: "Hermit Mono Nerd Font";
+    font-size: 18px;
+    background-color: rgba(10, 23, 56, 0.8);
+    border-radius: 15px;
+    padding: 20px;
+    background-image: url("file:///home/papa/.cache/currwall");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#input {
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #c1c5cd;
+    margin-bottom: 20px;
+}
+
+#outer-box {
+    background-color: transparent;
+    padding: 10px;
+}
+
+#scroll {
+    background-color: transparent;
+}
+
+#entry {
+    padding: 8px;
+    border-radius: 10px;
+    background-color: transparent;
+    color: #c1c5cd;
+}
+
+#entry:selected {
+    background-color: #c1c5cd;
+    color: #0A1738;
+}
+
+#text {
+    padding: 5px;
+}
+
+#img {
+    margin-right: 10px;
+}
+

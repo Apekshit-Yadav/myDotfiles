@@ -1,0 +1,24 @@
+# Launcher modes (similar to modi)
+show=drun
+
+# Basic behavior
+allow_markup=true
+insensitive=true
+hide_scroll=true
+term=kitty
+prompt=""
+no_actions=true
+
+# Position and size
+width=960
+height=432
+xoffset=360        # adjust based on your screen width
+yoffset=270        # adjust based on your screen height
+location=center
+
+# Style
+style=.config/wofi/style.css
+lines=10
+# Appearance (still using GTK theme for styling)
+hide_scroll=true
+allow_images=true
