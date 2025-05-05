@@ -1,0 +1,208 @@
+@import url("/home/papa/.cache/wal/colors-waybar.css");
+
+* {
+    font-family: "Hurmit Nerd Font ";
+    font-weight: bold; 
+    font-size: 16px;
+}
+
+#custom-gpuinfo,#memory,#custom-notification,
+#custom-menu,#window,#clock {
+    color: @foreground; 
+}
+
+#waybar {
+    background: alpha(@background,.25);
+    border: 2px solid @color3; 
+    border-radius: 12px;
+}
+
+#window,#clock{
+    background: linear-gradient(to right,@color2,@color3);
+    padding: 0px 15px;
+    margin: 6px;
+    border-radius:12px;
+}
+
+#clock {
+    font-weight: 900;
+}
+
+tooltip {
+    background: @background; 
+    color: @foreground; 
+    font-size: 14px;
+    border-radius: 12px;
+    border: 2px solid @color6;
+    margin: 6px;
+}
+
+#workspaces {
+    background: transparent;
+    color: @color5; 
+    box-shadow: none;
+    text-shadow: none;
+    padding: 0px 4px ;
+    margin:0px;
+}
+
+#workspaces button , #custom-empty_workspace {
+    padding: 0px;
+    margin: 0px;
+    background-color: transparent;
+    color: @foreground; 
+    box-shadow: none;
+    text-shadow: none;
+    border-radius: 12px;
+    transition: 0.2s ease;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+#workspaces button.active {
+    background: alpha(@foreground,1);
+    color: @color3; 
+    transition: all 0.2s ease;
+    margin: 8px 6px;
+}
+
+#workspaces button:hover {
+    background: none;
+    box-shadow: inherit;
+    color: @color6; 
+}
+
+#workspaces button.focused {
+    background-color: @color2; 
+}
+/*
+#tray menu * {
+    min-height: 16px;
+    font-weight: bold;
+    color: @foreground; 
+}
+
+#tray menu separator {
+    min-height: 10px;
+}
+*/
+
+#idle_inhibitor {
+    color: @color6; 
+    margin: 4px 0;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+#cpu {
+    color: @color2; 
+    margin: 4px;
+}
+
+#memory{
+    margin: 4px;
+}
+
+#mpris {
+    color: @foreground; 
+    animation: repeat;
+    animation-name: blink;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+ @keyframes blink {
+    to {
+        color: @color9;
+    }
+}
+
+#network {
+    color: @foreground; 
+}
+
+#custom-menu {
+    margin: 0;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+#upower#headset,
+#upower {
+    color: @color5; 
+}
+
+#backlight-slider slider,
+#pulseaudio-slider slider {
+    background: @foreground; 
+    background-color: transparent;
+    box-shadow: none;
+    margin-right: 7px;
+}
+
+#backlight-slider trough,
+#pulseaudio-slider trough {
+    margin-top: -3px;
+    min-width: 90px;
+    min-height: 10px;
+    margin-bottom: -4px;
+    border-radius: 8px;
+    background: @color0; 
+}
+
+#backlight-slider highlight,
+#pulseaudio-slider highlight {
+    border-radius: 8px;
+    background-color: @color6; 
+}
+
+#battery.charging,
+#battery.plugged {
+    color: @foreground; 
+}
+
+#battery.critical:not(.charging) {
+    color: @color9; 
+}
+
+#backlight,#pulseaudio{
+  color: @color6;
+} 
+
+#custom-expand {
+    min-width: 25px;
+    color: @foreground; 
+}
+
+#custom-wallchange{
+    color: @color4; 
+    margin: 0;
+    padding-left: 0px;
+    padding-right: 12px;
+}
+
+#custom-appmenu,#custom-logout {
+    font-weight: 900;
+    background: @color2;
+    padding-left: 14px;
+    padding-right: 18px;
+    margin-top:6px;
+    margin-bottom:6px;
+    margin-left:6px;
+    margin-right:4px;
+    border-radius:12px;
+}
+
+#custom-notification,#custom-appmenu{
+    font-size: 21px;
+}
+
+#custom-logout,#custom-empty_workspace,#idle_inhibitor,#network,#pulseaudio,#backlight,#upower,#custom-wallchange,#memory,#cpu{
+  font-size: 20px;
+}
+
+#backlight,#battery,#pulseaudio,#network,#cpu,#memory,#wallchange#custom-notification{
+    margin:4px;
+}

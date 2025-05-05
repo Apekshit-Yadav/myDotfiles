@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<menu>
+  <item label="Shutdown" action="shutdown"/>
+  <item label="Reboot" action="reboot"/>
+  <item label="Suspend" action="systemctl suspend"/>
+  <item label="Hibernate" action="systemctl hibernate"/>
+  <separator/>
+  <item label="Cancel" action=""/>
+</menu>

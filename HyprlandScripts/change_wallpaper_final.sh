@@ -12,9 +12,11 @@ echo -e  "setting "$WALLPAPER" from "$WALLPAPER_DIR" \n"
 WAYBARPOS=$(grep -oP '"position":\s*"\K(top|bottom)' "$HOME/.config/waybar/config.jsonc")
 
 if [ "$WAYBARPOS" == "top" ]; then
-  swww img "$WALLPAPER" --resize crop --transition-type outer --transition-duration 3.5 --transition-fps 60 --transition-pos 0.5,0.965 &
+  swww img "$WALLPAPER" --resize crop --transition-type outer --transition-duration 2.5 --transition-fps 60 --transition-pos 0.5,0.965 &
+  #swww img "$WALLPAPER" --resize crop --transition-type outer --transition-duration 3.5 --transition-fps 60 --transition-pos 0.5,0.965 &
 else
-  swww img "$WALLPAPER" --resize crop --transition-type outer --transition-duration 3.5 --transition-fps 60 --transition-pos 0.5,0.035 &
+  swww img "$WALLPAPER" --resize crop --transition-type outer --transition-duration 2.5 --transition-fps 60 --transition-pos 0.5,0.035 &
+  #swww img "$WALLPAPER" --resize crop --transition-type outer --transition-duration 3.5 --transition-fps 60 --transition-pos 0.5,0.035 &
 fi
 
 #setting dark mode
@@ -28,6 +30,7 @@ fi
 
 ## getting wallpaper to cache to get rofi image
 cp $(cat ~/.cache/wal/wal) ~/.cache/currwall
+cp $(cat ~/.cache/wal/wal) ~/.cache/currwall.png
 
 # Call the color generation scripts
 #$HOME/HyprlandScripts/generate_hyprcolors.sh

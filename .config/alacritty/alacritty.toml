@@ -22,7 +22,7 @@
   import = ["~/.cache/wal/colors-alacritty.toml"]
 
 [window]
-  opacity = 0.8
+  opacity = 1
   dynamic_padding = true
   padding.x = 16
   padding.y = 16

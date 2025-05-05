@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Get the last mode from cache file (or default to Dark)
+# Get the current mode (fallback to Dark if missing)
 MODE_FILE="$HOME/.cache/mode"
 if [[ -f "$MODE_FILE" ]]; then
     CURRENT_MODE=$(cat "$MODE_FILE")
@@ -8,41 +8,34 @@ else
     CURRENT_MODE="Dark"
 fi
 
-# Get the last wallpaper from pywal cache
+# Rofi selection
+#CHOICE=$(printf "Dark\nLight" | rofi -font "mono 18" -dmenu -p "Choose theme mode:")
+CHOICE=$((printf "Light\x00icon\x1f~/.config/rofi/icons/light.svg\nDark\x00icon\x1f~/.config/rofi/icons/dark.svg") | rofi -dmenu -config ~/HyprlandScripts/moder.rasi -p "Choose theme mode:" -show-icons)
+[[ -z "$CHOICE" ]] && exit
+
+# Wallpaper from pywal cache
 WALLPAPER=$(cat "$HOME/.cache/wal/wal")
 
-# Toggle between Light and Dark
-if [[ "$CURRENT_MODE" == "Dark" ]]; then
-    NEW_MODE="Light"
+# Theme setup
+if [[ "$CHOICE" == "Light" ]]; then
     wal -i "$WALLPAPER" -n -l
     gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
     gsettings set org.gnome.desktop.interface color-scheme "prefer-light"
-#    sed -i 's/vim.cmd("colorscheme onedark")/vim.cmd("colorscheme onelight")/' "$HOME/.config/nvim/lua/plugins/onedark.lua"
-#    sed -i "s/theme = 'onedark'/theme = 'onelight'/" "$HOME/.config/nvim/lua/plugins/lualine.lua"
-    killall waybar && waybar -s .config/waybar/stylelight.css &
+    spicetify config current_theme Matte color_scheme Porcelain
+    echo "Light" > "$MODE_FILE"
 else
-    NEW_MODE="Dark"
     wal -i "$WALLPAPER" -n
     gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
     gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
-#    sed -i 's/vim.cmd("colorscheme onelight")/vim.cmd("colorscheme onedark")/' "$HOME/.config/nvim/lua/plugins/onedark.lua"
-#    sed -i "s/theme = 'onelight'/theme = 'onedark'/" "$HOME/.config/nvim/lua/plugins/lualine.lua"
-    killall waybar && waybar &
+    spicetify config current_theme Sleek color_scheme Ultrablack
+    echo "Dark" > "$MODE_FILE"
 fi
 
-# Save the new mode
-echo "$NEW_MODE" > "$MODE_FILE"
+# Update rofi theme import line based on mode
+sed -i "s|@import \".*colors-rofi-.*\.rasi\"|@import \"~/.cache/wal/colors-rofi-${CHOICE,,}.rasi\"|" "$HOME/.config/rofi/myconfig.rasi"
 
-# Reload Neovim colors
-nvim --headless +"Lazy reload onedarkpro.nvim" +q
-nvim --headless +"Lazy reload lualine.nvim" +q
+# Spice the spot
+ spicetify apply
 
-# Run additional scripts
-$HOME/HyprlandScripts/generate_hyprcolors.sh
-$HOME/HyprlandScripts/hyprlockwalpath.sh
-$HOME/HyprlandScripts/change_rofiwall7.sh
-$HOME/HyprlandScripts/fuzzelcolors.sh
-
-# Reload notification styles
-swaync-client --reload-css
-
+# Restart waybar quietly
+pkill waybar && waybar > /dev/null 2>&1 &

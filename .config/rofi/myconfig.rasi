@@ -1,4 +1,4 @@
-@import "~/.cache/wal/colors-rofi-dark.rasi" 
+@import "~/.cache/wal/colors-rofi-light.rasi" 
 
 /*****----- Configuration -----*****/
 configuration {
@@ -16,6 +16,8 @@ configuration {
 * {
     font:                        "Hermit Mono Nerd Font 15";
     background:                  transparent;
+
+//    bg-col: rgba(@active-background,@active-background,@active-background,0.50);
 }
     
 /****   
@@ -64,7 +66,7 @@ imagebox {
 listbox {
     spacing:                     20px;
     padding:                     20px;
-    background-color:            transparent;
+    background-color:            none;//here is the one
     orientation:                 vertical;
     children:                    [ "message", "listview" ];
 }

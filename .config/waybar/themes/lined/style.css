@@ -1,0 +1,131 @@
+@import url("/home/papa/.cache/wal/colors-waybar.css");
+
+* {
+    font-family: "Hurmit Nerd Font";
+    font-weight: bold; 
+    font-size: 16px;
+    padding: 0px;
+    margin: 0px;
+}
+
+#waybar {
+    background:alpha(@background,0.5);
+    border-radius:6px;
+    border-top: 2px solid @foreground;
+    border-bottom: 2px solid @foreground;
+    border-color:@color8;
+}
+
+tooltip {
+    background: @background;
+    color: @foreground;
+    font-size: 12px;
+    border-radius: 12px;
+    border: 2px solid @color6;
+    padding:4px;
+}
+
+#custom-appmenu,#window,#custom-logout {
+    font-size:20px;
+    color: @foreground;
+    background: alpha(@color3,0.25);
+    padding:0px 16px 0px 12px;
+    margin:6px 0px;
+ /*   border-radius:12px;*/
+  border-radius:6px;
+}
+
+#clock{
+    color: @color7;
+    margin:2px 14px;
+}
+
+#idle_inhibitor,#custom-notification,#network,#backlight,#pulseaudio,#battery,#upower{
+    color: @foreground;
+    background:inherit;
+    margin:2px 0px;
+    font-size:18px;
+    border-top:1px solid @color6;
+    border-bottom:1px solid @color6;
+}
+
+#idle_inhibitor,#custom-notification{
+  margin:2px;
+  padding-left: 12px;
+  padding-right:8px;
+}
+
+#custom-empty_workspace,#custom-closer,#custom-nettext,#custom-pulseaudiotxt,#custom-backlighttxt,#custom-battxt{
+    color: @foreground;
+    background-image:none;
+    margin: 2px;
+    padding-left:6px;
+    padding-right:6px;
+    font-size:inherit;
+    border:none;
+}
+
+#custom-nettext,#custom-pulseaudiotxt,#custom-backlighttxt,#custom-battxt{
+    margin-left:0px;
+    margin-right: 0px;
+    border-top:1px solid @color6;
+    border-bottom:1px solid @color6;
+}
+
+#workspaces button.active {
+    background: alpha(@foreground,0.1);
+    color: @color3; 
+    border-radius: 12px;
+    border-right:2px solid;
+    border-bottom:2px solid;
+    border-color:@color3;
+    margin: 4px;
+}
+#workspaces button {
+    background: transparent;
+    border:none;
+}
+#workspaces{
+    color: @foreground;
+    background: transparent;
+    border:none;
+    padding: 2px 6px;
+    font-size: inherit;
+}
+
+#backlight-slider slider,
+#pulseaudio-slider slider {
+    background-image: radial-gradient(ellipse at center,@foreground 0%, @color6 100%);
+    border-radius:50px;
+    border:none;
+    min-width:8px;
+    min-height: 10px;
+}
+
+#backlight-slider trough,
+#pulseaudio-slider trough {
+    min-width: 5em;
+    min-height: 10px;
+    border-radius: 50px;
+    background: @color0; 
+}
+
+#backlight-slider highlight,
+#pulseaudio-slider highlight {
+    border-radius: 50px 0px 0px 50px;
+    background-color: @color6;
+    min-height: 10px;
+}
+
+#window{
+  font-size: inherit;
+}
+
+#battery.critical{
+    color: @color2;
+}
+#custom-smallspacer{
+    margin:2px 0px;
+    border-top:1px solid @color6;
+    border-bottom:1px solid @color6;
+}
