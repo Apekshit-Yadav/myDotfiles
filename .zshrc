@@ -82,7 +82,7 @@ plugins=(git
   colorize
   zsh-autosuggestions
   zsh-syntax-highlighting
-  fast-syntax-highlighting
+#  fast-syntax-highlighting
   )
 
 source $ZSH/oh-my-zsh.sh
