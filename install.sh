@@ -135,18 +135,18 @@ clone_dotfiles() {
   else
     echo -e "${YELLOW}Cloning dotfiles repository to home directory...${NC}"
     git clone "$DOTFILES_REPO" "$HOME/myDotfiles"
-
-    echo -e "${YELLOW}Copying dotfiles to home directory...${NC}"
-    cp -r "$HOME/myDotfiles/." "$HOME/"
-
-    echo -e "${GREEN}Dotfiles cloned and copied to home directory successfully!${NC}"
   fi
+
+  echo -e "${YELLOW}Copying dotfiles to home directory...${NC}"
+  cp -rf "$HOME/myDotfiles/." "$HOME/"
+
+  echo -e "${GREEN}Dotfiles cloned and copied to home directory successfully!${NC}"
 
   # Make all scripts in HyprlandScripts executable
   chmod +x "$HOME/HyprlandScripts"/*
 }
 
-# Function to install zsh and Powerlevel10k theme
+# Function to install zsh, Oh My Zsh, Powerlevel10k, and plugins
 install_zsh_and_p10k() {
   if ! pacman -Qi zsh &>/dev/null; then
     echo -e "${YELLOW}Installing zsh...${NC}"
@@ -166,11 +166,35 @@ install_zsh_and_p10k() {
     sudo chsh -s "$ZSH_PATH" "$USER"
   fi
 
-  echo -e "${YELLOW}Installing Powerlevel10k theme from AUR...${NC}"
-  yay -S --noconfirm zsh-theme-powerlevel10k-git
-  echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >>"$HOME/.zshrc"
+  if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    echo -e "${YELLOW}Installing Oh My Zsh...${NC}"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  else
+    echo -e "${YELLOW}Oh My Zsh is already installed.${NC}"
+  fi
 
-  echo -e "${GREEN}zsh and Powerlevel10k theme installed successfully!${NC}"
+  if [ ! -f /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme ]; then
+    echo -e "${YELLOW}Installing Powerlevel10k theme from AUR...${NC}"
+    yay -S --noconfirm zsh-theme-powerlevel10k-git
+  else
+    echo -e "${YELLOW}Powerlevel10k theme is already installed.${NC}"
+  fi
+
+  if ! grep -q "powerlevel10k.zsh-theme" "$HOME/.zshrc"; then
+    echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >> "$HOME/.zshrc"
+  fi
+
+  if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]; then
+    echo -e "${YELLOW}Installing zsh-autosuggestions...${NC}"
+    git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+  fi
+
+  if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]; then
+    echo -e "${YELLOW}Installing zsh-syntax-highlighting...${NC}"
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+  fi
+
+  echo -e "${GREEN}zsh, Oh My Zsh, Powerlevel10k, and plugins installed successfully!${NC}"
 }
 
 # Run all setup steps
