@@ -1,16 +1,10 @@
 #!/bin/bash
 
 # Define the available power profiles
-options="Performance\nBalanced\nPower-Saver\nCancel"
+options="Performance\nBalanced\nPower-Saver"
 
 # Use rofi to display the options
-chosen=$(echo -e "$options" | rofi -dmenu -p "Select Power Profile" -i)
-
-# If Cancel is selected, exit the script
-if [[ "$chosen" == "Cancel" ]]; then
-  echo "Cancelled."
-  exit 0
-fi
+chosen=$(echo -e "$options" | rofi -dmenu -p "Select Power Profile" -i -config ~/HyprlandScripts/thewe.rasi)
 
 # Set the selected power profile
 case "$chosen" in
