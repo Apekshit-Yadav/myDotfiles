@@ -16,26 +16,59 @@ pacman_packages=(
   waybar
   hyprland
   hyprlock
+  hypridle
   fuzzel
   swaync
-  nvim
-  hypridle
+  neovim
+  kitty
+  eog
+  alacritty
+  htop
+  btop
+  bluez
+  blueman
+  cava
+  cliphist
+  cmatrix
+  fastfetch
+  file-roller
+  gparted
+  nautilus
+  pcmanfm
+  ly
   zenity
   udiskie
-  ranger
+  wl-clipboard
   network-manager-applet
+  nwg-look
+  orchis-theme
+  xdg-desktop-portal
+  xdg-desktop-portal-gtk
+  xdg-desktop-portal-hyprland
+  xorg-xhost
 )
 
 aur_packages=(
+  otf-hermit-nerd
+  ttf-dejavu-nerd
+  ttf-firacode-nerd
+  ttf-heavydata-nerd
+  ttf-jetbrains-mono-nerd
+  hyprpolkitagent
   wlogout
+  auto-cpufreq
   brightnessctl
   brave-bin
   pywal
+  zathura
+  zathura-pdf-poppler
+  zathura-pywal-git
 )
 
 optional_packages=(
   telegram-desktop
   code
+  ranger
   github-desktop
 )
 
@@ -135,7 +168,7 @@ install_zsh_and_p10k() {
 
   echo -e "${YELLOW}Installing Powerlevel10k theme from AUR...${NC}"
   yay -S --noconfirm zsh-theme-powerlevel10k-git
-  echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >> "$HOME/.zshrc"
+  echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >>"$HOME/.zshrc"
 
   echo -e "${GREEN}zsh and Powerlevel10k theme installed successfully!${NC}"
 }
