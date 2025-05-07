@@ -56,6 +56,7 @@ aur_packages=(
   ttf-heavydata-nerd
   ttf-jetbrains-mono-nerd
   hyprpolkitagent
+  kora-icon-theme
   wlogout
   auto-cpufreq
   brightnessctl
