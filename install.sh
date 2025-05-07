@@ -46,6 +46,7 @@ pacman_packages=(
   xdg-desktop-portal-gtk
   xdg-desktop-portal-hyprland
   xorg-xhost
+  go
 )
 
 aur_packages=(
@@ -197,12 +198,28 @@ install_zsh_and_p10k() {
   echo -e "${GREEN}zsh, Oh My Zsh, Powerlevel10k, and plugins installed successfully!${NC}"
 }
 
-# Run all setup steps
+enable_ly_displaymanager() {
+  read -rp "Do you want to ${YELLOW}Enable LY display manager ? ${NC} [y/N]: " choice
+  if [[ $choice =~ ^[Yy]$ ]]; then
+    sudo systemctl enable ly.service
+  else
+    echo -e "${GREEN} skipped changing dm"
+  fi
+}
+
+## setting up orchis theme and dark mode ##
+echo -e "${GREEN} setting up dark orchis theme"
+gsettings set org.gnome.desktop.interface gtk-theme 'orchis-dark'
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+
+
+##   Run all setup steps   ##
 run_backup
 install_pacman_packages
 install_aur_packages
 install_optional_packages
 clone_dotfiles
 install_zsh_and_p10k
+enable_ly_displaymanager
 
 echo -e "${GREEN}All tasks completed!${NC}"
