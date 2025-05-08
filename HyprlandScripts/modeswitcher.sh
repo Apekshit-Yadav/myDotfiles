@@ -19,14 +19,14 @@ WALLPAPER=$(cat "$HOME/.cache/wal/wal")
 # Theme setup
 if [[ "$CHOICE" == "Light" ]]; then
     wal -i "$WALLPAPER" -n -l
-    gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
-    gsettings set org.gnome.desktop.interface color-scheme "prefer-light"
+    gsettings set org.gnome.desktop.interface gtk-theme 'Orchis'
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
     spicetify config current_theme Matte color_scheme Porcelain
     echo "Light" > "$MODE_FILE"
 else
     wal -i "$WALLPAPER" -n
-    gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
-    gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+    gsettings set org.gnome.desktop.interface gtk-theme 'Orchis-dark'
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
     spicetify config current_theme Sleek color_scheme Ultrablack
     echo "Dark" > "$MODE_FILE"
 fi
