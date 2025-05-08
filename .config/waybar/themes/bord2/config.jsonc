@@ -16,8 +16,7 @@
   ],
   "modules-center": [
     "idle_inhibitor",
-    "clock",
-    "custom/notification"
+    "clock"
   ],
   "modules-right": [
     "group/expand",
@@ -31,7 +30,7 @@
     "cpu",
     "custom/cpu",
     "custom/bgspacer",
-    "custom/wallchange",
+    "custom/notification",
     "custom/logout",
   ],
   // sourced from modules based on config.ctl //
@@ -210,12 +209,12 @@
       //"active": "",
       "1": " Hi",
       "2": " Two",
-      "3": " Three",
+      "3": " Thre",
       "4": " Four",
       "5": " Five",
       "6": " Six",
-      "7": " Seven",
-      "8": " Eight",
+      "7": " Svn",
+      "8": " Egt",
       "9": " Nine",
       "10": " Ten",
       "11": "    ",

@@ -9,13 +9,14 @@
 #custom-notification {
     font-family: "Hurmit Nerd Font";
     font-size: 20px;
-    color: @foreground; /* #c7c7c8 */
+    color: @foreground; 
     margin: 2px 0;
 }
 
 #waybar {
     background: alpha(@background,0.1);
-    border: 2px solid @color3; /* #C3A47C */
+    border: 3px solid @color3; 
+    /*border:none;*/
     border-radius: 12px;
     opacity : 1;
 }
@@ -29,8 +30,8 @@
 }
 
 tooltip {
-    background: @background; /* #201f24 */
-    color: @foreground; /* #c7c7c8 */
+    background: @background; 
+    color: @foreground; 
     font-size: 13px;
     border-radius: 12px;
     border: 2px solid @color6;
@@ -78,19 +79,19 @@ tooltip {
 #workspaces button:hover {
     background: none;
     box-shadow: inherit;
-    color: @color6; /* #BDC3B1 */
+    color: @color6; 
     transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
 #workspaces button.focused {
-    background-color: @color2; /* #A09075 */
+    background-color: @color2; 
 }
 
 #tray menu * {
     min-height: 16px;
     font-weight: bold;
     font-size: 13px;
-    color: @foreground; /* #c7c7c8 */
+    color: @foreground; 
 }
 
 #tray menu separator {
@@ -106,7 +107,7 @@ tooltip {
 }
 
 #custom-power {
-    color: @foreground; /* #c7c7c8 */
+    color: @foreground; 
     background: rgba(40, 40, 40, 0.9);
     margin: 6px 0px;
     padding-left: 4px;
@@ -114,7 +115,7 @@ tooltip {
 }
 
 #backlight {
-    color: @color6; /* #BDC3B1 */
+    color: @color6; 
     background: rgba(40, 40, 40, 0.0);
     font-weight: normal;
     font-size: 19px;
@@ -125,7 +126,7 @@ tooltip {
 
 
 #idle_inhibitor {
-    color: @color6; /* #BDC3B1 */
+    color: @color6; 
     background: rgba(40, 40, 40, 0.0);
     opacity: 1;
     margin: 4px 0;
@@ -134,7 +135,7 @@ tooltip {
 }
 
 #clock {
-    color: @foreground; /* #c7c7c8 */
+    color: @foreground; 
     font-size: 15px;
     font-weight: 900;
     font-family: "Hurmit Nerd Font";
@@ -153,7 +154,7 @@ tooltip {
 #pulseaudio {
     font-weight: normal;
     font-size: 18px;
-    color: @color6; /* #BDC3B1 */
+    color: @color6; 
     background: rgba(40, 40, 40, 0.0);
     opacity: 1;
     margin: 0;
@@ -164,7 +165,7 @@ tooltip {
 #cpu {
     font-weight: normal;
     font-size: 22px;
-    color: @color2; /* #A09075 */
+    color: @color2; 
 }
 
 #custom-gpuinfo,
@@ -173,11 +174,11 @@ tooltip {
 #memory {
     font-weight: normal;
     font-size: 22px;
-    color: @foreground; /* #c7c7c8 */
+    color: @foreground; 
 }
 
 #mpris {
-    color: @foreground; /* #c7c7c8 */
+    color: @foreground; 
     font-weight: bold;
   
     animation: repeat;
@@ -258,7 +259,7 @@ tooltip {
 }
 
 /*    --------  center pill --------- */
-#idle_inhibitor, #clock, #custom-notification{
+#idle_inhibitor, #clock{
     background:alpha(@background,0.5);
     margin: 2px 0px;
     padding: 0px 8px;
@@ -266,16 +267,18 @@ tooltip {
 }
 
 #idle_inhibitor{
-    border-radius:0px 0px 0px 24px;
-    padding-left: 16px;
+    border-radius:0px 0px 0px 20px;
+    padding-left: 1.8rem;
+    padding-right: 0.8rem;
 }
-#custom-notification{
-    border-radius:0px 0px 24px 0px;
-    padding-right:8px;
+#clock{
+    border-radius:0px 0px 20px 0px;
+    padding-right:2.4rem;
+    padding-left: 0.8rem;
 }
 
 /* ------------   icons and right pill ----------- */
-#network, #pulseaudio, #backlight, #upower, #cpu, #memory, #custom-wallchange, #custom-logout, #custom-cpu, #custom-mem{
+#network, #pulseaudio, #backlight, #upower, #cpu, #memory, #custom-wallchange, #custom-logout, #custom-cpu, #custom-mem, #custom-notification{
     font-size:20px;
     background:alpha(@background,0.5);
     color:@color7;

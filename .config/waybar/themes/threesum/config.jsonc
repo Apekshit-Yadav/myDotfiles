@@ -223,7 +223,8 @@
     "format-icons": {
       //"active": "󰻂",
       "active": "",
-      "default": "",
+      "default": "",
+      //"default": "",
       "empty": ""
       // "1": "󰬺",
       // "2": "󰲢",
