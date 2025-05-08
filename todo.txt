@@ -1,0 +1,8 @@
++ add aliases to .zshrc
++ remove {green} from install script enable_ly...
++ propmt user to run p10k configure to get the look he wants
++ merge these packages into one file so that installation goes 
+    without like not one by one but atonce from that txt file
++ aur helper install logic if not installed
++ create a emoji.rasi file to show this> 
+    rofi -modi emoji -show emoji -emoji-format '{emoji}' -config HyprlandScripts/emoji.rasi
