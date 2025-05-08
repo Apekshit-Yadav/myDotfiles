@@ -78,12 +78,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git
-  colorize
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-#  fast-syntax-highlighting
-  )
+plugins=(git colorize fast-syntax-highlighting zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -117,9 +112,20 @@ export EDITOR='nvim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias pi='yay -S '
+alias piq='yay -S --noconfirm '
+alias pmi='sudo pacman -S '
+alias clc='sudo pacman -Scc'
+alias pcc='sudo pacman -Rcns $(pacman -Qtdq)'
+alias xx='exit'
+alias prem='sudo pacman -Rcns '
+alias hyr='hyprctl reload'
+alias ged='gnome-text-editor '
+#alias sd='systemctl poweroff'
+#alias lout='hyprctl dispatch exit'
+alias upd='sudo pacman -Syu'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export PATH=$PATH:/home/papa/.spicetify
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
