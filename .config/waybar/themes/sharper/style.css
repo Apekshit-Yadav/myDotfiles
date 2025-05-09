@@ -7,7 +7,7 @@
 }
 
 window#waybar {
-    background: alpha(@background,0.1);
+    background: alpha(@background,0.4);
     border: 2px solid @color3; 
     border-radius: 2px;
 }
@@ -31,26 +31,25 @@ window#waybar {
 
 #workspaces {
     color: @foreground;
-    background:alpha(@background,1);
+    background:alpha(@background,.1);
     border-radius:0px;
     margin:0px;
-    padding:0px 8px;
-    border-left:2px solid @color3;
-    border-right:2px solid @color3;
+    padding:0px;
 }
 
 #workspaces button{
     background-color: inherit;
     color: @foreground;
     transition: 0.2s ease;
+    padding: 2px 16px;
 }
 
 #workspaces button.active{
     color: @color3;
-    border:2px solid @color3;
+    border-top:4px solid @color3;
+    border-bottom:4px solid @color3;
     border-radius:2px;
-    padding: 2px 8px;
-    margin:0px 4px;
+    margin:0px;
     /*padding: 0px 0px 0px 0px;*/
     transition: all 0.3s ease;
 }
@@ -101,6 +100,19 @@ window#waybar {
 #network{
     color: @color5;
     background:alpha(@color1,0.25);
+}
+
+#idle_inhibitor{
+    color:@foreground;
+    background:alpha(@color4,0.25);
+    padding:2px 8px 2px 12px;
+    font-size:18px;
+}
+
+#custom-notification{
+    color:@foreground;
+    background:alpha(@color2,0.25);
+    padding:2px 8px 2px 12px;
 }
 
 #custom-nettext{
