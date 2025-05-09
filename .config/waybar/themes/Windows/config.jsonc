@@ -81,18 +81,19 @@
           "transition-to-left": true,
           //  "click-to-reveal": true
         },
-        "modules": ["custom/menu", "custom/spacer", "tray"],
+        "modules": ["custom/menu", "tray", "custom/spacer"],
       },
 
     "tray": {
-        "icon-size": 16,
+        "icon-size": 28,
         "rotate": 0,
-        "spacing": 3,
+        "spacing": 10,
       },
 
 
     "custom/menu": {
         "format": "󰅃",
+        "tooltip":false,
         "rotate": 90,
       },
 
