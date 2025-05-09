@@ -215,7 +215,7 @@ tooltip {
     padding-right: 10px;}
 
 #workspaces button.active {
-    background: alpha(@foreground,0.25);
+    background: alpha(@foreground,0);
     color: @color6; 
     transition: all 0.3s ease;
     margin: 4px 0px;
