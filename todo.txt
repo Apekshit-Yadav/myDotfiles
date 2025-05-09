@@ -6,3 +6,4 @@
 + aur helper install logic if not installed
 + create a emoji.rasi file to show this> 
     rofi -modi emoji -show emoji -emoji-format '{emoji}' -config HyprlandScripts/emoji.rasi
++ install.sh should contain rofi-emoji
