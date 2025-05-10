@@ -200,11 +200,18 @@ install_zsh_and_p10k() {
 }
 
 enable_ly_displaymanager() {
-  read -rp "Do you want to Enable LY display manager ? [y/N]: " choice
-  if [[ $choice =~ ^[Yy]$ ]]; then
+  read -rp "Do you want to enable LY display manager and disable the current one? [Y/n]: " choice
+  choice=${choice,,}  # convert to lowercase
+  if [[ -z "$choice" || $choice == "y" || $choice == "yes" ]]; then
+    current_dm=$(readlink -f /etc/systemd/system/display-manager.service | xargs basename)
+    if [[ $current_dm != "ly.service" ]]; then
+      echo -e "${YELLOW}Disabling current display manager: $current_dm...${NC}"
+      sudo systemctl disable "$current_dm"
+    fi
+    echo -e "${YELLOW}Enabling ly display manager...${NC}"
     sudo systemctl enable ly.service
   else
-    echo -e "${GREEN} skipped changing dm ${NC}"
+    echo -e "${GREEN}Skipped changing display manager.${NC}"
   fi
 }
 
