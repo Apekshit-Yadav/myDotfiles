@@ -1,0 +1,47 @@
+@import url("/home/papa/.cache/wal/colors-waybar.css");
+window {
+  /*background: #36364f;*/
+  background: alpha(@color0,0.35);
+	border-radius: 60px;
+	border-style: solid;
+	border-width: 4px;
+	border-color: @color3;
+}
+
+#box {
+  /* Define attributes of the box surrounding icons here */
+  padding: 10px 28px;
+}
+
+#active {
+	/* This is to underline the button representing the currently active window */
+	  border-bottom: solid 4px;
+    border-radius: 8px;
+	  border-color: @color3;
+    background:alpha(@color3,0.1);
+}
+
+button, image {
+	background: none;
+	border-style: none;
+	box-shadow: none;
+	color: transparent;
+}
+
+button {
+	padding: 4px;
+	margin-left: 10px;
+	margin-right: 10px;
+	color: @foreground;
+  font-size: 8px;
+  /*icon-size: 14px;*/
+}
+
+button:hover {
+	background-color: rgba(255, 255, 255, 0.15);
+	border-radius: 2px;
+}
+
+button:focus {
+	box-shadow: none
+}

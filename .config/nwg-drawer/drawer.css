@@ -1,0 +1,44 @@
+@import url("/home/papa/.cache/wal/colors-waybar.css");
+window {
+    background-color: alpha(@background,0.85);
+    color: @foreground
+}
+
+/* search entry */
+entry {
+    background-color: alpha(@background,0.2);
+    padding:4px
+}
+
+button, image {
+    background: none;
+    border: none
+}
+
+button:hover {
+    background-color: alpha(@foreground, 0.1);
+ 	  border-radius: 60px;
+    border:1px solid alpha(@color3,0.25);
+}
+
+/* in case you wanted to give category buttons a different look */
+#category-button {
+    margin: 0 10px 0 10px
+}
+
+#pinned-box {
+    padding-bottom: 5px;
+    border-bottom: 1px dotted gray
+}
+
+#files-box {
+    padding: 5px;
+    border: 1px dotted gray;
+    border-radius: 15px
+}
+
+/* math operation result label */
+#math-label {
+    font-weight: bold;
+    font-size: 16px
+}

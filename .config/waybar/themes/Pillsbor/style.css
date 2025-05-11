@@ -7,7 +7,7 @@
 }
 
 window#waybar {
-    background:alpha(@background,0.1);
+    background:alpha(@color2,0.35);
     border-radius: 60px;
     border: 2px double;
     border-color: @foreground;
@@ -250,11 +250,11 @@ tooltip {
     padding-right:1rem;
 }
 
-.modules-left, .modules-right, .modules-center{
+/* .modules-left, .modules-right, .modules-center{
   background: alpha(@color0,0.5);
   padding: 0px;
   margin:2px 0px;
   border-radius: 60px;
   border: none;
-}
+} */
 

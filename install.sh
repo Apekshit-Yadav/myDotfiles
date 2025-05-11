@@ -46,6 +46,7 @@ pacman_packages=(
   xdg-desktop-portal-gtk
   xdg-desktop-portal-hyprland
   xorg-xhost
+  nwg-drawer
   go
 )
 

@@ -544,7 +544,8 @@
     },
     "custom/appmenu": {
     "format":"󰣇 ",
-    "on-click": "pidof rofi >/dev/null && killall rofi || $HOME/HyprlandScripts/launcher.sh",
+    "on-click":"nwg-drawer",
+    "on-click-right": "pidof rofi >/dev/null && killall rofi || $HOME/HyprlandScripts/launcher.sh",
     "tooltip": false,
   },
   "custom/empty_workspace": {
