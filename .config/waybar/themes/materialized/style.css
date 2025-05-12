@@ -10,9 +10,9 @@ window#waybar {
     background:alpha(@background,0.85);
     margin: 0px 18px;
     border-radius: 60px;
-/*    border-bottom: 2px double;
-    border-color: @foreground;
-    opacity : 1;
+    border: 3px solid;
+    border-color: alpha(@color3,0.5);
+/*    opacity : 1;
 */
 }
 tooltip {
@@ -228,13 +228,14 @@ tooltip {
 #custom-appmenu {
     color: @color3;
     background: alpha(@background,0.25);
-    font-size: 23px;
-    padding-left: 12px;
-    padding-right: 4px;
+    font-size: 26px;
+    padding-left: 18px;
+    padding-right: 10px;
     margin-top:6px;
     margin-bottom:6px;
-    border-radius:50px;
-    border:2px solid;
+    border-radius:60px;
+    /*border:2px solid;*/
+    border:none;
 }
 #window,#idle_inhibitor,#network,#backlight,#pulseaudio,#battery,#custom-notification {
     color: @color3; 
@@ -258,13 +259,13 @@ tooltip {
 
 #workspaces button.active {
     /*background: alpha(@background,0.5);*/
-    background: transparent;
-    color: @color3; 
+    background: alpha(@color3,0.25);
+    color: @foreground; 
     transition: all 0.3s ease;
     margin: 4px 0px;
     padding: 0px 10px 0px 8px;
-    border-radius: 50px;
-    border:1px solid;
+    border-radius: 60px;
+    border:none;
 }
 #workspaces{
     color: @foreground; 

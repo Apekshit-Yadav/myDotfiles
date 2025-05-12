@@ -1,59 +1,48 @@
 {
     "layer": "top",
-    "position": "top",
+    "position": "bottom",
     "mod": "dock",
     "margin-left": 18,
     "margin-right": 18,
-    "margin-top": 0,
-    "margin-bottom": 0,
+    "margin-top": 1,
+    "margin-bottom": 1,
     "exclusive": true,
     "passthrough": false,
     "gtk-layer-shell": true,
     "reload_style_on_change": true,
     // positions generated based on config.ctl //
-    //"modules-left": [
-    //],
-    "modules-center": [
-      "custom/padd",
+    "modules-left": [
+     "custom/padd",
       "custom/appmenu",
-      "custom/empty_workspace",
-      "custom/padd",
+      "custom/smallspacer",
+      "custom/smallspacer",
       "hyprland/workspaces",
-//      "group/window",
-      "custom/padd",
+      "custom/empty_workspace",
       "hyprland/window",
       "custom/closer",
-      "custom/padd",
-      "mpris",
-      "custom/padd",
-      "group/midsub",
-      "custom/padd",
-      "custom/l_end",
-      "group/expand",
       "custom/smallspacer",
+      "custom/smallspacer",
+      "mpris",
+    ],
+    "modules-center": ["group/midsub"],
+    "modules-right": [
+      "group/expand",
       "network",
       "custom/nettext",
-      "custom/smallspacer",
       "custom/smallspacer",
       "pulseaudio",
       "group/expand-3",
       "custom/smallspacer",
-      "custom/smallspacer",
       "backlight",
       "group/expand-2",
       "custom/smallspacer",
-      "custom/smallspacer",
       "battery",
       "group/expand-4",
-      "custom/smallspacer",
-      "custom/smallspacer",
-//      "group/rightsub",//
+      "custom/smallspacer",  
       "custom/notification",
       "custom/logout",
       "custom/padd",
-  ],
-    //"modules-right": [
-    //],
+    ],
     // sourced from modules based on config.ctl //
  //   "upower": {
       //"icon-size": 24,
@@ -68,7 +57,6 @@
   "upower": {
    "format": "<span color='white'>{time}</span>",
     "tooltip": false,
-    "show-icon":false
 },
     "upower#headset": {
       "format": " {percentage}",
@@ -82,7 +70,7 @@
         "transition-duration": 600,
         "children-class": "not-power",
         "transition-to-left": true,
-      //  "click-to-reveal": true,
+        "click-to-reveal": true,
       },
       //"modules": ["upower", "upower/headset"],
       "modules": [ "custom/battxt","upower","upower/headset"],
@@ -117,9 +105,9 @@
       // "ignored-players": ["firefox"]
     },
     "tray": {
-      "icon-size": 24,
+      "icon-size": 16,
       "rotate": 0,
-      "spacing": 9,
+      "spacing": 3,
     },
     "group/expand": {
       "orientation": "horizontal",
@@ -129,7 +117,7 @@
         "transition-to-left": true,
         //  "click-to-reveal": true
       },
-      "modules": ["custom/menu","tray","custom/padd"],
+      "modules": ["custom/menu", "custom/spacer", "tray"],
     },
     "custom/menu": {
       "format": "󰅃",
@@ -183,7 +171,8 @@
       //"format": "{icon} {name}",
       "format-icons": {
         "default": "",
-        //"active": "",
+        //"active": "",
+        "special": "",
          "1": "一",     // ichi (one)
          "2": "二",     // ni (two)
          "3": "三",     // san (three)
@@ -381,7 +370,7 @@
         "transition-duration": 600,
         "children-class": "not-power",
         "transition-to-left": true,
-      //  "click-to-reveal": true,
+        "click-to-reveal": true,
       },
       "modules": ["custom/backlighttxt","backlight/slider"],
     },
@@ -391,7 +380,7 @@
         "transition-duration": 600,
         "children-class": "not-power",
         "transition-to-left": true,
-        //"click-to-reveal": true,
+        "click-to-reveal": true,
       },
       "modules": ["custom/pulseaudiotxt", "pulseaudio/slider"],
     },
@@ -547,7 +536,7 @@
     "tooltip": false,
   },
   "custom/empty_workspace": {
-    "format": "󰐗",  
+    "format": "󰐗 ",  
     //"exec": "WS=$(hyprctl activeworkspace | awk 'NR==1 {print $3}'); if hyprctl clients | awk '$1 == \"workspace:\" {print $2+0}' | grep -qx \"$WS\"; then echo '󰐗 '; else echo ''; fi",
     "on-click": "hyprctl dispatch workspace empty",
     "tooltip": true,
