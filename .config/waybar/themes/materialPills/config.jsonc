@@ -77,7 +77,7 @@
         "transition-duration": 600,
         "children-class": "not-power",
         "transition-to-left": true,
-        "click-to-reveal": true,
+       // "click-to-reveal": true,
       },
       //"modules": ["upower", "upower/headset"],
       "modules": [ "custom/battxt","upower","upower/headset"],
@@ -113,9 +113,9 @@
       // "ignored-players": ["firefox"]
     },
     "tray": {
-      "icon-size": 16,
+      "icon-size": 24,
       "rotate": 0,
-      "spacing": 3,
+      "spacing": 9,
     },
     "group/expand": {
       "orientation": "horizontal",
@@ -377,7 +377,7 @@
         "transition-duration": 600,
         "children-class": "not-power",
         "transition-to-left": true,
-        "click-to-reveal": true,
+       // "click-to-reveal": true,
       },
       "modules": ["custom/backlighttxt","backlight/slider"],
     },
@@ -387,7 +387,7 @@
         "transition-duration": 600,
         "children-class": "not-power",
         "transition-to-left": true,
-        "click-to-reveal": true,
+       // "click-to-reveal": true,
       },
       "modules": ["custom/pulseaudiotxt", "pulseaudio/slider"],
     },

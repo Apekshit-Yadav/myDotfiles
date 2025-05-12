@@ -22,7 +22,8 @@
       "custom/spazer",
       "custom/empty_workspace",
       "custom/spacer",
-      "hyprland/window",
+      //"hyprland/window",
+      "group/winddow",
       "custom/spazer",
       "custom/spazer",
       "mpris",
@@ -198,7 +199,8 @@
     },
     
     "custom/spacer": {
-      "format": " | ",
+      "format": "",
+      //"format": " | ",
       "tooltip":false
     },
     
@@ -338,7 +340,7 @@
         "transition-duration": 600,
         "children-class": "not-power",
         "transition-to-left": true,
-        "click-to-reveal": true,
+      //  "click-to-reveal": true,
       },
       "modules": ["custom/backlighttxt","backlight/slider"],
       //"modules": ["backlight", "backlight/slider"],
@@ -350,7 +352,7 @@
         "transition-duration": 600,
         "children-class": "not-power",
         "transition-to-left": true,
-        "click-to-reveal": true,
+      //  "click-to-reveal": true,
       },
       "modules": ["custom/pulseaudiotxt", "pulseaudio/slider"],
       //"modules": ["pulseaudio", "pulseaudio/slider"],
@@ -532,13 +534,13 @@
   },
 
 
-  "group/window": {
+  "group/winddow": {
     "orientation": "horizontal",
     "drawer": {
      "transition-duration": 400,
      "children-class": "window-expand",
      "transition-to-left": true
-    },
+      },
     "modules": ["hyprland/window", "custom/closer"]
   },
   

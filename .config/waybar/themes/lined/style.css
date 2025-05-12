@@ -25,7 +25,7 @@ tooltip {
     padding:4px;
 }
 
-#custom-appmenu,#window,#custom-logout {
+#custom-appmenu,#custom-logout {
     font-size:20px;
     color: @foreground;
     background: alpha(@color3,0.25);
@@ -74,11 +74,11 @@ tooltip {
 
 #workspaces button.active {
     background: alpha(@foreground,0.1);
-    color: @color3; 
+    color: @color6; 
     border-radius: 12px;
     border-right:2px solid;
     border-bottom:2px solid;
-    border-color:@color3;
+    border-color:@color6;
     margin: 4px;
 }
 #workspaces button {
@@ -117,9 +117,6 @@ tooltip {
     min-height: 10px;
 }
 
-#window{
-  font-size: inherit;
-}
 
 #battery.critical{
     color: @color2;
@@ -128,4 +125,29 @@ tooltip {
     margin:2px 0px;
     border-top:1px solid @color6;
     border-bottom:1px solid @color6;
+}
+#winddow{
+  background:transparent;
+    border-top: 2px solid @color6;
+    border-bottom: 2px solid @color6;
+  font-size: inherit;
+}
+#custom-closer{
+    font-size: 20px;
+    margin:2px 8px;
+    padding: 0px 8px 0px 8px;
+    padding-top: 6px;
+}
+#window{
+    font-size:20px;
+    color: @foreground;
+    background: alpha(@color3,0);
+    padding:0px 16px 0px 12px;
+    margin:6px 0px;
+    border-radius:12px;
+}
+#custom-spacer{
+    color:alpha(@foreground,0.5);
+    margin:0px 10px 0px 10px;
+    font-size:30px;
 }

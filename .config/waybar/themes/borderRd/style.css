@@ -53,17 +53,18 @@ tooltip {
     color: @foreground; 
     box-shadow: none;
     text-shadow: none;
-    border-radius: 12px;
+    border-radius: 42px;
     transition: 0.2s ease;
-    padding-left: 4px;
-    padding-right: 4px;
+    padding-left: 2px;
+    padding-right: 2px;
 }
 
 #workspaces button.active {
-    background: alpha(@foreground,1);
+    background: alpha(@foreground,.25);
     color: @color3; 
     transition: all 0.2s ease;
-    margin: 8px 6px;
+    margin:8px;
+    padding: 0px 0px 0px 4px;
 }
 
 #workspaces button:hover {

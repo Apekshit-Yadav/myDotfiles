@@ -96,9 +96,9 @@
       // "ignored-players": ["firefox"]
     },
     "tray": {
-      "icon-size": 20,
+      "icon-size": 28,
       "rotate": 0,
-      "spacing": 8,
+      "spacing": 12,
       "expand":true
     },
     "group/expand": {
@@ -107,7 +107,7 @@
         "transition-duration": 600,
         "children-class": "not-power",
         "transition-to-left": true,
-        "click-to-reveal": true
+        //"click-to-reveal": true
       },
       "modules": ["custom/menu", "tray", "custom/spacer"],
     },
@@ -252,7 +252,7 @@
         "transition-duration": 600,
         "children-class": "not-power",
         "transition-to-left": true,
-        "click-to-reveal": true,
+        //"click-to-reveal": true,
       },
       "modules": ["backlight", "backlight/slider"],
     },
@@ -262,7 +262,7 @@
         "transition-duration": 600,
         "children-class": "not-power",
         "transition-to-left": true,
-        "click-to-reveal": true,
+        //"click-to-reveal": true,
       },
       "modules": ["pulseaudio", "pulseaudio/slider"],
     },
