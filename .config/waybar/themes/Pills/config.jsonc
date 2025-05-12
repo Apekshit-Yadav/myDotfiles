@@ -47,7 +47,9 @@
       "group/expand-4",
       "custom/smallspacer",
       "custom/smallspacer",
-//      "group/rightsub",//
+      "group/rightsub",
+      "custom/smallspacer",
+      "custom/smallspacer",
       "custom/notification",
       "custom/logout",
       "custom/padd",
@@ -79,7 +81,7 @@
         "transition-duration": 600,
         "children-class": "not-power",
         "transition-to-left": true,
-        "click-to-reveal": true,
+        //"click-to-reveal": true,
       },
       //"modules": ["upower", "upower/headset"],
       "modules": [ "custom/battxt","upower","upower/headset"],
@@ -91,15 +93,37 @@
       "interval": 1,
       // "rotate": 270,
       "format": "{icon}",
-      "format-icons": ["󰝦 ", "󰪞 ", "󰪟 ", "󰪠 ", "󰪡 ", "󰪢 ", "󰪣 ", "󰪤 ", "󰪥 "],
+      "format-icons": ["󰝦", "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥"],
       "max-length": 10,
     },
     "cpu": {
       "interval": 1,
       "format": "{icon}",
-     // "rotate": 270,
-      "format-icons": ["󰝦 ", "󰪞 ", "󰪟 ", "󰪠 ", "󰪡 ", "󰪢 ", "󰪣 ", "󰪤 ", "󰪥 "],
+      //"rotate": 270,
+      //"format-icons": ["󰝦 ", "󰪞 ", "󰪟 ", "󰪠 ", "󰪡 ", "󰪢 ", "󰪣 ", "󰪤 ", "󰪥 "],
+    "format-icons": [
+      "󰋙",
+      "󰫃",
+      "󰫄",
+      "󰫅",
+      "󰫆",
+      "󰫇",
+      "󰫈",
+      "󰋘"
+    ]
     },
+  "custom/mem": {
+    "exec": "free | awk '/Mem:/ {used=int(($3/$2)*100); printf \"%02d%%\\n\", used}'",
+    "interval": 5,
+    "return-type": "text",
+    "format": "{}"
+  },
+  "custom/cpu": {
+    "exec": "top -bn1 | grep '%Cpu' | awk '{usage=int(100 - $8); printf \"%02d%%\\n\", usage}'",
+    "interval": 3,
+    "return-type": "text",
+    "format": "{}"
+  },
     "mpris": {
       "format": "{player_icon} {dynamic}",
       "format-paused": "<span color='grey'>{status_icon} {dynamic}</span>",
@@ -378,7 +402,7 @@
         "transition-duration": 600,
         "children-class": "not-power",
         "transition-to-left": true,
-        "click-to-reveal": true,
+        //"click-to-reveal": true,
       },
       "modules": ["custom/backlighttxt","backlight/slider"],
     },
@@ -388,7 +412,7 @@
         "transition-duration": 600,
         "children-class": "not-power",
         "transition-to-left": true,
-        "click-to-reveal": true,
+       //"click-to-reveal": true,
       },
       "modules": ["custom/pulseaudiotxt", "pulseaudio/slider"],
     },
@@ -572,7 +596,12 @@
   "group/rightsub": {
     "id":"rightpill",
     "orientation":"horizontal",
-    "modules":["memory","cpu","custom/wallchange"],
+    "modules":["memory",
+          "custom/mem",
+          "custom/smallspacer",
+          "custom/smallspacer",
+          "cpu",
+          "custom/cpu"],
   },
   "group/midsub":{
     "orientation":"horizontal",
