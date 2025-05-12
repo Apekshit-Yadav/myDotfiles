@@ -318,7 +318,7 @@ tooltip {
     border-bottom:2px solid @foreground;
 }
 #custom-separator{
-    background:alpha(@background,0.25);
+    background:alpha(@background,0.5);
     padding:0px 4px;
     margin:0px;
     border-top:2px solid @foreground;
@@ -331,11 +331,12 @@ tooltip {
     margin-bottom: 0px;
     border-top:2px solid @foreground;
     border-bottom:2px solid @foreground;
+    background:alpha(@background,0.5);
 }
 #custom-rend{
     padding:0px 10px 0px 10px;
     border-radius:0px 24px 24px 0px;
-    background:alpha(@background,0.25);
+    background:alpha(@background,0.5);
     border-right:2px solid @foreground;
 }
 #custom-l_end{
