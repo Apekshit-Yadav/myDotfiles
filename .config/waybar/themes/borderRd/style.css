@@ -12,20 +12,24 @@
 }
 
 #waybar {
-    background: alpha(@background,.25);
+    background: alpha(@background,.15);
     border: 2px solid @color3; 
     border-radius: 12px;
 }
 
-#window,#clock{
+#window{
     background: linear-gradient(to right,@color2,@color3);
     padding: 0px 15px;
-    margin: 6px;
-    border-radius:12px;
+    margin: 6px 0px;
+    border-radius:24px;
 }
 
 #clock {
     font-weight: 900;
+    background: linear-gradient(to right,@color2,@color3);
+    padding: 0px 18px;
+    margin: 6px 10px;
+    border-radius:24px;
 }
 
 tooltip {
@@ -42,29 +46,41 @@ tooltip {
     color: @color5; 
     box-shadow: none;
     text-shadow: none;
-    padding: 0px 4px ;
-    margin:0px;
+    padding: 0px;
+    margin:0px 2px;
 }
 
-#workspaces button , #custom-empty_workspace {
+#workspaces button {
     padding: 0px;
     margin: 0px;
     background-color: transparent;
     color: @foreground; 
     box-shadow: none;
     text-shadow: none;
-    border-radius: 42px;
+    border-radius: 24px;
     transition: 0.2s ease;
-    padding-left: 2px;
-    padding-right: 2px;
+ /*   padding-left: 2px;
+    padding-right: 2px;*/
 }
 
+#custom-empty_workspace {
+    padding: 0px 4px;
+    margin: 0px 4px;
+    background-color: transparent;
+    color: @foreground; 
+    box-shadow: none;
+    text-shadow: none;
+    border-radius: 24px;
+    transition: 0.2s ease;
+ /*   padding-left: 2px;
+    padding-right: 2px;*/
+}
 #workspaces button.active {
     background: alpha(@foreground,.25);
     color: @color3; 
     transition: all 0.2s ease;
-    margin:8px;
-    padding: 0px 0px 0px 4px;
+    margin:8px 0px;
+    padding: 0px;
 }
 
 #workspaces button:hover {
@@ -112,6 +128,7 @@ tooltip {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+    padding:2px 8px;
 }
 
  @keyframes blink {
@@ -184,6 +201,14 @@ tooltip {
     padding-right: 12px;
 }
 
+.modules-right,.modules-left,.modules-center{
+    background:alpha(@background,0.35);
+    border-radius:24px;
+    margin:2px;
+    padding-left:12px;
+    padding-right:12px;
+}
+
 #custom-appmenu,#custom-logout {
     font-weight: 900;
     background: @color2;
@@ -205,5 +230,5 @@ tooltip {
 }
 
 #backlight,#battery,#pulseaudio,#network,#cpu,#memory,#wallchange#custom-notification{
-    margin:4px;
+    margin:4px 8px;
 }

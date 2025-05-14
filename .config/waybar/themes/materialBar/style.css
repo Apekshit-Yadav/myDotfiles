@@ -227,7 +227,7 @@ tooltip {
 }
 #custom-appmenu {
     color: @color3;
-    background: alpha(@background,0.25);
+    /*background: alpha(@background,0.25);*/
     font-size: 26px;
     padding-left: 18px;
     padding-right: 10px;
