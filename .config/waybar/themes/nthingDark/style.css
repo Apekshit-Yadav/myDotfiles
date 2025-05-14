@@ -17,14 +17,14 @@
 #mpris {
     background: alpha(@background, 0.75);
     border-radius: 1.5em;
-    padding: .25em 1em;
+    padding: .05em 1em;
 }
 
 #expand {
     /* background: @foreground; */
     background: alpha(@background, 0.75);
     border-radius: 1.5em;
-    padding: .25em .8em;
+    padding: .05em .8em;
     margin-right: 0.3em;
 }
 
@@ -55,14 +55,16 @@
     background: alpha(@background, 0.75);
     /* background: @foreground; */
     border-radius: 1.5em;
-    padding: .25em 1em;
+    padding: .05em .5em;
     margin: 0px 4px;
 }
 
 #taskbar button.active {
-    background: alpha(@foreground, .25);
-    transition: all 0.3s cubic-bezier(0.3, 0, 0, 1);
-    border-radius: 50px;
+    background: alpha(@background,0.35);
+    transition: all 0.2s ease-in;
+    border-radius: 12px;
+    padding-left:1em;
+    padding-right:1em;
 }
 
 #taskbar button:hover {
@@ -89,7 +91,7 @@
     min-width: 100px;
     min-height: 18px;
     border-radius: 1.5em;
-    background: transparent;
+    background: alpha(@foreground,0.25);
 }
 
 #backlight-slider highlight,
@@ -135,8 +137,8 @@
     background: @color9;
     border-radius: 100em;
     padding: 0px 8px 0px 9px;
-    margin-top: 4px;
-    margin-bottom: 4px;
+    margin-top: 8px;
+    margin-bottom: 8px;
     transition: all 0.3s cubic-bezier(0.3, 0, 0, 1);
 }
 
