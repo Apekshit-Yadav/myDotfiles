@@ -44,7 +44,8 @@
         //"format":"",
         "format":"",
         //"on-click": "pidof rofi >/dev/null && killall rofi || $HOME/HyprlandScripts/launcher.sh",
-        "on-click": "pidof fuzzel >/dev/null && killall fuzzel || fuzzel --config .config/fuzzel/fuzzeledited.ini",
+        "on-click":"nwg-drawer",
+        "on-click-right": "pidof fuzzel >/dev/null && killall fuzzel || fuzzel --config .config/fuzzel/fuzzeledited.ini",
         "tooltip": false,
       },
 

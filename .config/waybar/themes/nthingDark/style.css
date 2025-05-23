@@ -47,6 +47,10 @@
     margin: 0px 16px;
 }
 
+#idle_inhibitor.activated{
+    color: @color3;
+}
+
 /*taskbar settings*/
 
 #workspaces,

@@ -24,8 +24,8 @@
 [window]
   opacity = 1
   dynamic_padding = true
-  padding.x = 16
-  padding.y = 16
+  padding.x = 28
+  padding.y = 28
   decorations = "Full"
   decorations_theme_variant = "Dark" # "Light"
 

@@ -232,24 +232,23 @@ tooltip {
 #backlight-slider slider,
 #pulseaudio-slider slider {
     background: @foreground; 
-    background-color: transparent;
-    box-shadow: none;
-    margin-right: 7px;
+    min-width:4px;
+    min-height:16px;
+    border:2px solid @color0;
+    border-radius:4px;
 }
 
 #backlight-slider trough,
 #pulseaudio-slider trough {
-    margin-top: -3px;
     min-width: 90px;
     min-height: 10px;
-    margin-bottom: -4px;
-    border-radius: 8px;
+    border-radius: 60px;
     background: @color0; 
 }
 
 #backlight-slider highlight,
 #pulseaudio-slider highlight {
-    border-radius: 8px;
+    border-radius: 60px;
     background-color: @color6; 
 }
 /*
