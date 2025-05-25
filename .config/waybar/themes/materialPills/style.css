@@ -457,7 +457,7 @@ tooltip {
     padding:0px 6px;
 }
 #window{
-  color: @foreground;
+  color: @background;
   background-image: linear-gradient(to right, @color1 3em, @color6);
   padding: 0px 8px 0px 8px;
 }
