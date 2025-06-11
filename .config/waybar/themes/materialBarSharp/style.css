@@ -7,17 +7,19 @@
 }
 
 window#waybar {
-    background:alpha(@color2,0.35);
-    border-radius: 60px;
-    border: 2px double;
-    border-color: @foreground;
+    background:alpha(@background,0.6);
+    margin: 0px 18px;
+    border-radius: 4px;
+    border: 3px solid;
+    border-color: alpha(@color3,0.5);
+/*    opacity : 1;
+*/
 }
-
 tooltip {
     background: @background; 
     color: @foreground; 
     font-size: 13px;
-    border-radius: 12px;
+    border-radius: 4px;
     border: 2px solid @color6;
     margin: 6px;
 
@@ -42,24 +44,38 @@ tooltip {
     opacity: 0.8;
 }
 
+
 #custom-power {
     font-size: 15px;
     color: @foreground; 
-    background: rgba(40, 40, 40, 0.9);
+    background: rgba(40, 40, 40, 0);
     margin: 6px 0px;
     padding-left: 4px;
     padding-right: 4px;
 }
+#cpu {
+    font-weight: normal;
+    font-size: 22px;
+    color: @color2; 
+}
+
+#custom-gpuinfo,
+#custom-keybindhint,
+#language,
+#memory {
+    font-weight: normal;
+    font-size: 22px;
+    color: @foreground; 
+}
 
 #mpris {
     color: @foreground; 
-    background: alpha(@background,0.5);
+    background:alpha(@background,0);
+    border-radius: 50px;
+    margin:8px 4px;
+    padding-left: 16px;
+    padding-right:16px;
     font-weight: bold;
-    margin: 8px 4px;
-    padding-left: 12px;
-    padding-right: 12px;
-    border-radius:60px;
-    border:2px solid @color3;
     animation: repeat;
     animation-name: blink;
     animation-duration: 3s;
@@ -70,7 +86,7 @@ tooltip {
 
  @keyframes blink {
     to {
-        color: @color9;
+        color: @color3;
     }
 }
 
@@ -82,11 +98,36 @@ tooltip {
     padding-right: 0px;
     padding-left: 4px;
 }
-
-#tray {
+/*
+#custom-notifications,
+#custom-spotify,
+#taskbar,
+#custom-theme,
+#custom-menu {
     color: @foreground; 
+    background: rgba(40, 40, 40, 0.0);
+    margin: 0;
+    padding-left: 1px;
+    padding-right: 1px;
+    opacity: 0.1;
+}
+*/
+
+#tray,
+#custom-updates,
+#custom-wallchange,
+#custom-wbar,
+#window {
+    color: @foreground; 
+    /* font-family: "Martian Mono"; */
 }
 
+#custom-l_end,
+#custom-r_end,
+#custom-sl_end,
+#custom-sr_end,
+#custom-rl_end,
+#cava,
 #upower#headset
 {    color: @color5; 
 }
@@ -103,33 +144,40 @@ tooltip {
 
 #backlight-slider slider,
 #pulseaudio-slider slider {
+    background: @foreground; 
     background-color: transparent;
-    border:none;
     box-shadow: none;
     margin-right: 7px;
 }
 
 #backlight-slider trough,
 #pulseaudio-slider trough {
+    margin-top: -3px;
     min-width: 90px;
-    min-height: 24px;
-    border-radius: 60px;
-    background: alpha(@background,0.5); 
+    min-height: 10px;
+    margin-bottom: -4px;
+    border-radius: 8px;
+    background: @color0; 
 }
 
 #backlight-slider highlight,
 #pulseaudio-slider highlight {
-    border-radius: 60px;
-    background-image: radial-gradient(circle farthest-side at left center, @color1, @color6 60px, @color3);
+    border-radius: 8px;
+    background-color: @color6; 
 }
-
+/*
 #battery.charging,
 #battery.plugged {
-    color: @background; 
+    color: @foreground; 
 }
 
 #battery.critical:not(.charging) {
-    color: @color9; }
+    color: @color9; }*/
+
+
+#taskbar {
+    padding: 1px;
+}
 
 #custom-r_end {
     border-radius: 0px 7px 7px 0px;
@@ -177,92 +225,69 @@ tooltip {
     border-left: solid;
     border-left-width: 0.5px;
 }
-
 #custom-appmenu {
-    color: alpha(@background,1);
-    background: alpha(@color6,0.75);
-    /* background-image: linear-gradient(to left, @color1, @color6); */
-    font-size: 20px;
-    padding-left: 12px;
-    padding-right: 6px;
-    margin-top:10px;
-    margin-bottom:10px;
-    border-radius:60px 0px 0px 60px;
-}
-
-#window,#idle_inhibitor,#network,#backlight,#pulseaudio,#battery,#custom-notification {
-    color: @color0; 
-    /* background-image: radial-gradient(circle farthest-side at left, @color3, @color6 60px); */
-    /*linear-gradient(to right, @color1, @color0);*/
-    background:alpha(@color6,0.75);
-    border-radius:60px 2px 2px 60px;
+    color: @color3;
+    /*background: alpha(@background,0.25);*/
+    font-size: 26px;
+    padding-left: 18px;
+    padding-right: 10px;
+    margin-top:6px;
+    margin-bottom:6px;
+    border-radius:60px;
+    /*border:2px solid;*/
     border:none;
+}
+#window,#idle_inhibitor,#network,#backlight,#pulseaudio,#battery,#custom-notification {
+    color: @color3; 
+    background: alpha(@background, 0);
+    /*background-image: radial-gradient(circle farthest-side at left center, @color1, @color6 50px, @color3);linear-gradient(to right, @color1, @color0);*/
+    border-radius:50px 2px 2px 50px;
     font-weight: normal;
     font-size: 19px;
-    margin: 12px 0px;
+    margin: 8px 0px;
     padding-left: 0px;
     padding-right: 2px;
 }
 
 #custom-empty_workspace,#custom-closer,#clock,#custom-nettext,#custom-pulseaudiotxt,#custom-backlighttxt,#custom-battxt,#custom-logout{
-    color: @background;
-    /*background: alpha(@background, 0.25);*/
-    /* background-image: linear-gradient(to right, @color3, @color6); */
-    background:alpha(@color6,0.6);
-    border-radius:2px 60px 60px 2px;
-    /* border:2px solid @background; */
-    border:none;
-    margin: 12px 0px;
+    color: @foreground;
+    background: alpha(@background, 0);
+    border-radius:2px 50px 50px 2px;
+    margin: 8px 0px;
     padding-left: 10px;
     padding-right: 10px;}
 
+#workspaces button.active {
+    /*background: alpha(@background,0.5);*/
+    background: alpha(@color3,0.25);
+    color: @foreground; 
+    transition: all 0.3s ease;
+    margin: 4px 0px;
+    padding: 0px 10px 0px 8px;
+    border-radius: 4px;
+    border:none;
+}
 #workspaces{
     color: @foreground; 
-    background: alpha(@background, 0.25);
-    border-radius:60px;
-    border:2px solid @color3;
+    background: alpha(@background, 0);
+    border-radius:50px 0px 0px 50px;
     margin:8px 0px;
     padding:0px 6px;
 }
-#workspaces button {
-    color:alpha(@color6,0.75);
-    /*background:alpha(@background,.25);*/
-    transition: all 0.3s ease;
-    margin: 4px 2px;
-    padding: 0px 6px;
-    border-radius: 60px;
-}
-#workspaces button.empty{
-    color:alpha(@foreground,0.5);
-    background:transparent;
-}
-#workspaces button.active{
-    background: alpha(@foreground,0.25);
-    color: @color6; 
-}
 #window{
-  color: @color6;
-  background:transparent;
-  border:2px solid @color2;
-  /* background-image: linear-gradient(to right, @color1 3em, @color6); */
-  padding: 0px 8px 0px 8px;
+    color: @foreground;
+/*background-image: linear-gradient(to right, @color1 3em, @color6);*/
+    background:alpha(@background,0.5);
+    padding: 0px 12px;
+    margin: 8px;
+    margin-right:0px;
+    border-radius: 4px;
 }
 #custom-logout,#custom-notification{
-  font-size: 20px;
+    font-size: 20px;
 }
-#custom-empty_workspace{
-    border-left:none;
-    margin: 10px 0px;
-    font-size:18px;
-    padding-left:0.7rem;
-    padding-right:1rem;
+#custom-closer{
+    color:@color3;
+    background:alpha(@background,0.5);
+    border-radius: 4px;
 }
-
-/* .modules-left, .modules-right, .modules-center{
-  background: alpha(@color0,0.5);
-  padding: 0px;
-  margin:2px 0px;
-  border-radius: 60px;
-  border: none;
-} */
-
