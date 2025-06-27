@@ -8,7 +8,9 @@
 
 #waybar {
     background: alpha(@color8, 0.4);
-    border: none;
+    border: 3px solid @color3;
+    border-top: 0px;
+    padding:1rem;
     border-radius: 0px 0px 50px 50px;
 }
 
@@ -84,9 +86,10 @@ window#waybar.empty #window {
  */
 #clockk {
     color: inherit;
-    background: alpha(@color0, 0.25);
+  /*  background: alpha(@color0, 0.25);*/
     padding: 0 0;
     margin: 4 0;
+    margin-right:6px;
     border-radius: 0 60 60 0;
 }
 
@@ -99,19 +102,31 @@ window#waybar.empty #window {
     padding: 0 12;
 }
 
-#idle_inhibitor,
+#idle_inhibitor{
+    color: inherit;
+    font-size: 20px;
+  /*  background: alpha(@color0, 0.25);
+    padding: 0 12;
+    margin: 4 0;
+    border-radius: 60 0 0 60;*/
+  padding-left: 10px;
+  padding-right: 14px;
+  margin:0px;
+}
+
 #battery {
     color: inherit;
     font-size: 20px;
-    background: alpha(@color0, 0.25);
-    padding: 0 12;
-    margin: 4 0;
-    border-radius: 60 0 0 60;
+  /*  background: alpha(@color0, 0.25);
+    border-radius: 60 0 0 60;*/
+  padding-left: 10px;
+  padding-right: 10px;
+  margin:0px;
 }
 
 #idle_inhibitor.activated {
     color: @color3;
-    background: alpha(@color8, 0.8);
+    background: alpha(@color8, 0.18);
 }
 
 #expand-Bat {
@@ -121,7 +136,7 @@ window#waybar.empty #window {
 #upower,
 #upower-headset {
     color: inherit;
-    background: alpha(@color0, 0.25);
+  /*  background: alpha(@color0, 0.25);*/
     padding: 0 12;
     margin: 4 0;
     border-radius: 0 60 60 0;
@@ -129,7 +144,8 @@ window#waybar.empty #window {
 
 #battery.charging,
 #battery.plugged {
-    color: @foreground;
+    color: @color3;
+    background: alpha(@color8, 0.18);
 }
 
 #battery.critical:not(.charging) {
@@ -165,20 +181,52 @@ window#waybar.empty #window {
     text-shadow: 2px 2px 4px @color0;
 }
 
-#mpris,
+#mpris {
+    /*background: alpha(@background, 0.25);*/
+    color: @color7;
+    border-radius: 60px;
+    margin: inherit;
+    padding-left: 12px;
+    padding-right: 6px;
+}
 #custom-music {
-    background: alpha(@background, 0.25);
+    /*background: alpha(@background, 0.25);*/
     color: @color7;
     border-radius: 60px;
     margin: 4;
-    padding: 2 12 2 12;
+    padding: 2 12 2 8;
 }
 
 #mpris.playing {
-    color: inherit;
+    color: @color3;
 }
 
 #bluetooth{
     font-size: 21px;
     padding-right: 14px;
+}
+
+/*#bluetooth.connected{
+    font-size: 16px;
+    padding-right: 14px;
+}*/
+
+#battery,#idle_inhibitor,#mpris { 
+    border:3px solid @color3;
+    border-radius:60px;
+}
+
+#idle_inhibitor{
+    font-size:18px;
+   /* padding-right: 14px;
+    padding-left: 10px; */
+}
+#idle_inhibitor.deactivated{
+    font-size:16px;
+}
+#expand-Bat,#idleclock,#musicplayer{
+    background: alpha(@color0, 0.25);
+    border-radius: 60px;
+    padding: 0;
+    margin: 4;
 }

@@ -31,10 +31,13 @@
   "group/centerside": {
     "orientation": "horizontal",
     "modules": [
-      "mpris",
+    //  "mpris",
+    //  "custom/music",
+      "group/musicplayer",
       "hyprland/workspaces",
-      "idle_inhibitor",
-      "group/clockk",
+  //    "idle_inhibitor",
+  //    "group/clockk",
+      "group/idleclock",
       "group/expand-Bat"
     ],
   },
@@ -42,7 +45,7 @@
     "orientation": "horizontal",
     "modules": [
       "group/expand-Net",
-      "bluetooth",
+      "group/btdev",
       "custom/notification"
     ],
   },
@@ -52,6 +55,13 @@
   //     "custom/menu",
   //   ]
   // },
+   "group/idleclock": {
+     "orientation": "horizontal",
+     "modules": [
+        "idle_inhibitor",
+       "group/clockk",
+     ]
+   },
   //--------------------- module definitions --------------------//
   "hyprland/window": {
     "format": "{title}",
@@ -67,18 +77,22 @@
     "tooltip": true,
     "tooltip-format": "right click to close",
     //"exec": "WS=$(hyprctl activeworkspace | awk 'NR==1 {print $3}'); if hyprctl clients | awk '$1 == \"workspace:\" {print $2+0}' | grep -qx \"$WS\"; then echo 'Hyprland'; else echo ''; fi",
-    "on-click-right": "hyprctl dispatch killactive"
+    "on-click-right": "hyprctl dispatch killactive",
+    "on-click":"nwg-drawer",
+    //"on-click-right": "pidof rofi >/dev/null && killall rofi || $HOME/HyprlandScripts/launcher.sh"
   },
   "custom/window": {
     "exec": "WS=$(hyprctl activeworkspace | awk 'NR==1 {print $3}'); if hyprctl clients | awk '$1 == \"workspace:\" {print $2+0}' | grep -qx \"$WS\"; then cls=$(hyprctl activewindow -j | jq -r '.class'); if [[ -z \"$cls\" || \"$cls\" == \"null\" ]]; then cls=$(hyprctl activewindow -j | jq -r '.app_id'); fi; echo \"$cls\"; else echo 'Hyprland'; fi",
-    "interval": 1,
+    "interval": 1,  
     "on-click":"nwg-drawer",
     "on-click-right": "pidof rofi >/dev/null && killall rofi || $HOME/HyprlandScripts/launcher.sh"
   },
 
   "mpris": {
-    "format": "{player_icon} {dynamic}",
-    "format-paused": "<span color='grey'>{status_icon} {dynamic}</span>",
+    //"format": "{player_icon} {dynamic}",
+    "format": "{player_icon}",
+    //"format-paused": "<span color='grey'>{status_icon} {dynamic}</span>",
+    "format-paused": "{status_icon}",
     "max-length": 35,
     "player-icons": {
       "default": "⏸ ",
@@ -87,7 +101,8 @@
     "status-icons": {
       "paused": "▶ "
     },
-    "expand": true
+    "expand": true,
+  "tooltip": false
   },
 
 "custom/music": {
@@ -95,6 +110,7 @@
   "interval": 1,
   "return-type": "text",
   "format": "{}",
+  "max-length": 35,
   "tooltip": false
 },  
 
@@ -113,8 +129,8 @@
       "8": [],
       "9": [],
       "10": [],
-      "11": [],
-      "12": []
+      //"11": [],
+      //"12": []
     }
   },
   "group/clockk": {
@@ -292,9 +308,16 @@
     "interval": 2,
   },
   "bluetooth": {
-    "format-off": "󰂲",
-    "format-on": "󰂯",
-    "format-disabled": "󰂲" //󱜡
+    "format":"{icon}",
+ //   "format-connected": "<span size='16000'>{icon} </span>{device_alias}",
+    "format-icons": {
+        "on": "󰂯",
+        "connected": "󰂯",
+        "off": "󰂲",
+        "disabled": "󰂲", //󱜡
+      },
+    "on-click": "blueman-manager",
+    "icon-size": "21px"
   },
   "custom/smallspacer": {
     "format": " "
@@ -303,4 +326,41 @@
     "format": " ",
     "tooltip": false
   },
+  
+  "custom/music": {
+    "exec": "t=$(playerctl metadata title 2>/dev/null); [[ -z \"$t\" ]] && echo 'Nothing playing' || echo \"$t\"",
+    "interval": 2,
+    "return-type": "text",
+    "tooltip": "false",
+    "max-length": 40,
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+    "on-click-middle": "playerctl previous"
+  },
+  "group/musicplayer": {
+     "orientation": "horizontal",
+     "modules": [
+        "mpris",
+       "custom/music",
+     ]
+   },
+    "custom/bluetooth_device": {
+      "exec": "bluetoothctl info | awk -F ': ' '/Alias/ {print $2}'",
+      "interval": 5,
+      "return-type": "text",
+     "tooltip": false
+    },
+
+  "group/btdev": {
+     "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 600,
+     // "children-class": "not-power",
+      "transition-to-left": true
+    },
+     "modules": [
+        "bluetooth",
+       "custom/bluetooth_device",
+     ]
+   },
 }
