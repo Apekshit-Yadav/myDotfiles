@@ -1,7 +1,8 @@
 ##!/bin/bash
 
 # Directory containing wallpapers
-WALLPAPER_DIR="$HOME/Pictures/Hyprpaper"
+#WALLPAPER_DIR="$HOME/Pictures/Hyprpaper"
+WALLPAPER_DIR="$HOME/.config/themes/active/wallpapers"
 
 # Use Zenity to display a file chooser dialog
 WALLPAPER=$(zenity --file-selection --title="Select a Wallpaper" \
@@ -19,10 +20,10 @@ CACHE_FILE="$HOME/.cache/mode"
 
 
 # Apply the chosen mode and save to cache
-    wal -i "$WALLPAPER" -n
-    gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
-    gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
-    echo "dark" > "$CACHE_FILE"
+wal -i "$WALLPAPER" -n
+#gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
+#gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+#echo "dark" > "$CACHE_FILE"
 
 # Set wallpaper using swww
 swww img "$WALLPAPER" --resize crop --transition-type any --transition-duration 1.5 --transition-fps 60
@@ -30,5 +31,8 @@ swww img "$WALLPAPER" --resize crop --transition-type any --transition-duration 
 swaync-client --reload-css
 
 ## getting wallpaper to cache to get rofi image
-cp $(cat ~/.cache/wal/wal) ~/.cache/currwall
+#cp $(cat ~/.cache/wal/wal) ~/.cache/currwall
+ln -sf "$WALLPAPER" ~/.cache/currwall
+ln -sf "$WALLPAPER" ~/.cache/currwall.png
 
+~/HyprlandScripts/ChromiumPywal/generate-theme.sh

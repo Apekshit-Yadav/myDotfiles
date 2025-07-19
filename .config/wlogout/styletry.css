@@ -1,5 +1,5 @@
 /* Import the Wal colors file */
-@import url("/home/papa/.cache/wal/colors-waybar.css");
+@import url("colors.css");
 
 * {
     background-color: transparent;

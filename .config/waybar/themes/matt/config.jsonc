@@ -2,8 +2,8 @@
     "layer": "top",
     "position": "top",
     "mod": "dock",
-    "margin-left": 0,
-    "margin-right": 0,
+    "margin-left": 18,
+    "margin-right": 18,
     "margin-top": 4,
     "margin-bottom": 0,
     "exclusive": true,
@@ -12,12 +12,14 @@
     "reload_style_on_change": true,
     // positions generated based on config.ctl //
     "modules-left": [
-     "custom/padd",
+     //"custom/padd",
       "custom/appmenu",
       "custom/smallspacer",
       "custom/smallspacer",
       "hyprland/workspaces",
       "custom/empty_workspace",
+      "custom/smallspacer",
+      "custom/smallspacer",
       "hyprland/window",
       "custom/closer",
       "custom/smallspacer",
@@ -30,18 +32,22 @@
       "network",
       "custom/nettext",
       "custom/smallspacer",
+      "custom/smallspacer",
       "pulseaudio",
       "group/expand-3",
+      "custom/smallspacer",
       "custom/smallspacer",
       "backlight",
       "group/expand-2",
       "custom/smallspacer",
+      "custom/smallspacer",
       "battery",
       "group/expand-4",
       "custom/smallspacer",  
+      "custom/smallspacer",
       "custom/notification",
+      //"custom/padd",
       "custom/logout",
-      "custom/padd",
     ],
     // sourced from modules based on config.ctl //
  //   "upower": {
@@ -184,6 +190,9 @@
 //         "9": "九",
 //         "10": "十",
       },
+    "persistent-workspaces":{
+      "*":[1,2,3,4,5,6]
+    }
     },
     "wlr/workspaces": {
       "persistent-workspaces": {

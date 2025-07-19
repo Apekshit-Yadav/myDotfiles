@@ -1,4 +1,4 @@
-@import url("/home/papa/.cache/wal/colors-waybar.css");
+@import url("colors-waybar.css");
 
 * {
     font-family: "Hurmit Nerd Font";
@@ -324,7 +324,7 @@ tooltip {
     border-radius:50px;
 }
 */
-#window,#idle_inhibitor,#network,#backlight,#pulseaudio,#battery,#custom-notification,#memory,#cpu {
+#custom-empty_workspace,#window,#idle_inhibitor,#network,#backlight,#pulseaudio,#battery,#custom-notification,#memory,#cpu {
     color: @color0; 
     /*background: alpha(@color1, 0.5);*/
     background-image: radial-gradient(circle farthest-side at right center, @color1, @color6 50px, @color3);/*linear-gradient(to right, @color1, @color0);*/
@@ -338,7 +338,7 @@ tooltip {
     padding-right: 2px;
 }
 
-#custom-empty_workspace,#custom-closer,#clock,#custom-nettext,#custom-pulseaudiotxt,#custom-backlighttxt,#custom-battxt,#custom-logout,#custom-mem,#custom-cpu{
+#custom-closer,#clock,#custom-nettext,#custom-pulseaudiotxt,#custom-backlighttxt,#custom-battxt,#custom-logout,#custom-mem,#custom-cpu{
     color: @foreground;
     background: alpha(@background, 0.5);
     border:2px solid @color3;
@@ -358,7 +358,7 @@ tooltip {
 #workspaces{
     color: @foreground; 
     background: alpha(@background, 0.25);
-    border-radius:50px 0px 0px 50px;
+    border-radius:0px 50px 50px 0px;
     border:2px solid @color3;
     margin:8px 0px;
     padding:0px 6px;
@@ -374,7 +374,12 @@ tooltip {
 #custom-logout,#custom-notification{
   font-size: 20px;
 }
-#custom-empty_workspace{border-left:none;}
+#custom-empty_workspace{
+    border-right:none;
+    border-radius: 50px 0px 0px 50px;
+    padding-left: .65em;
+    padding-right: .65em;
+}
 /*
 #rightpill{
   background: alpha(@color4,1);
@@ -389,4 +394,11 @@ tooltip {
     padding:inherit;
     padding-left:0.5em;
     padding-right:0.5em;
+}
+window#waybar.empty #window { 
+    padding:0px;
+    margin:8px 0px;
+    border: none;
+    border-right: 2px solid;
+    border-radius: 60px;
 }

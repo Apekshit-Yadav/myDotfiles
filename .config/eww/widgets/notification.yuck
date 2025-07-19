@@ -1,0 +1,6 @@
+(defwidget notification [notif]
+  (box :class "notification-box"
+    (label :text notif.summary :class "notif-title")
+    (label :text notif.body :class "notif-body")
+  )
+)

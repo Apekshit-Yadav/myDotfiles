@@ -1,0 +1,48 @@
+{
+  "entries": [
+    {
+      "_type": "url",
+      "ie_key": "Youtube",
+      "id": "l08Zw-RY__Q",
+      "url": "https://www.youtube.com/watch?v=l08Zw-RY__Q",
+      "title": "Billie Eilish - WILDFLOWER (Official Lyric Video)",
+      "description": null,
+      "duration": 262.0,
+      "channel_id": "UCiGm_E4ZwYSHV3bcW1pnSeQ",
+      "channel": "Billie Eilish",
+      "channel_url": "https://www.youtube.com/channel/UCiGm_E4ZwYSHV3bcW1pnSeQ",
+      "uploader": "Billie Eilish",
+      "uploader_id": null,
+      "uploader_url": null,
+      "thumbnails": [
+        {
+          "url": "https://i.ytimg.com/vi/l08Zw-RY__Q/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAEJHAcrv-BlhVGvFgdUZ69bdmbvw",
+          "height": 94,
+          "width": 168
+        },
+        {
+          "url": "https://i.ytimg.com/vi/l08Zw-RY__Q/hqdefault.jpg?sqp=-oaymwEbCMQBEG5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDcIKdCSrPPnLjvFSpgF5OHr1b-Mw",
+          "height": 110,
+          "width": 196
+        },
+        {
+          "url": "https://i.ytimg.com/vi/l08Zw-RY__Q/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCYCsmz2eEIOu742i2rREIe9QJFGw",
+          "height": 138,
+          "width": 246
+        },
+        {
+          "url": "https://i.ytimg.com/vi/l08Zw-RY__Q/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAPRrjWXWjB5SBqlgsY9VX0NdhY1w",
+          "height": 188,
+          "width": 336
+        }
+      ],
+      "timestamp": null,
+      "release_timestamp": null,
+      "availability": null,
+      "view_count": null,
+      "live_status": null,
+      "channel_is_verified": null,
+      "__x_forwarded_for_ip": null
+    }
+  ]
+}

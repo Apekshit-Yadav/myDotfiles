@@ -12,7 +12,7 @@
     "reload_style_on_change": true,
     // positions generated based on config.ctl //
     "modules-left": [
-      "custom/smallspacer",
+ //     "custom/smallspacer",
       "custom/appmenu",
       "hyprland/workspaces",
       "custom/empty_workspace",
@@ -22,17 +22,17 @@
     "modules-center": ["idle_inhibitor","clock","custom/notification"],
     "modules-right": [
       "group/expand",
-      "custom/padd",
+//      "custom/padd",
       "network",
       "group/expand-aud",
       "group/expand-light",
       "group/expand-bat",
-      "custom/smallspacer",
+//      "custom/smallspacer",
       "memory",
       "cpu",
-      "custom/wallchange",
-      "custom/logout",
-      "custom/smallspacer"
+//     "custom/wallchange",
+      "custom/logout"
+//      "custom/smallspacer"
     ],
     // sourced from modules based on config.ctl //
     "upower": {
@@ -151,26 +151,29 @@
       "format": "{icon}",
       //"format": "{icon} {name}",
               "format-icons": {
-//            "1": " 1 ",
-//            "2": " 2 ",
-//            "3": " 3 ",
-//            "4": " 4 ",
-//            "5": " 5 ",
-//            "6": " 6 ",
-//            "7": " 7 ",
-//            "8": " 8 ",
-//            "9": " 9 ",
-               "1": "   一    ",  // 1 → 一 (ichi)
-               "2": "   二    ",  // 2 → 二 (ni)
-               "3": "   三    ",  // 3 → 三 (san)
-               "4": "   四    ",  // 4 → 四 (shi)
-               "5": "   五    ",  // 5 → 五 (go)
-               "6": "   六    ",  // 6 → 六 (roku)
-               "7": "   七    ",  // 7 → 七 (shichi)
-               "8": "   八    ",  // 8 → 八 (hachi)
-               "9": "   九    ",  // 9 → 九 (kyuu) 
+            "1": " 1 ",
+            "2": " 2 ",
+            "3": " 3 ",
+            "4": " 4 ",
+            "5": " 5 ",
+            "6": " 6 ",
+            "7": " 7 ",
+            "8": " 8 ",
+            "9": " 9 ",
+//               "1": "   一    ",  // 1 → 一 (ichi)
+//               "2": "   二    ",  // 2 → 二 (ni)
+//               "3": "   三    ",  // 3 → 三 (san)
+//               "4": "   四    ",  // 4 → 四 (shi)
+//               "5": "   五    ",  // 5 → 五 (go)
+//               "6": "   六    ",  // 6 → 六 (roku)
+//               "7": "   七    ",  // 7 → 七 (shichi)
+//               "8": "   八    ",  // 8 → 八 (hachi)
+//               "9": "   九    ",  // 9 → 九 (kyuu) 
                "default": "   "  // empty dot (fa-circle-thin)
          },
+        "persistent-workspaces": {
+                     "*": [ 1,2,3,4,5 ], // 2-5 on every monitor
+    },
       "icon-size":32
     },
 
@@ -403,12 +406,13 @@
     },
     "custom/appmenu": {
     "format":"󰣇",
-    "on-click": "pidof rofi >/dev/null && killall rofi || $HOME/HyprlandScripts/launcher.sh",
+    "on-click": "nwg-drawer",
+    "on-click-right": "pidof rofi >/dev/null && killall rofi || $HOME/HyprlandScripts/launcher.sh",
     "tooltip": false,
   },
   "custom/empty_workspace": {
     "format": "{}",  
-    "exec": "WS=$(hyprctl activeworkspace | awk 'NR==1 {print $3}'); if hyprctl clients | awk '$1 == \"workspace:\" {print $2+0}' | grep -qx \"$WS\"; then echo '󰐗 '; else echo ''; fi",
+    "exec": "WS=$(hyprctl activeworkspace | awk 'NR==1 {print $3}'); if hyprctl clients | awk '$1 == \"workspace:\" {print $2+0}' | grep -qx \"$WS\"; then echo '󰐙'; else echo ''; fi",
     "on-click": "hyprctl dispatch workspace empty",
     "tooltip": false,
     "interval": 1

@@ -1,4 +1,4 @@
-@import url("/home/papa/.cache/wal/colors-waybar.css");
+@import url("colors-waybar.css");
 
 * {
     font-family: "Hurmit Nerd Font";
@@ -382,6 +382,13 @@ tooltip {
     padding-left: 10px;
     padding-right: 10px;}
 
+#workspaces button:not(.empty) {
+    /*background: alpha(@background,0.5);*/
+    background: transparent;
+    color: @color3; 
+    border-radius: 50px;
+    border:none;
+}
 #workspaces button.active {
     /*background: alpha(@background,0.5);*/
     background: transparent;
@@ -413,4 +420,8 @@ tooltip {
 }
 #custom-closer{
     color:@color3;
+}
+window#waybar.empty #window{
+    border:none;
+    background: transparent;
 }

@@ -15,8 +15,7 @@
     // positions generated based on config.ctl //
     "modules-center": [
       "custom/padd",
-      "custom/appmenu",
-      "custom/empty_workspace",
+      "group/appmenupill",
       "hyprland/workspaces",
       "hyprland/window",
       "idle_inhibitor",
@@ -71,7 +70,7 @@
       //"modules": ["battery", "upower/headset"],
     },
     "custom/smallspacer": {
-      "format": " ",
+      "format": "=",
     },
     "memory": {
       "interval": 1,
@@ -447,6 +446,15 @@
   },
   "modules": ["hyprland/window", "custom/closer"]
 },
+
+"group/appmenupill": {
+  "orientation": "vertical",
+  "modules": [
+      "custom/appmenu",
+      "custom/empty_workspace","custom/smallspacer"
+      ]
+},
+    
 "custom/closer": {
   "format": "×",
   "on-click": "hyprctl dispatch killactive",

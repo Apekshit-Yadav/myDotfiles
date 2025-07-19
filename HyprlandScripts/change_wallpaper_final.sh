@@ -1,51 +1,71 @@
 #!/bin/bash
 
-# Directory containing wallpapers
-WALLPAPER_DIR="$HOME/Pictures/Hyprpaper"
+#WALLPAPER_DIR="$HOME/Pictures/Hyprpaper"
+WALLPAPER_DIR="$HOME/.config/themes/active/wallpapers"
+WAYBAR_CFG="$HOME/.config/waybar/config.jsonc"
+MODE_CACHE="$HOME/.cache/mode"
 
-# Select a random wallpaper
+# Random wallpaper selection
 WALLPAPER=$(find "$WALLPAPER_DIR" -type f | shuf -n 1)
+echo "🖼️  Setting wallpaper: $WALLPAPER"
 
-echo -e  "setting "$WALLPAPER" from "$WALLPAPER_DIR" \n"
-# Set the wallpaper using swww
-#swaybg -i "$WALLPAPER" -m fill &
-WAYBARPOS=$(grep -oP '"position":\s*"\K(top|bottom)' "$HOME/.config/waybar/config.jsonc")
+# Get Waybar position
+#WAYBARPOS=$(grep -oP '"position":\s*"\K(top|bottom)' "$WAYBAR_CFG")
+#TRANS_POS="0.5,0.965"  # default for top
+#[ "$WAYBARPOS" == "bottom" ] && TRANS_POS="0.5,0.035"
 
-if [ "$WAYBARPOS" == "top" ]; then
-  swww img "$WALLPAPER" --resize crop --transition-type outer --transition-duration 2.5 --transition-fps 60 --transition-pos 0.5,0.965 &
-  #swww img "$WALLPAPER" --resize crop --transition-type outer --transition-duration 3.5 --transition-fps 60 --transition-pos 0.5,0.965 &
-else
-  swww img "$WALLPAPER" --resize crop --transition-type outer --transition-duration 2.5 --transition-fps 60 --transition-pos 0.5,0.035 &
-  #swww img "$WALLPAPER" --resize crop --transition-type outer --transition-duration 3.5 --transition-fps 60 --transition-pos 0.5,0.035 &
-fi
+WAYBARPOS=$(grep -oP '"position":\s*"\K(top|bottom|left|right)' "$WAYBAR_CFG")
 
-#setting dark mode
-    NEW_MODE="Dark"
-    wal -i "$WALLPAPER" -n
-    gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
-    gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
-    #sed -i 's/vim.cmd("colorscheme onelight")/vim.cmd("colorscheme onedark")/' "$HOME/.config/nvim/lua/plugins/onedark.lua"
-    #sed -i "s/theme = 'onelight'/theme = 'onedark'/" "$HOME/.config/nvim/lua/plugins/lualine.lua"
-    echo "$NEW_MODE" > "$HOME/.cache/mode"
+# Default transition position: center
+TRANS_POS="0.5,0.5"
 
-## getting wallpaper to cache to get rofi image
-cp $(cat ~/.cache/wal/wal) ~/.cache/currwall
-cp $(cat ~/.cache/wal/wal) ~/.cache/currwall.png
+case "$WAYBARPOS" in
+    top)
+        TRANS_POS="0.5,0.965"
+        ;;
+    bottom)
+        TRANS_POS="0.5,0.035"
+        ;;
+    left)
+        TRANS_POS="0.035,0.5"
+        ;;
+    right)
+        TRANS_POS="0.965,0.5"
+        ;;
+esac
 
-# Call the color generation scripts
-#$HOME/HyprlandScripts/generate_hyprcolors.sh
-#$HOME/HyprlandScripts/hyprlockwalpath.sh
-#$HOME/HyprlandScripts/change_rofiwall7.sh
-#$HOME/HyprlandScripts/fuzzelcolors.sh
-# not working - 
-#$HOME/HyprlandScripts/update_wofi_colors.sh
-#$HOME/HyprlandScripts/dunstcolorsupdater.sh
-#$HOME/HyprlandScripts/updatemakocolors.sh
-#$HOME/HyprlandScripts/logoutmenucolorschanger.sh
+# Set wallpaper via swww
+swww img "$WALLPAPER" --resize crop \
+  --transition-type outer \
+  --transition-duration 2.5 \
+  --transition-fps 60 \
+  --transition-pos "$TRANS_POS"
 
+# Set dark mode and generate colors
+wal -i "$WALLPAPER" -n
+#gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
+#gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+#echo "Dark" > "$MODE_CACHE"
+
+# Symlink current wallpaper for other tools
+ln -sf "$WALLPAPER" ~/.cache/currwall
+ln -sf "$WALLPAPER" ~/.cache/currwall.png
+
+# Reload UI components
 swaync-client --reload-css
 
-# Reload kitty with new colors
-#kitty @ set-colors --all ~/.cache/wal/colors-kitty.conf
 
-#magick -size 1920x1080 xc:transparent /home/papa/Pictures/Hyprpaper/transparent.png
+# === Auto-generate theme preview ===
+
+# Path to current theme and preview
+#ACTIVE_THEME_DIR="$HOME/.config/themes/active"
+#ACTIVE_THEME_NAME=$(basename "$(readlink "$ACTIVE_THEME_DIR")")
+#PREVIEW_PATH="$HOME/.config/themes/${ACTIVE_THEME_NAME}.png"
+
+# Use current wallpaper as preview (resized)
+#if [[ -f "$WALLPAPER" ]]; then
+#    convert "$WALLPAPER" -resize 128x72 "$PREVIEW_PATH"
+#    echo "🖼️ Generated preview: $PREVIEW_PATH"
+#fi
+
+~/HyprlandScripts/ChromiumPywal/generate-theme.sh

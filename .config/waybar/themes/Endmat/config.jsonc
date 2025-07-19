@@ -65,11 +65,12 @@
   //--------------------- module definitions --------------------//
   "hyprland/window": {
     "format": "{title}",
-    "max-length": 30,
+    "max-length": 20,
     "rewrite": {
       "(.*) - Zen Browser": "🌎 $1",
       "(.*) - (.*)": "> [$2]",
       "(.*) - zsh": "> [$1]",
+      "nvim (.*)": "  $1",
       "^$": "Hyprland"
     },
     "icon": false,
@@ -85,7 +86,8 @@
     "exec": "WS=$(hyprctl activeworkspace | awk 'NR==1 {print $3}'); if hyprctl clients | awk '$1 == \"workspace:\" {print $2+0}' | grep -qx \"$WS\"; then cls=$(hyprctl activewindow -j | jq -r '.class'); if [[ -z \"$cls\" || \"$cls\" == \"null\" ]]; then cls=$(hyprctl activewindow -j | jq -r '.app_id'); fi; echo \"$cls\"; else echo 'Hyprland'; fi",
     "interval": 1,  
     "on-click":"nwg-drawer",
-    "on-click-right": "pidof rofi >/dev/null && killall rofi || $HOME/HyprlandScripts/launcher.sh"
+    "on-click-right": "pidof rofi >/dev/null && killall rofi || $HOME/HyprlandScripts/launcher.sh",
+    "max-length":16
   },
 
   "mpris": {

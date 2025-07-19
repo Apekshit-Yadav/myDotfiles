@@ -1,7 +1,7 @@
-@import url("/home/papa/.cache/wal/colors-waybar.css");
+@import url("colors-waybar.css");
 
 * {
-    font-family: "Hurmit Nerd Font ";
+    font-family: "Hurmit Nerd Font Propo","Hurmit Nerd Font";
     font-weight: bold; 
     font-size: 16px;
 }
@@ -18,17 +18,22 @@
 }
 
 #window{
-    background: linear-gradient(to right,@color2,@color3);
+    /*background: linear-gradient(to right,@color2,@color3);*/
+    background: alpha(@background,1);
+    color:@color3;
     padding: 0px 15px;
-    margin: 6px 0px;
-    border-radius:24px;
+    margin: 2px 0px;
+   /*border-radius:24px;*/
+    border-radius:50px;
 }
 
 #clock {
     font-weight: 900;
-    background: linear-gradient(to right,@color2,@color3);
-    padding: 0px 18px;
-    margin: 6px 10px;
+    /*background: linear-gradient(to right,@color2,@color3);*/
+    background: alpha(@background,1);
+    padding: 0px 14px;
+    margin: 2px 0px;
+    margin-right:1.1rem;
     border-radius:24px;
 }
 
@@ -51,20 +56,35 @@ tooltip {
 }
 
 #workspaces button {
-    padding: 0px;
-    margin: 0px;
-    background-color: transparent;
-    color: @foreground; 
+    padding: 2px;
+    margin: inherit;
+    background-color:alpha(@foreground,.1);
+    color: transparent; 
     box-shadow: none;
     text-shadow: none;
     border-radius: 24px;
-    transition: 0.2s ease;
+    transition:all 0.2s ease;
+    margin:6px 2px;
+    padding: 0px 2px;
+ /*   padding-left: 2px;
+    padding-right: 2px;*/
+}
+
+#workspaces button:not(.empty) {
+    background-color:alpha(@foreground,.1);
+    color: alpha(@foreground,0.5); 
+    box-shadow: none;
+    text-shadow: none;
+    border-radius: 24px;
+    transition:all 0.2s ease;
+    margin:6px 2px;
+    padding: 0px 2px;
  /*   padding-left: 2px;
     padding-right: 2px;*/
 }
 
 #custom-empty_workspace {
-    padding: 0px 4px;
+ /*   padding: 0px 4px;
     margin: 0px 4px;
     background-color: transparent;
     color: @foreground; 
@@ -72,15 +92,21 @@ tooltip {
     text-shadow: none;
     border-radius: 24px;
     transition: 0.2s ease;
- /*   padding-left: 2px;
-    padding-right: 2px;*/
+ */
+    background-color:alpha(@foreground,.1); 
+    box-shadow: none;
+    text-shadow: none;
+    border-radius: 24px;
+    transition:all 0.2s ease;
+    margin:6px 2px;
+    padding:0rem 1rem;
 }
 #workspaces button.active {
-    background: alpha(@foreground,.25);
+    background: alpha(@color11,.25);
     color: @color3; 
     transition: all 0.2s ease;
-    margin:8px 0px;
-    padding: 0px;
+    margin:6px 0px;
+    padding: 0px 16px;
 }
 
 #workspaces button:hover {
@@ -105,12 +131,15 @@ tooltip {
 */
 
 #idle_inhibitor {
-    color: @color6; 
-    margin: 4px 0;
+    color: @foreground; 
+    margin: inherit;
     padding-left: 4px;
     padding-right: 4px;
 }
 
+#idle_inhibitor.activated {
+    color:@color6;
+}
 #cpu {
     color: @color2; 
     margin: 4px;
@@ -201,34 +230,41 @@ tooltip {
     padding-right: 12px;
 }
 
-.modules-right,.modules-left,.modules-center{
+modules-center{
     background:alpha(@background,0.35);
     border-radius:24px;
     margin:2px;
-    padding-left:12px;
-    padding-right:12px;
+    padding-left:2px;
+    padding-right:2px;
+}
+.modules-right,.modules-left{
+    background:alpha(@background,0.35);
+    border-radius:24px;
+    margin:2px;
+    padding-left:0px;
+    padding-right:0px;
 }
 
 #custom-appmenu,#custom-logout {
     font-weight: 900;
     background: @color2;
-    padding-left: 14px;
-    padding-right: 18px;
-    margin-top:6px;
-    margin-bottom:6px;
-    margin-left:6px;
-    margin-right:4px;
+    padding: 0px 14px;
+    margin:2px 4px;
     border-radius:12px;
 }
 
 #custom-notification,#custom-appmenu{
-    font-size: 21px;
+    font-size: 20px;
 }
 
-#custom-logout,#custom-empty_workspace,#idle_inhibitor,#network,#pulseaudio,#backlight,#upower,#custom-wallchange,#memory,#cpu{
-  font-size: 20px;
+#custom-logout,#custom-empty_workspace,#idle_inhibitor,#network,#pulseaudio,#backlight,#upower,#custom-notifications,#memory,#cpu{
+  font-size: 18px;
 }
 
 #backlight,#battery,#pulseaudio,#network,#cpu,#memory,#wallchange#custom-notification{
-    margin:4px 8px;
+    margin:4px;
+}
+
+window#waybar.empty #window{
+    background: transparent;
 }

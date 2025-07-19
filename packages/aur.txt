@@ -1,0 +1,16 @@
+  otf-hermit-nerd
+  ttf-dejavu-nerd
+  ttf-firacode-nerd
+  ttf-heavydata-nerd
+  ttf-jetbrains-mono-nerd
+  hyprpolkitagent
+  kora-icon-theme
+  wlogout
+  auto-cpufreq
+  brightnessctl
+  brave-bin
+  pywal
+  zathura
+  zathura-pdf-poppler
+  zathura-pywal-git
+  alacritty-smooth-cursor-git

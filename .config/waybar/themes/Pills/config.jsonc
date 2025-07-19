@@ -18,8 +18,8 @@
       "custom/closer",
       "custom/smallspacer",
       "custom/smallspacer",
-      "hyprland/workspaces",
       "custom/empty_workspace",
+      "hyprland/workspaces",
       "custom/smallspacer",
 //      "group/window",
       "custom/smallspacer",
@@ -568,7 +568,7 @@
     "tooltip": false,
   },
   "custom/empty_workspace": {
-    "format": "󰐗 ",  
+    "format": "󰐗",  
     //"exec": "WS=$(hyprctl activeworkspace | awk 'NR==1 {print $3}'); if hyprctl clients | awk '$1 == \"workspace:\" {print $2+0}' | grep -qx \"$WS\"; then echo '󰐗 '; else echo ''; fi",
     "on-click": "hyprctl dispatch workspace empty",
     "tooltip": true,

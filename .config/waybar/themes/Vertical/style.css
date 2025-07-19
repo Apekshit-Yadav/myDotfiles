@@ -1,4 +1,4 @@
-@import url("/home/papa/.cache/wal/colors-waybar.css");
+@import url("colors-waybar.css");
 
 * {
     font-family: "Hurmit Nerd Font";
@@ -7,7 +7,7 @@
 }
 
 window#waybar {
-    background: alpha(@background,0.25);
+    background: alpha(@background,.25);
     border: 3px solid @color3;
     border-radius: 12px;
     min-width:36px;
@@ -23,10 +23,8 @@ tooltip {
 }
 
 #workspaces {
-    background: alpha(@background,0);
-    color: @color5;
-    border-radius:0px;
-    padding:10px 2px;
+    /*background: alpha(@background,0.4);*/
+    padding:4px 2px;
     margin: 0px 4px;
     font-size:22px;
 }
@@ -36,12 +34,19 @@ tooltip {
     color: @foreground; 
     border-radius: 0px;
     transition: 0.2s ease;
+    margin: 0px;
 }
 
 #workspaces button.active {
-    /* background: @foreground; */
+   /*  background: alpha(@color7,.5);
+    border-radius:50px;
     color: @color11; 
-    /* transition: all 0.3s ease; */
+    padding:12px 4px;
+    margin:0px 2px;
+    transition: all 0.3s ease; */
+    color: @color11; 
+    border-left:2px solid @foreground;
+    padding:1em 4px;
 }
 
 #workspaces button:hover {
@@ -56,25 +61,19 @@ tooltip {
     border-radius:0px;
     border:none;
     padding:2px 0px 8px 8px;
-    margin: 0px 4px;
+    margin: 12px 4px -4px 4px;
     font-size:16px;
 }
 
-#tray menu * {
+#tray,#custom-menu {
     /* min-height: 16px; */
     /* font-weight: bold; */
-    /* font-size: 20px; */
-    color: @foreground; 
+    font-size: 20px;
+    color: @foreground;
 }
 
-/* #tray menu separator {
-    min-height: 10px;
-} */
-
-#idle_inhibitor {
-    color: @color6; 
-    background: rgba(40, 40, 40, 0.0);
-    opacity: 1;
+#custom-menu{
+    padding:4px;
 }
 
 #custom-clockH,#custom-clockM,#custom-clockD {
@@ -109,7 +108,9 @@ tooltip {
 }
 
 #mpris {
-    color: @foreground; 
+    color: @background;
+    font-size:24px;
+    margin-left:8px;
     animation: repeat;
     animation-name: blink;
     animation-duration: 3s;
@@ -127,29 +128,30 @@ tooltip {
 
 #backlight-slider slider,
 #pulseaudio-slider slider {
-    background: @foreground; 
-    background-color: transparent;
-    min-width: 8px;
-    min-height: 0px;
+    color:transparent;
+    background: transparent;
+    border: none;
+    min-width: 1px;
+    min-height: 1px;
 }
 
 #backlight-slider trough,
 #pulseaudio-slider trough {
-    min-width: 10px;
+    min-width: 1.5em;
     min-height: 80px;
-    border-radius: 8px;
+    border-radius: 12px 32px;
     background: @color0; 
 }
 
 #backlight-slider highlight,
 #pulseaudio-slider highlight {
-    border-radius: 8px;
+    border-radius: 12px 32px ;
     background-color: @color6; 
 }
 
 #battery.charging,
 #battery.plugged {
-    color: @foreground; 
+    color: @color3; 
 }
 
 #battery.critical:not(.charging) {
@@ -158,7 +160,7 @@ tooltip {
 
 #custom-expand {
     min-width: 25px;
-    color: @foreground; 
+    color: @background; 
     font-size: 16px;
 }
 
@@ -166,20 +168,40 @@ tooltip {
 /*    icons   */
 #idle_inhibitor,#custom-notification,#network,#pulseaudio,#backlight,#battery,#upower{
     font-size: 20px;
-    color: @foreground;
+    color: @color7;
     padding:0.5em;
 }
+
+#leftwrap { 
+    background: alpha(@color3,0.35);
+    margin-top: 0px;
+    border-radius: 12px 12px 32px 2px;
+    padding-bottom:0.5rem;
+}
+
+#rightwrap { 
+    background: alpha(@color3,0.35);
+    margin-top: 0px;
+    border-radius: 2px 32px 12px 12px;
+    padding-top:0.5rem;
+}
+
 #custom-appmenu,#custom-logout{
     font-size: 24px;
-    color: @foreground;
-    padding: 0.1em 0.35em 0.1em 0.2em;
+    color: @background;
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    background: alpha(@color3,1);
+    /*color: @foreground;
+    padding: 0.1em 0.35em 0.1em 0.2em;*/
 }
 #window{
     padding: 1em 0.5em;
     margin: 0px 4px;
     border:none;
     border-radius: 12px;
-    background-image: radial-gradient( alpha(@background,0.5) 90%, @color7);
+  /*  background-image: radial-gradient( alpha(@background,0.5) 90%, @color7);
+*/
 }
 #custom-clockD{color: @background;}
 #custom-colon{
@@ -190,9 +212,28 @@ tooltip {
 }
 
 #custom-appmenu{
-    margin-top: 12px;
+    margin-top: 2px;
+    border-radius: 12px 12px 32px 2px;
 }
 
 #custom-logout{
-    margin-bottom: 12px;
+    margin-bottom: 2px;
+    border-radius: 2px 32px 12px 12px;
 }
+window#waybar.empty #window {
+    background: transparent;
+}
+#custom-notification { 
+    background: alpha(@color5,0.25);
+    border-radius:2px;
+    padding-bottom:0.5rem;
+    margin:0px 2px;
+}
+#idle_inhibitor { 
+    background: alpha(@color5,0.25);
+    border-radius: 2px;
+    padding-top: .6rem;
+    margin:0px 2px;
+    padding-left:0.2rem;
+}
+

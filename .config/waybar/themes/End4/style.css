@@ -1,4 +1,4 @@
-@import url("/home/papa/.cache/wal/colors-waybar.css");
+@import url("colors-waybar.css");
 
 * {
     font-family: "Hurmit Nerd Font";
@@ -142,12 +142,6 @@ window#waybar.empty #window {
     border-radius: 0 60 60 0;
 }
 
-#battery.charging,
-#battery.plugged {
-    color: @color3;
-    background: alpha(@color8, 0.18);
-}
-
 #battery.critical:not(.charging) {
     color: @color9;
 }
@@ -229,4 +223,10 @@ window#waybar.empty #window {
     border-radius: 60px;
     padding: 0;
     margin: 4;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: @color3;
+    background: alpha(@color8, 0.18);
 }

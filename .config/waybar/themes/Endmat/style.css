@@ -1,4 +1,4 @@
-@import url("/home/papa/.cache/wal/colors-waybar.css");
+@import url("colors-waybar.css");
 
 * {
     font-family: "Hurmit Nerd Font";
@@ -7,7 +7,7 @@
 }
 
 #waybar {
-    background: alpha(@color12, 0.5);
+    background: alpha(@color11, 0.5);
     border: 1px solid @color0;
  /*   border-radius: 50px 50px;*/
   border-radius: 6px 6px 50px 50px;
@@ -47,7 +47,8 @@ window#waybar.empty #window {
 }
 
 #workspaces button:not(.empty) {
-    background-color: alpha(@background, 0.5);
+    background-color: alpha(@background, 0.1);
+    /*border: 2px double alpha(@color0,0.5);*/
 }
 
 #workspaces button {
@@ -55,18 +56,22 @@ window#waybar.empty #window {
     color: @background;
     box-shadow: none;
     text-shadow: none;
-    transition: 0.2s ease;
+    transition: 0.4s ease;
     padding: 0 8 0 10;
     margin: 2px;
     border-radius: 2rem;
 }
 
+#workspaces button.empty {
+    color: @color2; 
+}
+
 #workspaces button.active {
     background: alpha(@color3, 0.5);
     color: alpha(@background, 1);
-    transition: all 0.3s ease;
+    transition: all 0.3s ease-out;
     margin: 2px;
-    padding: 0 8 0 10;
+    padding: 0 28 0 30;
     border: 2px double alpha(@color0, .25);
     border-radius: 2rem;
 }
@@ -78,11 +83,6 @@ window#waybar.empty #window {
     transition: all 0.5s cubic-bezier(.55, -0.68, .48, 1.682);
 }
 
-/*
-#workspaces button.focused {
-    background-color: @color2; 
-}
- */
 #clockk {
     color: @background;
     background: alpha(@color6, 0.25);

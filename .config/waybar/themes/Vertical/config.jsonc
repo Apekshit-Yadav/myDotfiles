@@ -14,10 +14,9 @@
 
     // positions generated based on config.ctl //
     "modules-left": [
-      "custom/appmenu",
-      "hyprland/workspaces",
-      "custom/empty_workspace",
-      "hyprland/window"
+      "group/leftwrap",
+      "hyprland/window",
+      "mpris",
     ],
     "modules-center": [
       "idle_inhibitor",
@@ -25,26 +24,28 @@
       "custom/notification"
   ],
     "modules-right": [
-      "mpris",
       "group/expand",
+      "group/rightwrap"
+    ],
+  //  -------------------------------------------------------------//  
+  "group/leftwrap": {
+      "orientation": "vertical",
+      "modules": [
+      "custom/appmenu",
+      "hyprland/workspaces",
+      "custom/empty_workspace",
+      ],
+    },
+  "group/rightwrap": {
+      "orientation": "vertical",
+      "modules": [
       "network",
       "group/expand-3",
       "group/expand-2",
       "group/expand-4",
       "custom/logout",
-    ],
-    // sourced from modules based on config.ctl //
-    // "upower": {
-    //   // "icon-size": 24,
-    //   "format": "{}",
-    //   // "format": "<span>{}</span>",
-    //   "format-alt": "{}<span color='white'>[{time}]</span>",
-    //   "tooltip": false,
-    //   "rotate":90,
-    //   "tooltip-spacing": 20,
-    //   "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-    //   // "on-click-right": "pkill waybar & hyprctl dispatch exec waybar",
-    // },
+      ],
+    },
     "upower": {
   //"format": "{}",
   "format-alt": "{} {percentage}% [{time}]",
@@ -88,23 +89,28 @@
       "format-icons": ["󰝦 ", "󰪞 ", "󰪟 ", "󰪠 ", "󰪡 ", "󰪢 ", "󰪣 ", "󰪤 ", "󰪥 "],
     },
     "mpris": {
-      "format": "{player_icon} {dynamic}",
-      "format-paused": "<span color='grey'>{status_icon} {dynamic}</span>",
+      "format": "{player_icon} {status_icon}",
+      "format-paused": "<span color='grey'>{status_icon}</span>",
       "max-length": 20,
       "player-icons": {
-        "default": "⏸ ",
-        "mpv": "🎵 ",
+        "default": "󰎆",
+        //"default": "⏸",
+        "mpv": "",
+        "firefox": "",
+        "youtube-music": "󰎆",
+        "celluloid":"",
+        "vlc":""
       },
       "status-icons": {
         "paused": "▶ ",
       },
-      "rotate":90
+      "rotate":0
       // "ignored-players": ["firefox"]
     },
     "tray": {
-      "icon-size": 16,
+      "icon-size": 24,
       "rotate": 0,
-      "spacing": 3,
+      "spacing": 16,
     },
     "group/expand": {
       "orientation": "vertical",
@@ -114,11 +120,12 @@
         "transition-to-left": true,
         //  "click-to-reveal": true
       },
-      "modules": ["custom/menu", "custom/spacer", "tray"],
+      "modules": ["custom/menu",  "tray"],
     },
     "custom/menu": {
       "format": "󰅃",
       "rotate": 0,
+      "tooltip":false
     },
     "custom/notification": {
       "tooltip": false,
@@ -142,12 +149,13 @@
     },
     "hyprland/window": {
       //"format": "<span  weight='bold'>{class}</span>",
-      "format": "{class}",
+      "format": "",
+      //"format": "{class}",
       "orientation":"vertical",
-      "rotate":90,
+      "rotate":0,
       "max-length": 120,
-      "icon": false,
-      "icon-size": 12,
+      "icon": true,
+      "icon-size": 32,
       "tooltip":true,
       "tooltip-format":"right click to close",
       "on-click-right": "hyprctl dispatch killactive",
@@ -161,13 +169,14 @@
       "format": " - ",
     },
     "hyprland/workspaces": {
-      "format": "{icon}",
+      //"format": "{icon}",
+      "format": "{id}",
       "format-window-separator":"{||}",
       "show-special":"true",
       "format-icons": {
         "default": "",
-        "active": "",
-        "special": "󰺕",
+        //"active": "",
+        "active": "󰺕",
       },
     "window-rewrite": {
         "title<.*youtube.*>": "<U+F16A>", // Windows whose titles contain "youtube"

@@ -12,25 +12,27 @@
   "reload_style_on_change": true,
   // positions generated based on config.ctl //
   "modules-left": [
-    "group/leftside"
+    "idle_inhibitor",
+    "clock",
+    "cpu",
+    "custom/cpu",
+    "custom/bgspacer",
+    "memory",
+    "custom/mem",
   ],
   "modules-center": [
-    "idle_inhibitor",
-    "clock"
+    "custom/appmenu",
+    "hyprland/window",
+    "mpris",
+    "custom/notification"
   ],
   "modules-right": [
     "group/expand",
     "group/expand-Net",
-    "group/expand-3",
-    "group/expand-2",
-    "group/expand-4",
-    "memory",
-    "custom/mem",
     "custom/bgspacer",
-    "cpu",
-    "custom/cpu",
-    "custom/bgspacer",
-    "custom/notification",
+     // "hyprland/workspaces",
+     // "custom/empty_workspace",
+    "group/workspa",
     "custom/logout",
   ],
   // sourced from modules based on config.ctl //
@@ -129,7 +131,7 @@
   "mpris": {
     "format": "{player_icon} {dynamic}",
     "format-paused": "<span color='grey'>{status_icon} {dynamic}</span>",
-    "max-length": 30,
+    "max-length": 45,
     "player-icons": {
       "default": "⏸ ",
       "mpv": "🎵 ",
@@ -137,12 +139,13 @@
     "status-icons": {
       "paused": "▶ ",
     },
+    "expand":true
     // "ignored-players": ["firefox"]
   },
   "tray": {
-    "icon-size": 16,
+    "icon-size": 20,
     "rotate": 0,
-    "spacing": 3,
+    "spacing": 24,
   },
   "group/expand": {
     "orientation": "horizontal",
@@ -150,12 +153,16 @@
       "transition-duration": 600,
       "children-class": "not-power",
       "transition-to-left": true,
-      //  "click-to-reveal": true
+      "click-to-reveal": true
     },
     "modules": [
       "custom/menu",
       "custom/spacer",
-      "tray"
+      "tray",
+    "group/expand-3",
+    "group/expand-2",
+    "group/expand-4",
+
     ],
   },
   "custom/menu": {
@@ -166,14 +173,14 @@
     "tooltip": false,
     "format": "{icon}",
     "format-icons": {
-      "notification": "󰅸 ",
-      "none": "󰂜 ",
-      "dnd-notification": "󰅸 ",
-      "dnd-none": "󱏨 ",
-      "inhibited-notification": "󰅸 ",
-      "inhibited-none": "󰂜 ",
-      "dnd-inhibited-notification": "󰅸 ",
-      "dnd-inhibited-none": "󱏨 ",
+      "notification": "󰅸",
+      "none": "󰂜",
+      "dnd-notification": "󰅸",
+      "dnd-none": "󱏨",
+      "inhibited-notification": "󰅸",
+      "inhibited-none": "󰂜",
+      "dnd-inhibited-notification": "󰅸",
+      "dnd-inhibited-none": "󱏨",
     },
     "return-type": "json",
     "exec-if": "which swaync-client",
@@ -183,10 +190,10 @@
     "escape": true,
   },
   "hyprland/window": {
-    "format": "<span  weight='bold'>{class}</span>",
+    "format": "{class}",
     "max-length": 120,
-    "icon": false,
-    "icon-size": 13,
+    "icon": true,
+    "icon-size": 18,
     "tooltip": true,
     "tooltip-format": "right click to close",
     "on-click-right": "hyprctl dispatch killactive",
@@ -207,19 +214,31 @@
     "format-icons": {
       "default": "",
       //"active": "",
-      "1": " Hi",
-      "2": "Two",
-      "3": "Thre",
-      "4": "Four",
-      "5": "Five",
-      "6": "Six",
-      "7": "Svn",
-      "8": "Egt",
-      "9": "Nine",
-      "10":"Ten",
-      "11":"    ",
-      "12": "    ",
-    },
+//      "1": " Hi",
+//      "2": "Two",
+//      "3": "Thre",
+//      "4": "Four",
+//      "5": "Five",
+//      "6": "Six",
+//      "7": "Svn",
+//      "8": "Egt",
+//      "9": "Nine",
+//      "10":"Ten",
+//      "11":"    ",
+//      "12": "    ",
+         "1": "一",     // ichi (one)
+         "2": "二",     // ni (two)
+         "3": "三",     // san (three)
+         "4": "四",     // shi/yon
+         "5": "五",
+         "6": "六",
+         "7": "七",
+         "8": "八",
+         "9": "九",
+         "10": "十",
+      },
+    "persistent-workspaces":{
+      "*": 5}
   },
   "group/expand-Net": {
     "orientation": "horizontal",
@@ -372,12 +391,12 @@
     "format": "{icon}",
     "rotate": 0,
     "format-icons": {
-      "activated": "󰥔 ",
-      "deactivated": " ",
+      "activated": "󰒳",
+      "deactivated": "󰒲",
     },
   },
   "clock": {
-    "format": "{:%I:%M %p}",
+    "format": "{:%I:%M %p    %a %d %b}",
     "rotate": 0,
     //"on-click": "/usr/local/bin/ags -t ActivityCenter",
     "on-click": "gnome-clocks",
@@ -407,24 +426,24 @@
       "warning": 30,
       "critical": 20,
     },
-    "format": "{icon}{capacity}%",
+    "format": "{icon} {capacity}%",
     // "rotate": 90,
     "rotate": 0,
     //"format-charging": "<span color='#ffffff'>󱐋{capacity}%</span>",
-    "format-charging": "󱐋{capacity}%",
+    "format-charging": "󱐋 {capacity}%",
     //"format-plugged": "󰂄",
     //"format-plugged": "",
     //"format-alt": "<<span weight='bold' color='#c2864a'>{time} <span weight='bold' color='white'>| <span weight='bold' color='#82d457'>{capacity}%</span></span></span>",
     //"format-icons": ["󰝦 ", "󰪞 ", "󰪟 ", "󰪠 ", "󰪡 ", "󰪢 ", "󰪣 ", "󰪤 ", "󰪥 "],
     "format-icons": [
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " "
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
     ],
     //"format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     //"on-click-right": "pkill waybar & hyprctl dispatch exec waybar",
@@ -436,10 +455,10 @@
     "rotate": 0,
     "format": "{icon}",
     "format-icons": [
-      "󰃞 ",
-      "󰃝 ",
-      "󰃟 ",
-      "󰃠 "
+      "󰃞",
+      "󰃝",
+      "󰃟",
+      "󰃠"
     ],
     "scroll-step": 1,
     "min-length": 2,
@@ -470,18 +489,18 @@
   },
   "network": {
     "tooltip": true,
-    "format-wifi": "{icon} ",
+    "format-wifi": "{icon}",
     "format-icons": [
-      "󰤟 ",
-      "󰤢 ",
-      "󰤥 "
+      "󰤟",
+      "󰤢",
+      "󰤥"
     ],
     //  "format-wifi": "<i class='fa-solid fa-wifi-slash'></i>",
     "rotate": 0,
-    "format-ethernet": "󰈀 ",
+    "format-ethernet": "󰈀",
     "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>",
     "format-linked": "󰈀 {ifname} (No IP)",
-    "format-disconnected": " ",
+    "format-disconnected": "",
     "tooltip-format-disconnected": "Disconnected",
     "on-click": "/usr/local/bin/ags -t ControlPanel",
     "interval": 2,
@@ -489,21 +508,21 @@
   "pulseaudio": {
     "format": "{icon}",
     "rotate": 0,
-    "format-muted": "󰓄 ",
+    "format-muted": "",
     "tooltip-format": "{icon} {desc} // {volume}%",
     "scroll-step": 5,
     "format-icons": {
-      "headphone": " ",
-      "hands-free": " ",
-      "headset": " ",
-      "phone": " ",
-      "portable": " ",
-      "car": " ",
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
       "default": [
-        " ",
-        " ",
-        " ",
-        "󱄠 "
+        "",
+        "",
+        ""
+        //"󱄠"
       ],
     },
   },
@@ -607,7 +626,7 @@
     "scroll-step": 1,
   },
   "custom/logout": {
-    "format": " 󰗽 ",
+    "format": "⏻",
     "on-click": "wlogout --buttons-per-row 6 -C .config/wlogout/styletry.css",
     "tooltip": false,
     "tooltip-format": "Logout",
@@ -618,22 +637,18 @@
     "tooltip": false,
   },
   "custom/empty_workspace": {
-    "format": "󰐗 ",
-    //"exec": "WS=$(hyprctl activeworkspace | awk 'NR==1 {print $3}'); if hyprctl clients | awk '$1 == \"workspace:\" {print $2+0}' | grep -qx \"$WS\"; then echo '󰐗 '; else echo ''; fi",
+    "format": "󰐗",
+    "exec": "WS=$(hyprctl activeworkspace | awk 'NR==1 {print $3}'); if hyprctl clients | awk '$1 == \"workspace:\" {print $2+0}' | grep -qx \"$WS\"; then echo '󰐗 '; else echo ''; fi",
     "on-click": "hyprctl dispatch workspace empty",
-    "tooltip": false,
+    "tooltip": true,
+    "tooltip-format": "go to empty WS",
     "interval": 1
   },
-  "group/window": {
+  "group/workspa": {
     "orientation": "horizontal",
-    "drawer": {
-      "transition-duration": 400,
-      "children-class": "window-expand",
-      "transition-to-left": true
-    },
     "modules": [
-      "hyprland/window",
-      "custom/closer"
+      "hyprland/workspaces",
+      "custom/empty_workspace"
     ]
   },
   "custom/closer": {
@@ -645,11 +660,6 @@
     "orientation": "horizontal",
     "modules": [
       "custom/smallspacer",
-      "custom/appmenu",
-      "hyprland/workspaces",
-      "custom/empty_workspace",
-      "hyprland/window",
-      "mpris"
     ]
   },
 }

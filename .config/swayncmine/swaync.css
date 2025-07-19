@@ -1,0 +1,29 @@
+* {
+    background-color: rgba(#274871, 0.3); /* Background with transparency */
+    color: #040A16; /* Default text color */
+    border-radius: 8px; /* Rounded corners */
+}
+
+.notification {
+    padding: 10px;
+    margin: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #c0c1c4; /* Title color */
+}
+
+.body {
+    font-size: 0.9em;
+    color: #040A16; /* Body text color */
+}
+
+.button {
+    background-color: rgba(#564A72, 0.8); /* Button background color */
+    border-radius: 4px;
+    padding: 5px 10px;
+    color: #c0c1c4; /* Button text color */
+}

@@ -1,4 +1,4 @@
-@import url("/home/papa/.cache/wal/colors-waybar.css");
+@import url("colors-waybar.css");
 
 * {
     font-family: "Hurmit Nerd Font";
@@ -80,6 +80,7 @@ tooltip {
     border-radius:2px 2px 60px 60px;
     margin-left:0.2em;
     margin-right:0.2em;
+    margin-bottom:-1rem;
 }
 
 #mpris {
@@ -204,4 +205,26 @@ tooltip {
   margin:0px;
   border-radius: 60px;
   border: 3px solid alpha(@color3,1);
+}
+
+window#waybar.empty #window{
+    padding:0px;
+    margin:0px;
+    border:none;
+}
+
+#appmenupill{
+    border-radius: 50px;
+    background: alpha(@color6,1);
+    margin:inherit;
+    padding:inherit;
+    margin-left:0.2em;
+    margin-right:0.2em;
+}
+
+#custom-smallspacer { 
+    color: transparent;
+    background:alpha(@color6,1);
+    border-radius:2px 2px 60px 60px;
+    margin:-.5em .2em 0px .2em;
 }

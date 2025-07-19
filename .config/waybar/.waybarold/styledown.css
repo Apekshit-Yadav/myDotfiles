@@ -1,0 +1,233 @@
+@import url("/home/papa/.cache/wal/colors-waybar.css");
+/* General Styles */
+* {
+    font-family: JetBrains Mono;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Waybar Window */
+window#waybar {
+    /* background: transparent; */
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid @color3;
+    border-radius: 50px;
+    opacity: 1;
+    padding: 2px;
+}
+
+/* Tooltip */
+tooltip {
+    background: @color0;
+    color: @foreground;
+    font-size: 12px;
+    border-radius: 7px;
+    border: 2px double @color4;
+    padding: 3px;
+}
+
+/* Workspaces */
+#workspaces {
+    /* background: rgba(40, 40, 40, 0.0); */
+    /* color: transparent; */
+    border-radius: 8px;
+    padding: 2px;
+    transition: 0.2s ease;
+    font-size: 14px;
+}
+
+#workspaces button {
+    font-size: 14px;
+    padding: 2px 6px;
+    /* background-color: transparent; */
+    /* color: @foreground; */
+    border-radius: 12px;
+    transition: 0.2s ease;
+    margin: 2px 3px 2px 2px;
+}
+
+#workspaces button.active {
+    background: @color11;
+    color: @foreground;
+    padding: 0px 12px 0px 3px;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+    /* margin: 0px 4px 0px 4px; */
+    margin: 0px;
+    min-width: 10px;
+    min-height: 14px;
+}
+
+#workspaces button:hover {
+    background: none;
+    color: @color6;
+    transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+#workspaces button.focused {
+    background-color: @color2;
+}
+
+/* Tray */
+#tray menu * {
+    font-weight: normal;
+    font-size: 13px;
+    color: @foreground;
+    padding: 2px 4px;
+    min-height: 18px;
+    margin-bottom: 2px;
+    opacity: 1;
+}
+
+#tray menu separator {
+    min-height: 10px;
+}
+
+/* Custom Elements */
+#custom-spacer,
+#custom-smallspacer {
+    opacity: 0.8;
+}
+
+#custom-mouse, 
+#custom-power, 
+#backlight, 
+#bluetooth,
+#custom-cliphist {
+    padding: 4px 6px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    color: @foreground;
+}
+
+#custom-power {
+    font-size: 20px;
+    margin: 4px 0;
+}
+
+#battery {
+    font-weight: normal;
+    font-size: 20px;
+    color: @color4;
+    padding: 4px 6px;
+    background: rgba(40, 40, 40, 0.0);
+}
+
+#battery.charging,
+#battery.plugged {
+    color: @foreground;
+}
+
+#battery.critical:not(.charging) {
+    color: @color9;
+}
+
+/* Sliders */
+#backlight-slider slider,
+#pulseaudio-slider slider {
+    background: @foreground;
+    border-radius: 10px;
+    box-shadow: none;
+    min-width: 0.5px;
+    min-height: 1px;
+}
+
+#backlight-slider trough,
+#pulseaudio-slider trough {
+    background: @color0;
+    border-radius: 50px;
+    min-height: 8px;
+    min-width: 90px;
+    padding: 1px 6px;
+}
+
+#backlight-slider highlight,
+#pulseaudio-slider highlight {
+    background-color: @color6;
+    border-radius: 50px;
+    min-height: 6px;
+}
+
+#backlight-slider,
+#pulseaudio-slider {
+    min-height: 1px;
+}
+
+/* Notifications */
+#custom-notifications,
+#custom-spotify,
+#custom-theme,
+#custom-menu {
+    color: @foreground;
+    background: @background;
+    margin: 0;
+    padding: 4px 6px;
+    opacity: 0.1;
+}
+
+/* Clock */
+#clock {
+    color: @foreground;
+    font-size: 16px;
+    font-weight: 900;
+    font-family: "Hurmit Nerd Font";
+    background: @color11;
+    margin: 4px 6px;
+    padding: 4px 6px;
+    border: none;
+    border-radius: 50px;
+}
+
+/* Network */
+#network {
+    color: @foreground;
+    font-weight: normal;
+    font-size: 16px;
+    padding: 4px 6px;
+}
+
+/* Custom End Sections */
+#custom-l_end,
+#custom-r_end,
+#custom-sl_end,
+#custom-sr_end,
+#custom-rl_end,
+#cava,
+#upower#headset,
+#upower {
+    color: @color5;
+}
+
+/* MPRIS */
+#mpris {
+    color: @foreground;
+    animation: blink 3s linear infinite alternate;
+}
+
+@keyframes blink {
+    to {
+        color: @color9;
+    }
+}
+
+#custom-r_end {
+    border-radius: 0px 7px 7px 0px;
+    margin-right: 1px;
+    padding: 4px 6px;
+}
+
+#custom-l_end {
+    border-radius: 7px 0px 0px 7px;
+    margin-left: 1px;
+    padding: 4px 6px;
+}
+
+#logouticon {
+    padding: 4px 6px;
+}
+
+/* Group Minimization */
+#group-minimized {
+    border-left: solid 0.5px @color3;
+    padding: 4px;
+}

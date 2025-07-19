@@ -1,5 +1,4 @@
-@import url("/home/papa/.cache/wal/colors-waybar.css");
-
+@import url("colors-waybar.css");
 * {
     font-family: "Hurmit Nerd Font";
     font-weight: bold; 
