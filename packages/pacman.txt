@@ -1,3 +1,4 @@
+  gnome-tweaks
   git
   rofi-wayland
   swww
