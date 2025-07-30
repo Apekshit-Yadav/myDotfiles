@@ -6,7 +6,7 @@ ACTIVE_WINDOW=$(hyprctl activewindow -j | jq -r '.address')
 # Choose emoji
 EMOJI=$(sed '1,/^### DATA ###$/d' "$0" | fuzzel \
     --icon-theme=candy-icons \
-    --background-color=1A1513dd \
+    --background-color=1A151311 \
     --text-color=F8D4D2ff \
     --match-color=FFB3B1ff \
     --border-width=2 \

@@ -1,17 +1,17 @@
 @import url("colors-waybar.css");
 
 * {
-    font-family: "Hurmit Nerd Font";
+    font-family: "Hurmit Nerd Font Propo";
     font-weight: bold; 
-    font-size: 16px;
+    font-size: 14px;
     padding: 0px;
     margin: 0px;
 }
 
 window#waybar {
-    background:alpha(@background,0.5);
-    border-radius:12px;
-    border: none;
+    background:alpha(@background,0.75);
+    border-radius:4px;
+    border-bottom: 2px solid ;
     border-color:@color8;
 }
 
@@ -20,17 +20,18 @@ tooltip {
     color: @foreground;
     font-size: 12px;
     border-radius: 12px;
-    border: 2px solid @color6;
-    padding:4px;
+    border: 1px solid @color6;
+    /* border:none; */
+    padding:12px;
 }
 
-#custom-appmenu,#window,#custom-logout {
+#custom-appmenu,#custom-logout {
     font-size:22px;
-    color: @foreground;
-    background: alpha(@color3,0.25);
-    padding:0px 16px 0px 12px;
+    color: @color3;
+    background: alpha(@color3,0.1);
+    padding:0px 16px;
     margin:4px;
-    border-radius:12px 12px;
+    border-radius:4px;
 }
 
 #clock{
@@ -52,15 +53,8 @@ tooltip {
     font-size:inherit;
 }
 
-#workspaces button.active {
-    background: alpha(@foreground,0.1);
-    color: @color3; 
-    border-radius: 12px;
-    border-bottom:2px solid;
-    border-color:@color3;
-    margin: 4px;
-}
 #workspaces button {
+    color:alpha(@color7,0.5);
     background: transparent;
     border:none;
 }
@@ -70,11 +64,35 @@ tooltip {
     border:none;
     padding: 2px 6px;
     font-size: inherit;
+    margin-left:10px;
+    margin-right:10px;
+}
+
+#workspaces button:not(.empty) {
+    color:alpha(@foreground,1);
+}
+
+#workspaces button.active {
+    /* background: alpha(@foreground,0.1); */
+    color: @color3; 
+    border-radius: 2px;
+    /*border-bottom:2px solid;
+     border-color:@color3; */
+    margin: 4px;
+}
+
+#backlight-slider,
+#pulseaudio-slider {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-top: 3px;
+    margin-bottom: 3px;
 }
 
 #backlight-slider slider,
 #pulseaudio-slider slider {
-    background-image: radial-gradient(ellipse at center,@foreground 0%, @color6 100%);
+    /* background-image: radial-gradient(ellipse at center,@foreground 0%, @color6 100%); */
+    background: @color3;
     border-radius:50px;
     border:none;
     min-width:8px;
@@ -84,7 +102,7 @@ tooltip {
 #backlight-slider trough,
 #pulseaudio-slider trough {
     min-width: 5em;
-    min-height: 10px;
+    min-height: 4px;
     border-radius: 50px;
     background: @color0; 
 }
@@ -93,13 +111,50 @@ tooltip {
 #pulseaudio-slider highlight {
     border-radius: 50px 0px 0px 50px;
     background-color: @color6;
-    min-height: 10px;
+    min-height: 4px;
 }
 
 #window{
   font-size: inherit;
+  color:@color3;
+  background: transparent;
+  padding:0px 24px;
+  margin:6px 12px;
+  /* border-left:1px solid; */
+  /* border-right:1px solid; */
+}
+
+window#waybar.empty #window {
+    background: transparent;
+    padding: 0px;
+    margin: 0px;
 }
 
 #battery.critical{
     color: @color2;
+}
+
+#custom-appmenu{
+    margin-left: 20px;
+}
+
+#custom-logout{
+    margin-right: 20px;
+}
+
+#expand-3,#expand-2{
+    margin-left: -2px;
+    margin-right:4px;
+}
+
+#pulseaudio{
+    margin-left:0px;
+}
+
+#idle_inhibitor { 
+  font-size:16px;
+}
+
+#idle_inhibitor.activated { 
+    color:@color3;
 }

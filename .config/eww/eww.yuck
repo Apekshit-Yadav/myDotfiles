@@ -1,7 +1,0 @@
-(include "windows/notifications-panel.yuck")
-(include "widgets/notification.yuck")
-
-(defvar some_notif_data {
-  "summary": "Test Title",
-  "body": "This is a test notification body."
-})

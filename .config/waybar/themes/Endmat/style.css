@@ -178,14 +178,15 @@ window#waybar.empty #window {
 #mpris,
 #custom-music {
     background: alpha(@color6, 0.25);
-    color: @color1;
+    color: @color0;
     border-radius: 60px;
     margin: 4;
     padding: 2 12 2 12;
 }
 
-#mpris.playing {
-    color: @color0;
+#mpris.paused {
+    color: @color1;
+    background: alpha(@color0, 0);
 }
 
 #bluetooth{

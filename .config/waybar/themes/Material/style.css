@@ -378,18 +378,19 @@ tooltip {
     padding-right: 10px;}
 
 #workspaces button:not(.empty) {
-    background: alpha(@background,0.15); 
+    color:alpha(@color3,0.5);
+    background: alpha(@foreground,0.10); 
     border-radius: 50px;
     margin: 4px 2px;
     padding: 0px 10px 0px 8px;
 }
 #workspaces button.active {
-    /*background: alpha(@background,0.5);*/
-    background: transparent;
+    background: alpha(@color3,0.15);
+    /*background: transparent;*/
     color: @color3; 
-    transition: all 0.3s ease;
+    transition: all 0.3s ease-out;
     margin: 4px 0px;
-    padding: 0px 10px 0px 8px;
+    padding: 0px 20px 0px 18px;
     border-radius: 50px;
     border:1px solid;
 }

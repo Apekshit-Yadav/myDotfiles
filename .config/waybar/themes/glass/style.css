@@ -138,6 +138,9 @@ window#waybar {
     border-radius:60px;   
 }
 
+#workspaces {
+    margin:0px;
+}
 #workspaces button {
     background-color: transparent;
     box-shadow: none;
@@ -147,29 +150,37 @@ window#waybar {
     padding-bottom:0px;
     padding-left: 8px;
     padding-right: 8px;
-    margin: 0px;
+    margin: -8px;
     border-radius:50px;
+    color: alpha(@foreground,0.5);
+    transition: all 0.3s ease-out;
+}
+#workspaces button.empty { 
+    margin:4px;
+    transition: all 0.3s ease-out;
 }
 
 #workspaces button:not(.empty){
-    /* background: alpha(@background,.15); */
-    color: @background; 
-    transition: all 0.3s ease;
-    margin: 4px;
+    background: alpha(@background,0);
+    color: @foreground; 
+    transition: all 0.3s ease-out;
+    margin: 8px 4px;
     border-radius:60px;
 }
 
 #workspaces button.active {
-    background: alpha(@background,.5);
+    background: alpha(@color3,.1);
     color: @foreground; 
     transition: all 0.3s ease;
-    margin: 4px;
+    margin: 8px 4px;
     padding-top:0px;
     padding-bottom:0px;
-    padding-left:13px;
-    padding-right:11px;
-    border:none;
+    padding-left:14px;
+    padding-right:14px;
+    border:1px solid;
+    border-color:alpha(@color7,0.25);
     border-radius:60px;
+    transition: all 0.3s ease-out;
 }
 
 #workspaces button:hover {

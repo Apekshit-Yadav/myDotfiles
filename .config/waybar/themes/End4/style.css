@@ -1,7 +1,7 @@
 @import url("colors-waybar.css");
 
 * {
-    font-family: "Hurmit Nerd Font";
+    font-family: "Hurmit Nerd Font Propo";
     font-weight: bold;
     font-size: 14px;
 }
@@ -110,7 +110,7 @@ window#waybar.empty #window {
     margin: 4 0;
     border-radius: 60 0 0 60;*/
   padding-left: 10px;
-  padding-right: 14px;
+  padding-right: 10px;
   margin:0px;
 }
 
@@ -180,8 +180,8 @@ window#waybar.empty #window {
     color: @color7;
     border-radius: 60px;
     margin: inherit;
-    padding-left: 12px;
-    padding-right: 6px;
+    padding-left: 14px;
+    padding-right: 14px;
 }
 #custom-music {
     /*background: alpha(@background, 0.25);*/
@@ -226,7 +226,8 @@ window#waybar.empty #window {
 }
 
 #battery.charging,
-#battery.plugged {
+#battery.plugged,
+#battery.full {
     color: @color3;
     background: alpha(@color8, 0.18);
 }

@@ -1,89 +1,105 @@
 #!/bin/bash
 
 # Configuration
-NOTIFY_CMD="notify-send"  # Command for notifications
-AUDIO_TOOL="wpctl"        # Audio management tool
-STEP=5                    # Volume change step in percentage
-LAST_VOLUME=100           # Default to 100% (for unmuting)
-NOTIFY_ID=9999            # Static notification ID for volume updates
+NOTIFY_CMD="notify-send"
+AUDIO_TOOL="wpctl"
+STEP=5
+LAST_VOLUME=100
+NOTIFY_ID=9999
 
-# Get the current volume as a percentage
+ICON_LOW="audio-volume-low-symbolic"
+ICON_MEDIUM="audio-volume-medium-symbolic"
+ICON_HIGH="audio-volume-high-symbolic"
+ICON_MUTED="audio-volume-muted-symbolic"
+
 get_volume() {
     volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2 * 100}')
-    echo "${volume%.*}"  # Return integer part of the volume
+    echo "${volume%.*}"
 }
 
-# Set the volume (accepts percentage values)
+get_icon() {
+    local volume=$1
+    if (( volume == 0 )); then
+        echo "$ICON_MUTED"
+    elif (( volume < 35 )); then
+        echo "$ICON_LOW"
+    elif (( volume < 70 )); then
+        echo "$ICON_MEDIUM"
+    else
+        echo "$ICON_HIGH"
+    fi
+}
+
 set_volume() {
     local volume=$1
     wpctl set-volume @DEFAULT_AUDIO_SINK@ "$volume%"
 }
 
-# Ensure the volume stays between 0% and 100%
 clamp_volume() {
     local volume=$1
-    if (( volume > 100 )); then
-        echo 100
-    elif (( volume < 0 )); then
-        echo 0
-    else
-        echo "$volume"
-    fi
+    (( volume > 100 )) && echo 100 && return
+    (( volume < 0 )) && echo 0 && return
+    echo "$volume"
 }
 
-# Handle volume change (increase or decrease)
 adjust_volume() {
     local volume_change=$1
-    local current_volume=$(get_volume)  # Get current volume
-    local new_volume=$((current_volume + volume_change))  # Calculate new volume
-    new_volume=$(clamp_volume "$new_volume")  # Clamp volume to be between 0% and 100%
-    set_volume "$new_volume"  # Set the new volume
+    local current_volume=$(get_volume)
+    local new_volume=$((current_volume + volume_change))
+    new_volume=$(clamp_volume "$new_volume")
+    set_volume "$new_volume"
 }
 
-# Mute the volume and store the last known volume
+notify_persistent() {
+    local volume=$1
+    local icon=$2
+    $NOTIFY_CMD -r $NOTIFY_ID -i "$icon" \
+        -h int:value:$volume \
+        -h string:synchronous:volume \
+        -t 1500 \
+        "Volume: $volume%" ""
+}
+
 mute_volume() {
-    LAST_VOLUME=$(get_volume)  # Store the current volume
-    set_volume 0  # Mute the volume
-    $NOTIFY_CMD -r $NOTIFY_ID "Volume Muted" "Volume is now 0%"
+    LAST_VOLUME=$(get_volume)
+    set_volume 0
+    notify_persistent 0 "$ICON_MUTED"
 }
 
-# Unmute and restore the volume to the previous level
 unmute_volume() {
-    set_volume "$LAST_VOLUME"  # Restore the volume to the previous level
-    $NOTIFY_CMD -r $NOTIFY_ID "Volume Unmuted" "Volume is restored to $LAST_VOLUME%"
+    set_volume "$LAST_VOLUME"
+    local icon=$(get_icon "$LAST_VOLUME")
+    notify_persistent "$LAST_VOLUME" "$icon"
 }
 
-# Check if the volume is currently muted and toggle mute/unmute
 toggle_mute() {
     local current_volume=$(get_volume)
-
     if (( current_volume == 0 )); then
-        unmute_volume  # If muted, restore the previous volume
+        unmute_volume
     else
-        mute_volume    # If not muted, mute the volume and save the current level
+        mute_volume
     fi
 }
 
-# Show current volume as a progressive notification
 show_notification() {
     local volume=$(get_volume)
-    $NOTIFY_CMD -r $NOTIFY_ID -h int:value:$volume -h string:synchronous:volume "Volume: $volume%"
+    local icon=$(get_icon "$volume")
+    notify_persistent "$volume" "$icon"
 }
 
-# Main script functionality
 case "$1" in
     up)
-        adjust_volume "$STEP"   # Increase volume by 5%
+        adjust_volume "$STEP"
         show_notification
         ;;
     down)
-        adjust_volume "-$STEP"   # Decrease volume by 5%
+        adjust_volume "-$STEP"
         show_notification
         ;;
     toggle)
-        toggle_mute  # Toggle mute/unmute
+        toggle_mute
         ;;
     *)
-        show_notification     # Show current volume
+        show_notification
         ;;
 esac

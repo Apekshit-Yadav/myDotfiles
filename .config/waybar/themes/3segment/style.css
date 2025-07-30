@@ -1,7 +1,7 @@
 @import url("colors-waybar.css");
 
 * {
-    font-family: "Hurmit Nerd Font";
+    font-family: "Hurmit Nerd Font","Hermit Nerd Font","JetBrains Mono Nerd Font";
     font-weight: bold; 
     font-size: 14px;
 }
@@ -301,9 +301,11 @@ tooltip {
 }
 
 #custom-empty_workspace{
+    color:alpha(@foreground, .5);
     background: alpha(@background, 0.25);
-    font-size: 18px;
+    font-size: inherit;
     padding-left:4px;
+    padding-right:8px;
 }
 
 #custom-cpu,#custom-mem{

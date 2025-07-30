@@ -112,9 +112,9 @@ export EDITOR='nvim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias pi='yay -S '
-alias piq='yay -S --noconfirm '
-alias pmi='sudo pacman -S '
+alias pi='yay -S --needed '
+alias piq='yay -S --noconfirm --needed '
+alias pmi='sudo pacman -S --needed '
 alias clc='sudo pacman -Scc'
 alias pcc='sudo pacman -Rcns $(pacman -Qtdq)'
 alias xx='exit'
@@ -122,8 +122,8 @@ alias prem='sudo pacman -Rcns '
 alias hyr='hyprctl reload'
 alias ged='gnome-text-editor '
 #alias sd='systemctl poweroff'
-#alias lout='hyprctl dispatch exit'
-alias upd='sudo pacman -Syu'
+alias sc='pacman -Qq '
+alias upd='sudo pacman -Syu --needed --noconfirm'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -35,4 +35,37 @@ swaync-client --reload-css
 ln -sf "$WALLPAPER" ~/.cache/currwall
 ln -sf "$WALLPAPER" ~/.cache/currwall.png
 
+# === Auto-generate theme preview ===
+
+# Path to current theme and preview
+ACTIVE_THEME_DIR="$HOME/.config/themes/active"
+ACTIVE_THEME_NAME=$(basename "$(readlink "$ACTIVE_THEME_DIR")")
+PREVIEW_PATH="$HOME/.config/themes/${ACTIVE_THEME_NAME}.png"
+
+# Use current wallpaper as preview (resized)
+if [[ -f "$WALLPAPER" ]]; then
+    magick "$WALLPAPER" -resize 300x300^ -gravity center -extent 300x300 "$PREVIEW_PATH"
+    echo "🖼️ Generated preview: $PREVIEW_PATH"
+fi
+
+
+# ------ currentwall link generator for wallpaper restore on theme change -------
+# Resolve real theme folder from symlink
+THEME_DIR="$(readlink -f "$HOME/.config/themes/active")"
+WALL_NAME="$(basename "$WALLPAPER")"
+#EXT="${WALL_NAME##*.}"
+
+# Full path to the wallpaper inside the real theme folder
+TARGET_WALL="$THEME_DIR/wallpapers/$WALL_NAME"
+SYMLINK_PATH="$THEME_DIR/wallpapers/current"
+
+# Only create symlink if the target exists
+if [[ -f "$TARGET_WALL" ]]; then
+    ln -sf "$TARGET_WALL" "$SYMLINK_PATH"
+    echo "🪄 Symlinked current → $WALL_NAME"
+else
+    echo "⚠️  Wallpaper $WALL_NAME not found in $THEME_DIR/wallpapers/"
+fi
+
+
 ~/HyprlandScripts/ChromiumPywal/generate-theme.sh

@@ -9,8 +9,8 @@ WAYBAR_STYLE="$HOME/.config/waybar/style.css"
 themes=$(ls "$THEME_DIR")
 
 # Use rofi to select one
-#chosen=$(echo "$themes" | rofi -config ~/HyprlandScripts/thewe.rasi -dmenu -p "Select Waybar Theme")
-chosen=$(echo "$themes" | rofi -config ~/testconfigs/thewe.rasi -dmenu -p "Select Waybar Theme")
+chosen=$(echo "$themes" | rofi -font "JetBrains Mono Nerd Font 16" -dmenu -p "Select Waybar Theme")
+#chosen=$(echo "$themes" | rofi -config ~/testconfigs/thewe.rasi -dmenu -p "Select Waybar Theme")
 
 # If a theme was selected
 if [ -n "$chosen" ]; then

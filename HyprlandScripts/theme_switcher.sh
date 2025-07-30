@@ -23,8 +23,8 @@ for dir in "$THEME_DIR"/*/; do
 done
 
 # Show Rofi with preview icons
-#CHOICE=$(printf "$entries" | rofi -dmenu -config ~/HyprlandScripts/moder.rasi -p "🎨 Select Theme:" -show-icons)
-CHOICE=$(printf "$entries" | rofi -dmenu -config ~/testconfigs/thewe.rasi -p "🎨 Select Theme:" -show-icons)
+CHOICE=$(printf "$entries" | rofi -dmenu -config ~/HyprlandScripts/theme_change.rasi -p "🎨 Select Theme:" -show-icons)
+#CHOICE=$(printf "$entries" | rofi -dmenu -config ~/testconfigs/thewe.rasi -p "🎨 Select Theme:" -show-icons)
 
 # If nothing chosen, exit
 [[ -z "$CHOICE" ]] && exit 0
@@ -45,8 +45,30 @@ for i in {1..20}; do
     sleep 0.05
 done
 
+
+# Attempt to restore last-used wallpaper
+WALLPAPER_DIR="$ACTIVE_LINK/wallpapers"
+CURR_WALL=$(find "$WALLPAPER_DIR" -maxdepth 1 -type l -name "current" | head -n 1)
+
+if [[ -n "$CURR_WALL" && -f "$CURR_WALL" ]]; then
+    echo "🖼️ Restoring wallpaper from $CURR_WALL"
+    swww img "$CURR_WALL" --resize crop \
+        --transition-type wipe \
+        --transition-duration 2.5 \
+        --transition-fps 60 \
+        --transition-angle 135
+    wal -i "$CURR_WALL" -n
+    ln -sf "$ACTIVE_LINK/wallpapers/$(basename $(readlink $CURR_WALL))" ~/.cache/currwall
+    ln -sf "$ACTIVE_LINK/wallpapers/$(basename $(readlink $CURR_WALL))" ~/.cache/currwall.png
+    swaync-client --reload-css   
+else
+    echo "⚠️  No current wallpaper symlink found in $WALLPAPER_DIR"
+    # Uncomment this if you want fallback behavior:
+     ~/HyprlandScripts/change_wallpaper_final.sh
+fi
+
 # Apply theme (wallpaper, pywal, preview update, etc.)
-~/HyprlandScripts/change_wallpaper_final.sh
+#~/HyprlandScripts/change_wallpaper_final.sh
 
 # Reload Hyprland just in case
 hyprctl reload

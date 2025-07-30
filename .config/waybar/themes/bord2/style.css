@@ -322,3 +322,9 @@ tooltip {
     padding:4px;
     margin:6px 0px;
 }
+
+window#waybar.empty #window{
+    background: transparent;
+    margin: 0px;
+    padding: 0px;
+}

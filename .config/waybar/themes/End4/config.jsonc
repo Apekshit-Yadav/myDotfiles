@@ -95,11 +95,12 @@
     "format-paused": "{status_icon}",
     "max-length": 35,
     "player-icons": {
-      "default": "⏸ ",
-      "mpv": "🎵 "
+      "mpv": "",
+      "default": ""
     },
     "status-icons": {
-      "paused": "▶ "
+      "playing": "",
+      "paused": ""
     },
     "expand": true,
   "tooltip": false
@@ -340,8 +341,7 @@
   "group/musicplayer": {
      "orientation": "horizontal",
      "modules": [
-        "mpris",
-       "custom/music",
+        "mpris","custom/music",
      ]
    },
     "custom/bluetooth_device": {

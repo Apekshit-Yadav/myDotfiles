@@ -62,7 +62,7 @@ tooltip {
     box-shadow: none;
     text-shadow: none;
     border-radius: 24px;
-    transition:all 0.2s ease;
+    transition:all 0.2s ease-out;
     margin: 12px 2px;
     padding: 0px;
 }
@@ -73,7 +73,7 @@ tooltip {
     box-shadow: none;
     text-shadow: none;
     border-radius: 24px;
-    transition:all 0.2s ease;
+    transition:all 0.2s ease-out;
     margin: 12px 2px;
     padding: 0px;
  /*   padding-left: 2px;
@@ -96,7 +96,7 @@ tooltip {
     margin: 8px 2px;
     padding-right:1em;
     padding-left:1em;
-    transition: all 0.2s ease;
+    transition: all 0.2s ease-out;
 }
 
 #workspaces button:hover {

@@ -109,3 +109,23 @@
   background-color: @selected;
 }
 
+/* .notification-row .notification-background .notification .notification-default-action .notification-content progressbar.trough {
+  margin-top: 0px;
+  background: @selected;
+}
+ */
+.notification progressbar,
+.notification progressbar trough,
+.notification progressbar progress {
+  min-height: 4px;
+  border-radius: 6px;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.notification progressbar progress {
+  background-color: @selected;
+}
+
+progress {
+  transition: all 0.4s ease-in-out;
+}
