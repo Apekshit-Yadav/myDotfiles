@@ -1,38 +1,39 @@
-  gnome-tweaks
-  git
-  rofi-wayland
-  swww
-  waybar
-  hyprland
-  hyprlock
-  hypridle
-  fuzzel
-  swaync
-  neovim
-  kitty
-  eog
-  htop
-  btop
-  bluez
-  blueman
-  cava
-  cliphist
-  cmatrix
-  fastfetch
-  file-roller
-  gparted
-  nautilus
-  pcmanfm
-  ly
-  zenity
-  udiskie
-  wl-clipboard
-  network-manager-applet
-  nwg-look
-  orchis-theme
-  xdg-desktop-portal
-  xdg-desktop-portal-gtk
-  xdg-desktop-portal-hyprland
-  xorg-xhost
-  nwg-drawer
-  go
+gnome-tweaks
+git
+rofi-wayland
+swww
+waybar
+hyprland
+hyprlock
+hypridle
+fuzzel
+swaync
+neovim
+kitty
+eog
+htop
+btop
+bluez
+blueman
+cava
+cliphist
+cmatrix
+fastfetch
+file-roller
+gparted
+nautilus
+pcmanfm
+cpio
+ly
+zenity
+udiskie
+wl-clipboard
+network-manager-applet
+nwg-look
+orchis-theme
+xdg-desktop-portal
+xdg-desktop-portal-gtk
+xdg-desktop-portal-hyprland
+xorg-xhost
+nwg-drawer
+go

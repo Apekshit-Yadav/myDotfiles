@@ -1,5 +1,5 @@
-  telegram-desktop
-  code
-  ranger
-  github-desktop
-  yazi
+telegram-desktop
+code
+ranger
+github-desktop
+yazi
