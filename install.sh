@@ -16,23 +16,45 @@ optional_file="$PKG_DIR/optional.txt"
 
 # Function: Backup existing dotfiles
 run_backup() {
-  echo -e "${YELLOW}Backing up existing dotfiles...${NC}"
-  BACKUP_DIR="$HOME/.dotfiles_backup_$(date +%s)"
-  mkdir -p "$BACKUP_DIR"
-  cp -r "$HOME/.config" "$BACKUP_DIR" 2>/dev/null || true
-  echo -e "Backup created at $BACKUP_DIR"
+  read -rp "Do you want to back up existing dotfiles before proceeding? [y/N]: " confirm
+  confirm=${confirm,,}  # lowercase the input
+
+  if [[ "$confirm" =~ ^(y|yes)$ ]]; then
+    echo -e "${YELLOW}Backing up existing dotfiles...${NC}"
+    BACKUP_DIR="$HOME/Backups/.dotfiles_backup_$(date +%s)"
+    mkdir -p "$BACKUP_DIR"
+    cp -r "$HOME/.config" "$BACKUP_DIR" 2>/dev/null || true
+    echo -e "${GREEN}Backup created at $BACKUP_DIR${NC}"
+  else
+    echo -e "${YELLOW}Skipping backup as per user input.${NC}"
+  fi
 }
 
 # Function: Clone dotfiles repository
 clone_dotfiles() {
-  if [ -d "$HOME/myDotfiles" ]; then
-    echo -e "${YELLOW}Dotfiles directory already exists. Skipping clone.${NC}"
-  else
-    echo -e "${YELLOW}Cloning dotfiles repository to home directory...${NC}"
-    git clone "$DOTFILES_REPO" "$HOME/myDotfiles"
+  DOTFILES_REPO="https://github.com/Apekshit-Yadav/myDotfiles.git"
+  DOTFILES_DIR="$HOME/myDotfiles"
+
+  if [[ -d "$DOTFILES_DIR" ]]; then
+    echo -e "${YELLOW}Directory '$DOTFILES_DIR' already exists.${NC}"
+    read -rp "Do you want to remove it and re-clone the repo? [y/N]: " answer
+    answer=${answer,,}
+    if [[ "$answer" =~ ^(y|yes)$ ]]; then
+      rm -rf "$DOTFILES_DIR"
+      echo -e "${YELLOW}Old dotfiles directory removed.${NC}"
+    else
+      echo -e "${YELLOW}Skipping cloning. Using existing dotfiles at '$DOTFILES_DIR'.${NC}"
+      return
+    fi
   fi
 
-  echo -e "${GREEN}Dotfiles repo ready!${NC}"
+  echo -e "${YELLOW}Cloning dotfiles repository into '$DOTFILES_DIR'...${NC}"
+  if git clone --depth=1 "$DOTFILES_REPO" "$DOTFILES_DIR"; then
+    echo -e "${GREEN}Dotfiles repo cloned successfully!${NC}"
+  else
+    echo -e "${YELLOW}Failed to clone the repository. Exiting.${NC}"
+    exit 1
+  fi
 }
 
 # Function: Sync dotfiles to home directory
@@ -140,6 +162,26 @@ enable_ly_displaymanager() {
   sudo systemctl set-default graphical.target
 }
 
+after_install() {
+  echo -e "${YELLOW}Running post-install steps...${NC}"
+
+  # 1. Run theme switcher script if it exists and is executable
+  if [[ -x "$HOME/HyprlandScripts/theme_switcher.sh" ]]; then
+    echo -e "Launching theme switcher..."
+    "$HOME/HyprlandScripts/theme_switcher.sh"
+  else
+    echo -e "${YELLOW}theme_switcher.sh not found or not executable.${NC}"
+  fi
+
+  # 2. Symlink waybar colors from pywal cache
+  ln -sf "$HOME/.cache/wal/colors-waybar.css" "$HOME/.config/waybar/colors-waybar.css"
+
+  # 3. Symlink to wlogout (note: fix typo in 'olors.css' to 'colors.css' if needed)
+  ln -sf "$HOME/.config/waybar/colors-waybar.css" "$HOME/.config/wlogout/colors.css"
+
+  echo -e "${GREEN}Post-install configuration complete.${NC}"
+}
+
 # Main execution
 run_backup
 clone_dotfiles
@@ -149,5 +191,6 @@ install_aur_packages
 install_optional_packages
 install_zsh_and_p10k
 enable_ly_displaymanager
+after_install
 
 echo -e "${GREEN}All packages and system setup complete. Dotfiles are ready!${NC}"
