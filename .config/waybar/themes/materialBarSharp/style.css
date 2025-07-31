@@ -1,7 +1,7 @@
 @import url("colors-waybar.css");
 
 * {
-    font-family: "Hurmit Nerd Font";
+    font-family: "Hurmit Nerd Font Propo";
     font-weight: bold; 
     font-size: 14px;
 }
@@ -10,7 +10,8 @@ window#waybar {
     background:alpha(@background,0.6);
     margin: 0px 18px;
     border-radius: 4px;
-    border: 3px solid;
+    border-bottom: 2px solid;
+    border-top: 2px solid;
     border-color: alpha(@color3,1);
 /*    opacity : 1;
 */
@@ -237,19 +238,19 @@ tooltip {
     /*border:2px solid;*/
     border:none;
 }
-#window,#idle_inhibitor,#network,#backlight,#pulseaudio,#battery,#custom-notification {
+#window,#idle_inhibitor,#network,#backlight,#pulseaudio,#battery,#custom-notification,#cpu,#memory {
     color: @color3; 
     background: alpha(@background, 0);
     /*background-image: radial-gradient(circle farthest-side at left center, @color1, @color6 50px, @color3);linear-gradient(to right, @color1, @color0);*/
     border-radius:50px 2px 2px 50px;
     font-weight: normal;
-    font-size: 19px;
+    font-size: 18px;
     margin: 8px 0px;
-    padding-left: 0px;
-    padding-right: 2px;
+    padding: 0px;
 }
 
-#custom-empty_workspace,#custom-closer,#clock,#custom-nettext,#custom-pulseaudiotxt,#custom-backlighttxt,#custom-battxt,#custom-logout{
+#custom-empty_workspace,#custom-closer,#clock,#custom-nettext,#custom-pulseaudiotxt,#custom-backlighttxt,#custom-battxt,#custom-logout,
+#custom-cpu,#custom-mem{
     color: @foreground;
     background: alpha(@background, 0);
     border-radius:2px 50px 50px 2px;
@@ -290,4 +291,29 @@ tooltip {
     color:@color3;
     background:alpha(@background,0.5);
     border-radius: 4px;
+    padding: 4px;
+}
+#clock{
+    background:alpha(@color11,0.5);
+    border-radius:4px;
+    margin-right:0.5rem;
+    margin-left:0px;
+    padding-right:16px;
+    padding-left:12px;
+}
+#idle_inhibitor{
+    background:alpha(@color11,0.5);
+    border-radius:4px;
+    margin-left:0.5rem;
+    margin-right:0px;
+    color:@foreground;
+    padding:0px .5em;
+}
+#idle_inhibitor.activated{
+    color:@color5;
+}
+window#waybar.empty #window{
+    background: transparent;
+    margin: 0px;
+    padding: 0px;
 }

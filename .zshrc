@@ -121,7 +121,8 @@ alias xx='exit'
 alias prem='sudo pacman -Rcns '
 alias hyr='hyprctl reload'
 alias ged='gnome-text-editor '
-#alias sd='systemctl poweroff'
+alias bkl='sudo timeshift --list'
+alias cbk='sudo timeshift --create '
 alias sc='pacman -Qq '
 alias upd='sudo pacman -Syu --needed --noconfirm'
 
@@ -129,3 +130,5 @@ alias upd='sudo pacman -Syu --needed --noconfirm'
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export PATH=$PATH:/home/papa/.spicetify
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

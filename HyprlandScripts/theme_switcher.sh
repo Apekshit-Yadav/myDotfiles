@@ -57,7 +57,8 @@ if [[ -n "$CURR_WALL" && -f "$CURR_WALL" ]]; then
         --transition-duration 2.5 \
         --transition-fps 60 \
         --transition-angle 135
-    wal -i "$CURR_WALL" -n
+    #wal -i "$CURR_WALL" -n
+    wal -i "$(readlink .config/themes/active/wallpapers/current)" -n
     ln -sf "$ACTIVE_LINK/wallpapers/$(basename $(readlink $CURR_WALL))" ~/.cache/currwall
     ln -sf "$ACTIVE_LINK/wallpapers/$(basename $(readlink $CURR_WALL))" ~/.cache/currwall.png
     swaync-client --reload-css   

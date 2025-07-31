@@ -28,7 +28,7 @@ tooltip {
 #custom-appmenu,#custom-logout {
     font-size:22px;
     color: @color3;
-    background: alpha(@color3,0.1);
+    background: alpha(@color2,0.5);
     padding:0px 16px;
     margin:4px;
     border-radius:4px;
