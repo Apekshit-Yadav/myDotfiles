@@ -4,6 +4,7 @@
     font-family: "Hurmit Nerd Font";
     font-weight: bold; 
     font-size: 14px;
+    transition: all 0.3s ease-out;
 }
 
 window#waybar {
@@ -24,38 +25,6 @@ tooltip {
     margin: 6px;
 
 }
-
-/*
-* #workspaces {
-    background-color: alpha(@background, 0.1);
-    color: @color5; 
-    box-shadow: none;
-    text-shadow: none;
-    border-radius: 8px;
-    transition: 0.2s ease;
-    padding: 2px 4px ;
-}
-
-#workspaces button , #custom-empty_workspace {
-    background-color: transparent;
-    color: @foreground;
-    box-shadow: none;
-    text-shadow: none;
-    border-radius: 60px;
-    transition: 0.2s ease;
-    padding-left: 4px;
-    padding-right: 10px;
-}
-
-
-#workspaces button:hover {
-    background: none;
-    box-shadow: inherit;
-}
-
-#workspaces button.focused {
-    background-color: @color2; }*/
-
 
 #tray menu * {
     min-height: 16px;
@@ -95,50 +64,6 @@ tooltip {
     padding-left: 4px;
     padding-right: 4px;
 }
-/*
-
-#battery {
-    font-family: "Hurmit Nerd Font";
-    font-weight: normal;
-    font-size: 18px;
-    color: @color4; 
-    background: rgba(40, 40, 40, 0.0);
-    opacity: 1;
-    margin: 0;
-    padding-left: 0px;
-    padding-right: 12px;
-}
-
-#idle_inhibitor {
-    color: @color6;
-    background: rgba(40, 40, 40, 0.0);
-    opacity: 1;
-    margin: 4px 0;
-    padding-left: 4px;
-    padding-right: 4px;
-}
-#clock {
-    color: @foreground;
-    font-size: 15px;
-    font-weight: 900;
-    font-family: "Hurmit Nerd Font";
-    background: @color2;
-    opacity: 1;
-    margin: 6px 6px;
-    padding: 0px 15px;
-    border-radius:60px;
-}
-
-#pulseaudio {
-    font-weight: normal;
-    font-size: 18px;
-    color: @color6; 
-    background: rgba(40, 40, 40, 0.0);
-    opacity: 1;
-    margin: 0;
-    padding-left: 3px;
-    padding-right: 3px;
-}*/
 
 #cpu {
     font-weight: normal;
@@ -185,20 +110,6 @@ tooltip {
     padding-right: 0px;
     padding-left: 4px;
 }
-/*
-#custom-notifications,
-#custom-spotify,
-#taskbar,
-#custom-theme,
-#custom-menu {
-    color: @foreground; 
-    background: rgba(40, 40, 40, 0.0);
-    margin: 0;
-    padding-left: 1px;
-    padding-right: 1px;
-    opacity: 0.1;
-}
-*/
 
 #tray,
 #custom-updates,
@@ -206,7 +117,6 @@ tooltip {
 #custom-wbar,
 #window {
     color: @foreground; 
-    /* font-family: "Martian Mono"; */
 }
 
 #custom-l_end,
@@ -251,15 +161,6 @@ tooltip {
     border-radius: 60px;
     background-color: @color6; 
 }
-/*
-#battery.charging,
-#battery.plugged {
-    color: @foreground; 
-}
-
-#battery.critical:not(.charging) {
-    color: @color9; }*/
-
 
 #taskbar {
     padding: 1px;
@@ -312,19 +213,6 @@ tooltip {
     border-left-width: 0.5px;
 }
 
-/*
-#custom-wallchange{
-    font-family: "Hurmit Nerd Font";
-    font-weight: bold;
-    font-size: 18px;
-    color: @color4; 
-    background: rgba(40, 40, 40, 0.0);
-    opacity: 1;
-    margin: 0;
-    padding-left: 0px;
-    padding-right: 12px;
-}
-*/
 #custom-appmenu {
     color: @color3;
     background: alpha(@background,0.25);
@@ -377,29 +265,28 @@ tooltip {
     padding-left: 10px;
     padding-right: 10px;}
 
-#workspaces button:not(.empty) {
-    color:alpha(@color3,0.5);
-    background: alpha(@foreground,0.10); 
-    border-radius: 50px;
-    margin: 4px 2px;
-    padding: 0px 10px 0px 8px;
-}
-#workspaces button.active {
-    background: alpha(@color3,0.15);
-    /*background: transparent;*/
-    color: @color3; 
-    transition: all 0.3s ease-out;
-    margin: 4px 0px;
-    padding: 0px 20px 0px 18px;
-    border-radius: 50px;
-    border:1px solid;
-}
 #workspaces{
     color: @foreground; 
     background: alpha(@background, 0.25);
     border-radius:50px 0px 0px 50px;
     margin:8px 0px;
     padding:0px 6px;
+}
+#workspaces button:not(.empty) {
+    color:alpha(@color3,1);
+    background: alpha(@color3,0.10);
+    border-radius: 50px;
+    margin: 4px 2px;
+    padding: 0px 10px 0px 8px;
+}
+#workspaces button.active {
+    /*background: alpha(@color3,0.15);*/
+    background: transparent;
+    color: @color3; 
+    margin: 2px 0px;
+    padding: 0px 20px 0px 18px;
+    border-radius: 60px;
+    border:2px solid;
 }
 #window{
   color: @foreground;

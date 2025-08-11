@@ -14,11 +14,8 @@
   "modules-left": [
     "idle_inhibitor",
     "clock",
-    "cpu",
-    "custom/cpu",
     "custom/bgspacer",
-    "memory",
-    "custom/mem",
+    "group/leftinfo"
   ],
   "modules-center": [
     "custom/appmenu",
@@ -656,10 +653,14 @@
     "on-click": "hyprctl dispatch killactive",
     "tooltip": false
   },
-  "group/leftside": {
+  "group/leftinfo": {
     "orientation": "horizontal",
     "modules": [
-      "custom/smallspacer",
+        "cpu",
+        "custom/cpu",
+        "custom/bgspacer",
+        "memory",
+        "custom/mem",
     ]
   },
 }

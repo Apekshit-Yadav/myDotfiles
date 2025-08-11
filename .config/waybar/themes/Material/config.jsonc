@@ -105,9 +105,9 @@
       // "ignored-players": ["firefox"]
     },
     "tray": {
-      "icon-size": 16,
+      "icon-size": 22,
       "rotate": 0,
-      "spacing": 3,
+      "spacing": 8,
     },
     "group/expand": {
       "orientation": "horizontal",
@@ -117,10 +117,11 @@
         "transition-to-left": true,
         //  "click-to-reveal": true
       },
-      "modules": ["custom/menu", "custom/spacer", "tray"],
+      "modules": ["custom/menu", "tray"],
     },
     "custom/menu": {
       "format": "󰅃",
+      "tooltip":false,
       "rotate": 90,
     },
     "custom/notification": {

@@ -205,7 +205,7 @@
     },
     
     "hyprland/workspaces": {
-      "format": "  {icon}  ",
+      "format": "{name}",
       //"format": "{icon} {name}",
       //"format": " {name} ",
       "format-icons": {
@@ -224,6 +224,9 @@
              "11": "",
              "12": "",
       },
+      "persistent-workspaces": {
+                     "*": [ 1,2,3,4,5 ], // 1-5 on every monitor
+    }
     },
     
     "cava": {

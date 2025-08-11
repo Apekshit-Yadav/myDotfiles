@@ -3,6 +3,7 @@
     font-family: "Firacode Nerd Font";
     font-weight: bold; 
     font-size: 18px;
+    transition: all 0.2s ease-out;
 }
 
 #waybar{
@@ -29,15 +30,14 @@
 }
 
 #taskbar button.active {
-    background: @color6;
+/*    background: @color6;*/
     color: @foreground; 
     margin-left: 4px;
     margin-right: 4px;
-    padding-left: 12px;
-    padding-right: 12px;
-    transition: all 0.3s cubic-bezier(0.3, 0, 0, 1);
+    /*transition: all 0.3s cubic-bezier(0.3, 0, 0, 1);*/
+    transition: all 0.3s ease-out;
     border-bottom:4px solid @foreground;
-    transition: border-bottom-color 0.3s ease-in, border-bottom-width 0.3s ease-in;
+    /*transition: border-bottom-color 0.3s ease-in, border-bottom-width 0.3s ease-in;*/
 }
 
 #taskbar button:hover {

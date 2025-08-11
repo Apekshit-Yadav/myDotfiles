@@ -65,9 +65,9 @@ window#waybar.empty #window {
 #workspaces button.active {
     background: alpha(@color3, 0.5);
     color: alpha(@foreground, 1);
-    transition: all 0.3s ease;
+    transition: all 0.3s ease-in;
     margin: 2px;
-    padding: 0 8 0 10;
+    padding: 0 16 0 18;
     border: 2px double alpha(@color0, .25);
     border-radius: 2rem;
 }
@@ -230,4 +230,10 @@ window#waybar.empty #window {
 #battery.full {
     color: @color3;
     background: alpha(@color8, 0.18);
+}
+#custom-menu {
+    color:transparent;
+    background-color: inherit;
+    padding:4px;
+    margin:0px .5rem;
 }

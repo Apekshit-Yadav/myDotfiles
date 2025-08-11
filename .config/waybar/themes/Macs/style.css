@@ -4,6 +4,7 @@
     font-family: "Hurmit Nerd Font";
     font-weight: bold; 
     font-size: 14px;
+    transition: all 0.3s ease-out;
 }
 
 #custom-notification {
@@ -38,7 +39,6 @@ tooltip {
     box-shadow: none;
     text-shadow: none;
     border-radius: 0px;
-    transition: 0.2s ease;
     padding: 0px 4px;
     margin: 6px;
 }
@@ -47,7 +47,6 @@ tooltip {
     background-color: transparent;
     box-shadow: none;
     text-shadow: none;
-    transition: 0.2s ease;
     padding-top:0px;
     padding-bottom:0px;
     padding-left: 8px;
@@ -59,7 +58,6 @@ tooltip {
 #workspaces button.active {
     background: alpha(@background,0);
     color: @foreground; 
-    transition: all 0.3s ease;
     margin: 4px;
     padding-top:0px;
     padding-bottom:0px;
@@ -67,6 +65,7 @@ tooltip {
     padding-right:11px;
     border-bottom:2px solid @foreground;
     border-radius:0px;
+    transition:none;
 }
 
 #workspaces button:hover {
@@ -319,7 +318,7 @@ tooltip {
 window#waybar.empty #window{
     background: none;
     }
-#custom-window {
+#custom-window, waybar#window {
     color: @foreground ;
     background: inherit;
     margin: 0px;

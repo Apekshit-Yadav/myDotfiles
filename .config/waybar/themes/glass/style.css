@@ -4,6 +4,7 @@
     font-family: "Hurmit Nerd Font Propo";
     font-weight: bold; 
     font-size: 14px;
+    transition: all 0.3s ease-out;
 }
 
 
@@ -14,9 +15,9 @@ window#waybar {
 }
 
 /*--------------------- icons -----------------------*/
-#network, #pulseaudio, #backlight, #upower, #cpu, #memory,
+#network, #pulseaudio, #backlight, #upower,
 #custom-logout, #custom-notification, #idle_inhibitor,
-#custom-menu,#custom-cpu,#custom-mem,
+#custom-menu,
 #tray, #battery, #custom-empty_workspace, #custom-appmenu{
       font-size:18px;
       background:alpha(@background,.1);
@@ -54,12 +55,13 @@ window#waybar {
       color:@color1;
 }
 
-#custom-cpu,#custom-mem{
-    background:alpha(@background,0.15);
+#cpu,#memory,#custom-cpu,#custom-mem{
     font-size: 14px;
     color:@color7;
-    margin:6px 0px;
-    padding:0px .5em;
+    padding:0px 0.25rem;
+}
+#cpu,#memory{
+    font-size: 20px;
 }
 
 #custom-notification,#custom-appmenu { 
@@ -145,7 +147,6 @@ window#waybar {
     background-color: transparent;
     box-shadow: none;
     text-shadow: none;
-    transition: 0.2s ease;
     padding-top:0px;
     padding-bottom:0px;
     padding-left: 8px;
@@ -153,17 +154,14 @@ window#waybar {
     margin: -8px;
     border-radius:50px;
     color: alpha(@foreground,0.5);
-    transition: all 0.3s ease-out;
 }
 #workspaces button.empty { 
     margin:4px;
-    transition: all 0.3s ease-out;
 }
 
 #workspaces button:not(.empty){
     background: alpha(@background,0);
     color: @foreground; 
-    transition: all 0.3s ease-out;
     margin: 8px 4px;
     border-radius:60px;
 }
@@ -171,7 +169,6 @@ window#waybar {
 #workspaces button.active {
     background: alpha(@color3,.1);
     color: @foreground; 
-    transition: all 0.3s ease;
     margin: 8px 4px;
     padding-top:0px;
     padding-bottom:0px;
@@ -180,7 +177,6 @@ window#waybar {
     border:1px solid;
     border-color:alpha(@color7,0.25);
     border-radius:60px;
-    transition: all 0.3s ease-out;
 }
 
 #workspaces button:hover {
@@ -200,4 +196,23 @@ window#waybar.empty #window{
     margin: 0px;
     padding: 0px;
     border: none;
+}
+
+#cpu,#custom-cpu,#memory,#custom-mem {
+    margin-top:0px;
+    margin-bottom:0px;
+    padding-top:0px;
+    padding-bottom: 0px;
+}
+
+#leftinfo {
+    background:alpha(@background,0.5);
+    color: @foreground; 
+    font-size: 15px;
+    font-weight: 900;
+    font-family: "JetBrainsMono Nerd Font";
+    margin: 6px .1em;
+    padding: 0px 15px;
+    border-radius:60px;
+  
 }

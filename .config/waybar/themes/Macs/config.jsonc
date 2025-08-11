@@ -196,7 +196,7 @@
     "^$": "Hyprland"
   },
   "icon": true,
-  "icon-size": 18,
+  "icon-size": 22,
   "tooltip": true,
   "tooltip-format": "right click to close",
   //"exec": "WS=$(hyprctl activeworkspace | awk 'NR==1 {print $3}'); if hyprctl clients | awk '$1 == \"workspace:\" {print $2+0}' | grep -qx \"$WS\"; then echo 'Hyprland'; else echo ''; fi",
@@ -659,8 +659,8 @@
     "modules": [
       "custom/smallspacer",
       "custom/appmenu",
-      //"hyprland/window",
-      "custom/window",
+      "hyprland/window",
+      //"custom/window",
       "hyprland/workspaces",
       "custom/empty_workspace"
     ]

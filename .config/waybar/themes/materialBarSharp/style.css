@@ -143,28 +143,38 @@ tooltip {
     padding-right: 4px;
 }
 
+#backlight-slider,
+#pulseaudio-slider{
+    border: 2px solid @color7;
+    border-radius:4px;
+    margin:13px 0px;
+    padding:0px;
+}
+
 #backlight-slider slider,
 #pulseaudio-slider slider {
     background: @color15; 
     border:none;
+    padding:0px;
+    margin: 0px; 
     border-radius:0px;
     min-width:2px;
-    min-height:18px;
+    min-height:16px;
 }
 
 #backlight-slider trough,
 #pulseaudio-slider trough {
     min-width: 90px;
-    min-height: 20px;
-    border-radius: 2px;
+    min-height: 10px;
+    border-radius: 0px;
     background: @color0; 
 }
 
 #backlight-slider highlight,
 #pulseaudio-slider highlight {
-    border-radius: 2px;
+    border-radius: 0px;
     background-color: @color6; 
-    box-shadow: 2px 2px;
+    /*box-shadow: 2px 2px;*/
 }
 /*
 #battery.charging,

@@ -4,6 +4,7 @@
     font-family: "Hurmit Nerd Font";
     font-weight: bold; 
     font-size: 14px;
+    transition: all .2s ease-in;
 }
 
 window#waybar {
@@ -266,3 +267,9 @@ tooltip {
   border: none;
 } */
 
+
+window#waybar.empty #window{
+    border:none;
+    margin: 0px;
+    padding: 0px;
+}

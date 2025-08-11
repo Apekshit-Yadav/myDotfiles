@@ -278,7 +278,7 @@ tooltip {
 }
 
 /* ------------   icons and right pill ----------- */
-#network, #pulseaudio, #backlight, #upower, #cpu, #memory, #custom-wallchange, #custom-logout, #custom-cpu, #custom-mem, #custom-notification{
+#network, #pulseaudio, #backlight, #upower, #battery, #cpu, #memory, #custom-wallchange, #custom-logout, #custom-cpu, #custom-mem, #custom-notification{
     font-size:20px;
     background:alpha(@background,0.5);
     color:@color7;
@@ -292,7 +292,7 @@ tooltip {
   border-radius:60px 0px 0px 60px;
 }
 
-#custom-logout{
+#custom-notification{
     font-size:20px;
     padding-left:4px;
     margin:6px 10px 6px 0px;
@@ -315,7 +315,7 @@ tooltip {
 }
 #custom-cpu,#custom-mem{
     font-size:14px;
-    padding:0px;
+    padding:0px 10px 0px 10px;
 }
 #custom-bgspacer{
     background:alpha(@background,0.5);
@@ -327,4 +327,37 @@ window#waybar.empty #window{
     background: transparent;
     margin: 0px;
     padding: 0px;
+}
+#custom-logout{
+    font-weight: 900;
+    color:@background;
+    background: alpha(@color6,1);
+    font-size: 20px;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin:6px 8px 6px 0px;
+    border-radius:60px;
+}
+#State {
+    background: alpha(@background,0.45);
+    transition: all 0.3s ease;
+    margin:6px 0px;
+    border-radius:0px;
+}
+#cpu,#memory,#custom-cpu,#custom-mem {
+  margin:0px;
+  padding-right: 4px;
+  padding-left: 4px;
+  background: transparent;
+  color: @color11;
+}
+#custom-mem {
+    padding-right:8px;
+}
+#memory{
+    padding-left:0px;
+}
+#battery{
+  padding-right: 0px;
+  margin-right:0px;
 }

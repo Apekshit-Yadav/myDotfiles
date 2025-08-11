@@ -44,6 +44,7 @@
   "group/rightside": {
     "orientation": "horizontal",
     "modules": [
+      "group/expand",
       "group/expand-Net",
       "group/btdev",
       "custom/notification"
@@ -362,5 +363,29 @@
         "bluetooth",
        "custom/bluetooth_device",
      ]
+   },
+  "group/expand": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 600,
+      "children-class": "not-power",
+      "transition-to-left": true
+      //  "click-to-reveal": true
+    },
+    "modules": [
+      "custom/menu",
+      "tray",
+      "custom/spacer"
+      ]
+   },
+  "tray": {
+    "icon-size": 28,
+    "rotate": 0,
+    "spacing": 10
+   },
+  "custom/menu": {
+    "format": "󰅃",
+    "tooltip": false,
+    "rotate": 90
    },
 }

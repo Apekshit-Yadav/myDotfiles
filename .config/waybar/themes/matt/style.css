@@ -382,12 +382,23 @@ tooltip {
     padding-left: 10px;
     padding-right: 10px;}
 
+#workspaces{
+    color: @background; 
+    background: alpha(@background, 0.25);
+    border-radius:50px 0px 0px 50px;
+    margin:8px 0px;
+    padding:0px 6px;
+    border:1px solid @color4;
+    border-right:none;
+    transition: all .2s ease-out;
+}
 #workspaces button:not(.empty) {
     /*background: alpha(@background,0.5);*/
     background: transparent;
     color: @color3; 
     border-radius: 50px;
     border:none;
+    transition: all .2s ease-out;
 }
 #workspaces button.active {
     /*background: alpha(@background,0.5);*/
@@ -398,15 +409,7 @@ tooltip {
     padding-left:8px;
     border-radius: 50px;
     border:none;
-}
-#workspaces{
-    color: @foreground; 
-    background: alpha(@background, 0.25);
-    border-radius:50px 0px 0px 50px;
-    margin:8px 0px;
-    padding:0px 6px;
-    border:1px solid @color4;
-    border-right:none;
+    transition: all .2s ease-out;
 }
 #window{
   color: @foreground;

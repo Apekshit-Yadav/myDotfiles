@@ -19,19 +19,7 @@
     "clock"
   ],
   "modules-right": [
-    "group/expand",
-    "group/expand-Net",
-    "group/expand-3",
-    "group/expand-2",
-    "group/expand-4",
-    "memory",
-    "custom/mem",
-    "custom/bgspacer",
-    "cpu",
-    "custom/cpu",
-    "custom/bgspacer",
-    "custom/notification",
-    "custom/logout",
+    "group/rightside"
   ],
   // sourced from modules based on config.ctl //
   "upower": {
@@ -39,6 +27,7 @@
     "format": "<span>{}</span>",
     "format-alt": "{}<span color='white'>[{time}]</span>",
     "tooltip": false,
+    "show-icon": false,
     "tooltip-spacing": 20,
     "format-icons": [
       "󰂎",
@@ -69,10 +58,11 @@
       "transition-to-left": true,
     },
     "modules": [
+      "battery",
       "upower",
       "upower/headset"
     ]
-    //"modules": ["battery", "upower/headset"],
+    //"modules": [, "upower/headset"],
   },
   "custom/smallspacer": {
     "format": " "
@@ -140,9 +130,9 @@
     // "ignored-players": ["firefox"]
   },
   "tray": {
-    "icon-size": 16,
+    "icon-size": 24,
     "rotate": 0,
-    "spacing": 3,
+    "spacing": 12,
   },
   "group/expand": {
     "orientation": "horizontal",
@@ -407,13 +397,13 @@
       "warning": 30,
       "critical": 20,
     },
-    "format": "{icon}{capacity}%",
+    "format": "{icon}",
     // "rotate": 90,
     "rotate": 0,
     //"format-charging": "<span color='#ffffff'>󱐋{capacity}%</span>",
-    "format-charging": "󱐋{capacity}%",
+    "format-charging": "󱐋",
     //"format-plugged": "󰂄",
-    //"format-plugged": "",
+    "format-plugged": "",
     //"format-alt": "<<span weight='bold' color='#c2864a'>{time} <span weight='bold' color='white'>| <span weight='bold' color='#82d457'>{capacity}%</span></span></span>",
     //"format-icons": ["󰝦 ", "󰪞 ", "󰪟 ", "󰪠 ", "󰪡 ", "󰪢 ", "󰪣 ", "󰪤 ", "󰪥 "],
     "format-icons": [
@@ -641,6 +631,30 @@
     "on-click": "hyprctl dispatch killactive",
     "tooltip": false
   },
+
+  "group/Memorie": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 400,
+      "children-class": "window-expand",
+      "transition-to-left": true
+    },
+    "modules": [
+    "memory",
+    "custom/mem",
+    ]
+  },
+
+  "group/State": {
+    "orientation": "horizontal",
+    "modules": [
+    "memory",
+    "custom/mem",
+    "cpu",
+    "custom/cpu",
+    ]
+  },
+
   "group/leftside": {
     "orientation": "horizontal",
     "modules": [
@@ -650,6 +664,23 @@
       "custom/empty_workspace",
       "hyprland/window",
       "mpris"
+    ]
+  },
+
+
+  "group/rightside": {
+    "orientation": "horizontal",
+    "modules": [
+      "group/expand",
+      "group/expand-Net",
+      "group/expand-3",
+      "group/expand-2",
+      "group/expand-4",
+      "custom/bgspacer",
+      "group/State", 
+     "custom/bgspacer",
+     "custom/notification",
+     "custom/logout",
     ]
   },
 }
