@@ -10,7 +10,7 @@
 
 window {
   width: calc(100%+4px);
-  height: calc(10%*5);
+  height: calc(10%*5.2);
   border: 2px solid;
   border-color: @foreground;
  // padding: 0px;

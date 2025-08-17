@@ -15,7 +15,7 @@
 }
 
 #waybar {
-    background: alpha(@background,0.25);
+    background: alpha(@background,0.5);
     border:none;
     border-radius:2px;
     opacity : 1;
@@ -317,12 +317,13 @@ tooltip {
 
 window#waybar.empty #window{
     background: none;
+    padding: 0px 1rem;
     }
-#custom-window, waybar#window {
+#custom-window, #window {
     color: @foreground ;
-    background: inherit;
+    background: alpha(@background,0.1);
     margin: 0px;
-    padding: 0px 12px;
+    padding: 0px 1rem;
     font-weight:800;
     font-size:larger;
 }

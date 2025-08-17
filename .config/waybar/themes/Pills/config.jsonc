@@ -12,7 +12,7 @@
     "reload_style_on_change": true,
     // positions generated based on config.ctl //
     "modules-left": [
-      "custom/padd",
+      //"custom/padd",
       "custom/appmenu",
       "hyprland/window",
       "custom/closer",
@@ -21,14 +21,17 @@
       "custom/empty_workspace",
       "hyprland/workspaces",
       "custom/smallspacer",
-//      "group/window",
       "custom/smallspacer",
+      "group/rightsub",
+      "custom/smallspacer",
+      "custom/smallspacer",
+//      "group/window",
       "mpris",
       "custom/padd",
     ],
     "modules-center": ["group/midsub",],
     "modules-right": [
-      "custom/l_end",
+      //"custom/l_end",
       "group/expand",
       "custom/smallspacer",
       "network",
@@ -47,12 +50,8 @@
       "group/expand-4",
       "custom/smallspacer",
       "custom/smallspacer",
-      "group/rightsub",
-      "custom/smallspacer",
-      "custom/smallspacer",
       "custom/notification",
       "custom/logout",
-      "custom/padd",
     ],
     // sourced from modules based on config.ctl //
  //   "upower": {
@@ -139,9 +138,9 @@
       // "ignored-players": ["firefox"]
     },
     "tray": {
-      "icon-size": 16,
+      "icon-size": 24,
       "rotate": 0,
-      "spacing": 3,
+      "spacing": 8,
     },
     "group/expand": {
       "orientation": "horizontal",
@@ -151,7 +150,7 @@
         "transition-to-left": true,
         //  "click-to-reveal": true
       },
-      "modules": ["custom/menu", "custom/spacer", "tray"],
+      "modules": ["custom/menu", "tray"],
     },
     "custom/menu": {
       "format": "󰅃",

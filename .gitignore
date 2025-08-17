@@ -10,3 +10,11 @@
 .config/themes/End4/wallpapers/current
 .config/themes/dandadan/wallpapers/current
 .config/themes/catppuccin/wallpapers/current
+.config/hypr/hyprlock.conf.bak
+.config/rofi/icons/recolored/alkiuaf.svg
+.config/swaync/config.json.bak
+.config/swaync/style.css.bak
+.config/swaync/themes/nova-dark/central_control.css.bak
+*.bak
+/.config/waybar/.waybarold
+/.config/waybar/Bordered

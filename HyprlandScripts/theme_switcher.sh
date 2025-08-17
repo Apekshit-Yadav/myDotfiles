@@ -23,7 +23,8 @@ for dir in "$THEME_DIR"/*/; do
 done
 
 # Show Rofi with preview icons
-CHOICE=$(printf "$entries" | rofi -dmenu -config ~/HyprlandScripts/theme_change.rasi -p "🎨 Select Theme:" -show-icons)
+CHOICE=$(printf "$entries" | rofi -i -dmenu -config ~/HyprlandScripts/rofi_themer.rasi -p "🎨 Select Theme:" -show-icons)
+#CHOICE=$(printf "$entries" | rofi -dmenu -config ~/HyprlandScripts/theme_change.rasi -p "🎨 Select Theme:" -show-icons)
 #CHOICE=$(printf "$entries" | rofi -dmenu -config ~/testconfigs/thewe.rasi -p "🎨 Select Theme:" -show-icons)
 
 # If nothing chosen, exit
@@ -58,7 +59,22 @@ if [[ -n "$CURR_WALL" && -f "$CURR_WALL" ]]; then
         --transition-fps 60 \
         --transition-angle 135
     #wal -i "$CURR_WALL" -n
-    wal -i "$(readlink .config/themes/active/wallpapers/current)" -n
+#    wal -i "$(readlink .config/themes/active/wallpapers/current)" -n
+# Lowercase the choice for case-insensitive matching
+CHOICE_LOWER=$(echo "$CHOICE" | tr '[:upper:]' '[:lower:]')
+
+case "$CHOICE_LOWER" in
+    mono)
+        wal -i "$(readlink .config/themes/active/wallpapers/current)" -n -b 000000
+        ;;
+    # Add more lowercase theme keys here in the future
+    *)
+        wal -i "$(readlink .config/themes/active/wallpapers/current)" -n
+        ;;
+esac
+
+
+    
     ln -sf "$ACTIVE_LINK/wallpapers/$(basename $(readlink $CURR_WALL))" ~/.cache/currwall
     ln -sf "$ACTIVE_LINK/wallpapers/$(basename $(readlink $CURR_WALL))" ~/.cache/currwall.png
     swaync-client --reload-css   

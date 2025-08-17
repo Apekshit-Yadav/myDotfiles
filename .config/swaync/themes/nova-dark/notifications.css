@@ -14,7 +14,7 @@
 
   color: @text;
 
-  all: unset;
+/*  all: unset;*/
   font-size: 14px;
   font-family: "JetBrains Mono Nerd Font 10";
   transition: 200ms;
@@ -129,3 +129,29 @@
 progress {
   transition: all 0.4s ease-in-out;
 }
+.notification-popup {
+  background-color: alpha(@background, .8);
+  border-radius: 16px;
+  border: 1px solid @selected;
+  color: @text;
+  padding: 10px;
+  margin: 12px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  opacity: 1.0;
+}
+.notification-popup,
+.floating-notifications,
+.floating-notifications .notification-row {
+  opacity: 1.0;
+}
+
+.notification-popup {
+  background-color: @background-alt;
+  border: 1px solid @selected;
+  border-radius: 12px;
+  padding: 10px;
+  margin: 10px;
+  color: @text;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+
