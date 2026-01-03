@@ -5,20 +5,20 @@ WALL="$(cat ~/.cache/wal/wal)"
 MODE="$(cat ~/.cache/mode)"  # 'light' or 'dark'
 
 # Temp corrected wallpaper (gamma tweak)
-#TMP_WALL="/tmp/wal_corrected.png"
+TMP_WALL="/tmp/wal_corrected.png"
 
 # Pre-process wallpaper with gamma correction (helps extraction accuracy)
-#convert "$WALL" -gamma 0.9 "$TMP_WALL"
+convert "$WALL" -gamma 0.9 "$TMP_WALL"
 
 # Available styles
-styles=("default" "pastel" "rich" "vivid" "storm" "washed")
+styles=("default" "pastel" "rich" "vivid" "storm" "washed" "accurate")
 
 # Rofi prompt for style
 STYLE=$(printf "%s\n" "${styles[@]}" | rofi -config ~/HyprlandScripts/thewe.rasi -dmenu -p "Select color variant:")
 [ -z "$STYLE" ] && exit
 
 # Detect average luminance (for adaptive tuning)
-#AVG_LUM=$(convert "$WALL" -resize 1x1 txt:- | awk -F'[(),]' 'NR==2{print $2*0.2126 + $3*0.7152 + $4*0.0722}')
+AVG_LUM=$(convert "$WALL" -resize 1x1 txt:- | awk -F'[(),]' 'NR==2{print $2*0.2126 + $3*0.7152 + $4*0.0722}')
 
 # Default params
 SAT=""
@@ -30,7 +30,7 @@ case "$STYLE" in
         SAT=0.25; CON=1.5; BACKEND="haishoku"
         ;;
     rich)
-        SAT=0.6; CON=2.5; BACKEND="haishoku"
+        SAT=0.7; CON=2.5; BACKEND="haishoku"
         ;;
     vivid)
         SAT=1.0; CON=3.0; BACKEND="fast_colorthief"
@@ -39,16 +39,16 @@ case "$STYLE" in
         SAT=0.5; CON=3.5; BACKEND="modern_colorthief"
         ;;
     washed)
-        SAT=0.1; CON=4.5; BACKEND="modern_colorthief"
+        SAT=0.2; CON=1.2; BACKEND="modern_colorthief"
         ;;
-#    accurate)
-#        BACKEND="colorz"
-#        if (( $(echo "$AVG_LUM > 150" | bc -l) )); then
-#            SAT=0.6; CON=2.0
-#        else
-#            SAT=0.8; CON=2.5
-#        fi
-#       ;;
+    accurate)
+        BACKEND="colorz"
+        if (( $(echo "$AVG_LUM > 150" | bc -l) )); then
+            SAT=0.6; CON=2.0
+        else
+            SAT=0.8; CON=2.5
+        fi
+        ;;
     *)
         BACKEND="wal"
         ;;
@@ -64,7 +64,7 @@ WAL_CMD=(wal -i "$TMP_WALL" -n --backend "$BACKEND" --cols16)
 "${WAL_CMD[@]}"
 
 # Clean up temp
-#rm -f "$TMP_WALL"
+rm -f "$TMP_WALL"
 
 # Reload waybar quietly
 pkill waybar && waybar > /dev/null 2>&1 &

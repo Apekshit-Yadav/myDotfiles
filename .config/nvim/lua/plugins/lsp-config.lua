@@ -4,12 +4,7 @@ return {
     "williamboman/mason.nvim",
     lazy = false,
     config = function()
-      require("mason").setup(
-      {
-            ui = {
-                border = "rounded"
-            }
-        })
+      require("mason").setup()
     end,
   },
   {
@@ -25,33 +20,43 @@ return {
     "neovim/nvim-lspconfig",
     lazy = false,
     config = function()
-      -- 1. Get default capabilities for cmp
-      local defaults = require('cmp_nvim_lsp').default_capabilities()
+      local capabilities = require('cmp_nvim_lsp').default_capabilities() -- Default capabilities for nvim-cmp
 
-      -- 2. Define the list of servers you want to enable
-      -- (I consolidated your two ts_ls entries into one)
-      local servers = {
-        "ts_ls",
-        "solargraph",
-        "html",
-        "cssls",
-        "lua_ls",
-      }
+      local lspconfig = require("lspconfig")
 
-      -- 3. Loop through standard servers and enable them
-      for _, server in ipairs(servers) do
-        vim.lsp.config[server] = { capabilities = defaults }
-        vim.lsp.enable(server)
-      end
+      -- Setup for TypeScript (ts_ls)
+      lspconfig.ts_ls.setup({
+        capabilities = capabilities,
+        -- Additional ts_ls-specific options can go here
+      })
 
-      -- 4. Manual setup for servers with specific overrides (qmlls)
-      vim.lsp.config["qmlls"] = {
-        capabilities = defaults,
-        cmd = { "qmlls", "-E" },
-      }
-      vim.lsp.enable("qmlls")
+      -- Setup for Solargraph (Ruby)
+      lspconfig.solargraph.setup({
+        capabilities = capabilities
+      })
 
-      -- 5. Keybindings
+      -- Setup for HTML (html)
+      lspconfig.html.setup({
+        capabilities = capabilities
+      })
+
+      -- Setup for CSS (cssls)
+      lspconfig.cssls.setup({
+        capabilities = capabilities
+      })
+
+      -- Setup for JavaScript (ts_ls, since it also covers JS)
+      lspconfig.ts_ls.setup({
+        capabilities = capabilities,
+        -- Additional js-specific options can go here
+      })
+
+      -- Setup for Lua (lua_ls)
+      lspconfig.lua_ls.setup({
+        capabilities = capabilities
+      })
+
+      -- Keybindings for LSP functions
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
       vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})

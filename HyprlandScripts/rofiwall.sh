@@ -3,27 +3,6 @@
 WALLPAPER_DIR="$HOME/.config/themes/active/wallpapers"
 PREVIEW_DIR="$HOME/.cache/wallimg"
 
-## Detect current Wayland compositor (Hyprland or Niri)
-if [[ "$XDG_CURRENT_DESKTOP" =~ [Hh]yprland ]]; then
-    WINDOWMAN="Hyprland"
-elif [[ "$XDG_CURRENT_DESKTOP" =~ [Nn]iri ]]; then
-    WINDOWMAN="Niri"
-elif [[ "$XDG_CURRENT_DESKTOP" =~ [Mm]ango ]]; then
-    WINDOWMAN="mango"
-else
-    # Fallback check (just in case)
-    if pgrep -x hyprland >/dev/null; then
-        WINDOWMAN="Hyprland"
-    elif pgrep -x niri >/dev/null; then
-        WINDOWMAN="Niri"
-    else
-        WINDOWMAN="Unknown"
-    fi
-fi
-
-echo "Current WM: $WINDOWMAN"
-
-
 mkdir -p "$PREVIEW_DIR"
 
 # Pick correct ImageMagick command (IM7=magick, IM6=convert)
@@ -51,45 +30,19 @@ for wp in "$WALLPAPER_DIR"/*.{jpg,jpeg,png}; do
 done
 
 # Show rofi with previews
-# Pick rofi config depending on WM
-if [[ $WINDOWMAN == "Hyprland" ]]; then
-    CHOICE=$(printf "$entries" | rofi -i -dmenu \
-        -config ~/HyprlandScripts/rofi_themer.rasi \
-        -p "🖼 Wallpaper:" -show-icons)
-elif [[ $WINDOWMAN == "Niri" ]]; then
-    CHOICE=$(printf "$entries" | rofi -i -dmenu \
-        -config ~/HyprlandScripts/niri_themer.rasi \
-        -p "🖼 Wallpaper:" -show-icons)
-elif [[ $WINDOWMAN == "mango" ]]; then
-    CHOICE=$(printf "$entries" | rofi -i -dmenu \
-      -config ~/HyprlandScripts/mango_themer.rasi \
-      -p "🖼 Wallpaper:" -show-icons)
-else
-    CHOICE=$(printf "$entries" | rofi -i -dmenu \
-        -p "🖼 Wallpaper:")
-fi
+CHOICE=$(printf "$entries" | rofi -i -dmenu -config ~/HyprlandScripts/rofi_themer.rasi -p "🖼 Wallpaper:" -show-icons)
+#CHOICE=$(printf "$entries" | rofi -dmenu -config ~/HyprlandScripts/theme_change.rasi -p "🖼 Wallpaper:" -show-icons)
+
 # Exit if nothing chosen
 [[ -z "$CHOICE" ]] && exit 0
-
-echo "+++ $CHOICE +++"
 
 WALLPAPER="$WALLPAPER_DIR/$CHOICE"
 
 # Set wallpaper via swww (random transition position is default)
-if pgrep -x eww >/dev/null; then
 swww img "$WALLPAPER" --resize crop \
-  --transition-type grow \
-  --transition-pos 0.03,0.5 \
-  --transition-duration 4.5 \
-  --transition-step 255 \
+  --transition-type outer \
+  --transition-duration 2.5 \
   --transition-fps 60
-else
-swww img "$WALLPAPER" --resize crop \
-  --transition-type any \
-  --transition-duration 3.7 \
-  --transition-step 255 \
-  --transition-fps 60
-fi
 
 # Generate colors with pywal
 wal -i "$WALLPAPER" -n
@@ -99,9 +52,8 @@ ln -sf "$WALLPAPER" ~/.cache/currwall
 ln -sf "$WALLPAPER" ~/.cache/currwall.png
 
 # Reload UI components
-if [[ $WINDOWMAN == "Hyprland" ]]; then
 swaync-client --reload-css
-fi
+
 # === Auto-generate theme preview ===
 ACTIVE_THEME_DIR="$HOME/.config/themes/active"
 ACTIVE_THEME_NAME=$(basename "$(readlink "$ACTIVE_THEME_DIR")")
@@ -126,20 +78,3 @@ if [[ -f "$WALLPAPER" ]]; then
     $IM_CMD "$WALLPAPER" -resize 300x300^ -gravity center -extent 300x300 "$PREVIEW_PATH"
     echo "🖼️ Generated preview: $PREVIEW_PATH"
 fi
-
-~/HyprlandScripts/ChromiumPywal/generate-theme.sh
-if pgrep -x eww >/dev/null; then
-    ~/HyprlandScripts/ewwStarter.sh bar
-fi
-
-magick "$WALLPAPER" -blur 10x20 ~/.cache/wallblurred.png
-
-if [[ "${XDG_CURRENT_DESKTOP,,}" == "niri" ]]; then
-    killall swaybg 2>/dev/null
-    "$HOME/.config/niri/scripts/overviewbackground.sh"
-    echo "blurred wall LOADED..."
-fi
-
-themecord -p
-~/HyprlandScripts/ChromiumPywal/generate-theme.sh
-wal-telegram -w -g -r

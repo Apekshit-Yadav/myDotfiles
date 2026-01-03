@@ -18,4 +18,3 @@
 *.bak
 /.config/waybar/.waybarold
 /.config/waybar/Bordered
-/.config/qtile/__pycache__

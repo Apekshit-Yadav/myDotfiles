@@ -22,7 +22,7 @@
   import = ["~/.cache/wal/colors-alacritty.toml"]
 
 [window]
-  opacity = 1.0
+  opacity = 1
   dynamic_padding = true
   padding.x = 28
   padding.y = 28
@@ -41,15 +41,15 @@
   bold.style = "Bold"
   italic.style = "Italic"
   bold_italic.style = "Bold Italic" 
-  size = 10
+  size = 14.0
 
 # Tip: for inspiration, look for values in the source code files of your favorite VS Code themes, and use the color picker in
 # Google to test colors before setting a value, or simply using an editor such as VS Code where colors are displayed in a 
 # small box when a HEX is detected by the editor.
-#[cursor]
-#    smooth_motion = true       # Enable smooth motion
-#    smooth_motion_factor = 0.5 #0.2 Adjust the smoothness (0.0 is instant, 1.0 is full smoothness)
-#    smooth_motion_spring = 0.4 #0.5 Controls the springiness of the animation
-#    smooth_motion_max_stretch_x = 3.0 # Limits horizontal stretch
-#    smooth_motion_max_stretch_y = 3.0 # Limits vertical stretch
+[cursor]
+    smooth_motion = true       # Enable smooth motion
+    smooth_motion_factor = 0.5 #0.2 Adjust the smoothness (0.0 is instant, 1.0 is full smoothness)
+    smooth_motion_spring = 0.4 #0.5 Controls the springiness of the animation
+    smooth_motion_max_stretch_x = 3.0 # Limits horizontal stretch
+    smooth_motion_max_stretch_y = 3.0 # Limits vertical stretch
 #    block_replace_shape = "underline" # Optional: changes the cursor shape when moving

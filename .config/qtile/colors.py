@@ -1,1 +1,0 @@
-/home/papa/X11Scripts/colors/colors.py
