@@ -1,0 +1,3 @@
+DONE get a notification daemon (dunst)
+get a lock => write a lock script (setup i3lock-fancy or checkout another)
+get a idle (launch i3lock-fancy on idle and lid close open)

@@ -2,7 +2,13 @@
 
 #WALLPAPER_DIR="$HOME/Pictures/Hyprpaper"
 WALLPAPER_DIR="$HOME/.config/themes/active/wallpapers"
-WAYBAR_CFG="$HOME/.config/waybar/config.jsonc"
+
+if pgrep -x eww >/dev/null; then
+  WAYBAR_CFG=""
+else
+  WAYBAR_CFG="$HOME/.config/waybar/config.jsonc"
+fi
+
 MODE_CACHE="$HOME/.cache/mode"
 
 # Random wallpaper selection
@@ -88,4 +94,18 @@ if [[ -f "$WALLPAPER" ]]; then
     echo "🖼️ Generated preview: $PREVIEW_PATH"
 fi
 
-#~/HyprlandScripts/ChromiumPywal/generate-theme.sh
+if pgrep -x eww >/dev/null; then
+    ~/HyprlandScripts/ewwStarter.sh bar
+fi
+
+magick "$WALLPAPER" -blur 10x20 ~/.cache/wallblurred.png
+
+if [[ "${XDG_CURRENT_DESKTOP,,}" == "niri" ]]; then
+    killall swaybg 2>/dev/null
+    "$HOME/.config/niri/scripts/overviewbackground.sh"
+    echo "blurred wall LOADED..."
+fi
+
+themecord -p
+~/HyprlandScripts/ChromiumPywal/generate-theme.sh
+wal-telegram -w

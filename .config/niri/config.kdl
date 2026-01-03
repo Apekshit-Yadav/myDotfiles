@@ -1,0 +1,451 @@
+output "eDP-1" {
+mode "1920x1080@60"
+position x=0 y=0
+scale 1.25
+}
+layout {
+gaps 10
+//gaps 5
+   // struts {
+       // left 6
+      //  right 0
+     //   top 0
+    //    bottom 0
+   // }
+
+center-focused-column "never" //"on-overflow" // "always"
+always-center-single-column
+default-column-display "normal" //"tabbed"
+empty-workspace-above-first
+
+preset-column-widths {
+// proportion 0.33333
+proportion 0.5
+proportion 0.66667
+proportion 0.75
+proportion 1.0
+}
+default-column-width {}
+focus-ring {
+	 	off
+width 3
+active-color "#ffffff33"
+		inactive-color "#505050ff"
+// active-gradient from="#7c9cb5ff" to="#b5e17cff" angle=45
+// inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+}
+border {
+
+width 1 //3
+active-color "#c4c7ca"
+inactive-color "#202020"
+
+urgent-color "#9b0000"
+
+// active-gradient from="#e5989b" to="#ffb4a2" angle=45 relative-to="workspace-view" in="oklch longer hue"
+
+// inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+}
+shadow {
+on
+draw-behind-window true
+offset x=5 y=5
+color "#2f2f2f"
+softness 30
+spread 5
+}
+tab-indicator {
+width 2
+gap 5
+gaps-between-tabs 5
+corner-radius 10
+active-color "#fff"
+inactive-color "#ffffff55"
+}
+
+insert-hint {
+color "#00000022"
+}
+}
+
+prefer-no-csd
+
+hotkey-overlay {
+// Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
+skip-at-startup
+}
+
+overview {
+backdrop-color "transparent"
+//backdrop-color "#222222ff"
+zoom 0.55
+}
+
+// +++++++++++++--> autostart programs <--+++++++++++++++++++
+spawn-at-startup "eww-daemon"
+spawn-at-startup "~/HyprlandScripts/ewwStarter.sh" "bar"
+spawn-at-startup "kwallet"
+spawn-at-startup "kwalletmanager"
+spawn-at-startup "swww-daemon"
+spawn-at-startup "swaync"
+spawn-at-startup "~/.config/niri/scripts/swayidle.sh"
+spawn-at-startup "~/.config/niri/scripts/overviewbg.sh"
+// spawn-at-startup "udiskie -a -s --file-manager nautilus"
+
+// ++++++++++++++--> RULES <--++++++++++++++++++++
+window-rule {
+geometry-corner-radius 16
+clip-to-geometry true
+}
+
+window-rule {
+match app-id=r#"zen$"# title="^Picture-in-Picture$"
+open-floating true
+}
+
+window-rule {
+match title="^Save As$"
+open-floating true
+default-window-height { proportion 0.75 ; }
+default-floating-position x=0 y=0
+}
+
+window-rule {
+match title="Select a Wallpaper"
+match app-id="xdg-desktop-portal-gtk"
+match app-id="Timeshift-gtk"
+open-floating true
+}
+
+window-rule {
+match app-id=r#"kitty$"#
+geometry-corner-radius 24
+opacity 1.0
+shadow {
+	 on
+	}
+}
+
+window-rule {
+match app-id="zen"
+geometry-corner-radius 24
+opacity 1.0
+shadow {
+	 on
+	}
+}
+
+window-rule {
+match app-id=r#"code-oss$"#
+match is-active=true
+geometry-corner-radius 24
+opacity 1.0
+shadow {
+	 off
+	}
+}
+
+layer-rule {
+match namespace="^eww_powermenu$"
+shadow {
+off
+}
+opacity 0.99
+geometry-corner-radius 24
+}
+
+layer-rule {
+match namespace="gtk-layer-shell"
+opacity 0.99
+shadow {
+off
+}
+geometry-corner-radius 24
+place-within-backdrop false
+}
+
+layer-rule {
+match namespace="wallpaper"
+place-within-backdrop true
+}
+
+layer-rule {
+//match namespace="rofi"
+match namespace="^launcher$"
+opacity 0.99
+shadow {
+on
+softness 10
+spread 5
+offset x=0 y=0
+draw-behind-window true
+color "#000000aa"
+}
+geometry-corner-radius 12
+place-within-backdrop true
+}
+
+// +++++++++++++++--> Input <--+++++++++++++++++++
+input {
+keyboard {
+xkb{layout "us"
+options "caps:escape"
+}
+numlock
+}
+touchpad {
+tap
+natural-scroll
+//disable-while-typing
+//click-method clickfinger
+}
+}
+
+// ++++++++++++++++++--> Keybinds <--++++++++++++++++++++++++
+binds {
+Mod+Grave repeat=false { toggle-overview                                ; }
+Mod+Tab repeat=false { toggle-overview                                  ; }
+Alt+Tab repeat=false { focus-workspace-previous                         ; }
+Mod+Backspace {spawn-sh "~/HyprlandScripts/fuzzelPowermenu.sh";}
+// ===========> scripts <==============
+Mod+T repeat=false { spawn "~/HyprlandScripts/theme_switcher.sh";}
+Ctrl+Alt+W repeat=false {spawn "~/HyprlandScripts/rofiwall.sh";}
+Mod+U repeat=false {spawn "~/HyprlandScripts/ewwStarter.sh" "bar";}
+Mod+Comma repeat=false{spawn-sh "~/HyprlandScripts/pywalbitheme.sh";}
+Mod+Period repeat=false {spawn-sh "~/HyprlandScripts/fuzzel-emoji.sh";}
+Mod+W { spawn "~/HyprlandScripts/change_wallpaper_final.sh"             ;}
+Mod+SHIFT+W { spawn "~/HyprlandScripts/zenity_picker_final.sh";}
+
+// ===============> Launchers <=============
+// Ctrl+Space {spawn "anyrun";}
+SUPER+Shift+Return { spawn "kitty"                                                             ;}
+SUPER+Return { spawn "alacritty"                                                               ;}
+SUPER+E { spawn "nautilus"                                                                     ;}
+SUPER+Shift+E { spawn "thunar"                                                                 ;}
+// SUPER+Shift+E { spawn "pcmanfm"                                                             ;}
+SUPER+Shift+B { spawn "brave"                                                                  ;}
+SUPER+B { spawn "zen-browser"                                                                  ;}
+SUPER+C { spawn "code"                                                                         ;}
+SUPER+G { spawn "github-desktop"                                                               ;}
+// SUPER+Space { spawn-sh "rofi -show drun -config ~/.config/rofi/myconfig.rasi"               ;}
+Alt+Space { spawn-sh "pkill rofi || rofi -show drun -config ~/HyprlandScripts/style-12.rasi" ;}
+Super+Space { spawn "fuzzel" "--config" ".config/fuzzel/fuzzelniri.ini";}
+Alt+Backslash { spawn "fuzzel" "--config" ".config/fuzzel/fuzzelniri.ini";}
+Mod+Alt+H {spawn-sh "alacritty -e nvim ~/.config/niri/config.kdl";}
+
+Mod+Q repeat=false { close-window                                        ; }
+Alt+F4 repeat=false { close-window                                       ;}
+Ctrl+Alt+Delete {quit                                                    ;}
+Mod+Left { focus-column-left                                             ; }
+Mod+Down { focus-window-down                                             ; }
+Mod+Up { focus-window-up                                                 ; }
+Mod+Right { focus-column-right                                           ; }
+Mod+J { focus-column-left                                                ; }
+Mod+L { focus-window-down                                                ; }
+Mod+H { focus-window-up                                                  ; }
+Mod+K { focus-column-right                                               ; }
+Mod+D { focus-column-right                                               ; }
+Mod+S { focus-column-left                                                ; }
+Mod+Shift+Left { move-column-left                                        ; }
+Mod+Shift+Down { move-window-down                                        ; }
+Mod+Shift+Up { move-window-up                                            ; }
+Mod+Shift+Right { move-column-right                                      ; }
+Mod+Shift+J { move-column-left                                           ; }
+Mod+Shift+L { move-window-down                                           ; }
+Mod+Shift+H { move-window-up                                             ; }
+Mod+Shift+K { move-column-right                                          ; }
+Mod+Page_Down { focus-workspace-down                                     ; }
+Mod+Page_Up 	 { focus-workspace-up                                       ; }
+Mod+Semicolon { focus-workspace-down                                     ; }
+Mod+apostrophe { focus-workspace-up                                      ; }
+Mod+Ctrl+Page_Down 	 { move-window-to-workspace-down                     ; }
+Mod+Ctrl+Page_Up { move-window-to-workspace-up                           ; }
+Mod+Shift+Semicolon { move-window-to-workspace-down                      ; }
+Mod+Shift+apostrophe { move-window-to-workspace-up                       ; }
+Mod+Shift+Page_Down { move-column-to-workspace-down                      ; }
+Mod+ShifT+Page_Up { move-column-to-workspace-up                          ; }
+Mod+Shift+WheelScrollDown cooldown-ms=250 { focus-workspace-down         ; }
+Mod+Shift+WheelScrollUp cooldown-ms=250 { focus-workspace-up             ; }
+Mod+Ctrl+WheelScrollDown cooldown-ms=250 { move-column-to-workspace-down ; }
+Mod+Ctrl+WheelScrollUp cooldown-ms=250 { move-column-to-workspace-up     ; }
+Mod+WheelScrollDown cooldown-ms=250 { focus-column-right                 ; }
+Mod+WheelScrollUp cooldown-ms=250 { focus-column-left                    ; }
+Mod+Ctrl+WheelScrollRight { move-column-right                            ; }
+Mod+Ctrl+WheelScrollLeft { move-column-left                              ; }
+Mod+BracketLeft { consume-or-expel-window-left                           ; }
+Mod+BracketRight { consume-or-expel-window-right                         ; }
+Mod+R { switch-preset-column-width                                       ; }
+Mod+Shift+R { switch-preset-window-height                                ; }
+Mod+Ctrl+R { reset-window-height                                         ; }
+Mod+A { maximize-column                                                  ; }
+Alt+return { fullscreen-window                                           ; }
+Mod+Shift+S { fullscreen-window                                          ; }
+Mod+Ctrl+S { expand-column-to-available-width                            ; }
+Mod+Shift+C { center-column                                              ; }
+Mod+Ctrl+C { center-visible-columns                                      ; }
+Mod+F { toggle-window-floating                                           ; }
+Mod+Shift+F { switch-focus-between-floating-and-tiling                   ; }
+Mod+Minus { set-column-width "-10%"; }
+Mod+Equal { set-column-width "+10%"; }
+Mod+Shift+Minus { set-window-height "-10%"; }
+Mod+Shift+Equal { set-window-height "+10%"; }
+
+//                        # Workspaces (direct switch)
+Mod+1 { focus-workspace 1 ; }
+Mod+2 { focus-workspace 2 ; }
+Mod+3 { focus-workspace 3 ; }
+Mod+4 { focus-workspace 4 ; }
+Mod+5 { focus-workspace 5 ; }
+Mod+6 { focus-workspace 6 ; }
+Mod+7 { focus-workspace 7 ; }
+Mod+8 { focus-workspace 8 ; }
+Mod+9 { focus-workspace 9 ; }
+
+//                                       # Move focused window to workspace
+Mod+Shift+1 { move-window-to-workspace 1 ; }
+Mod+Shift+2 { move-window-to-workspace 2 ; }
+Mod+Shift+3 { move-window-to-workspace 3 ; }
+Mod+Shift+4 { move-window-to-workspace 4 ; }
+Mod+Shift+5 { move-window-to-workspace 5 ; }
+Mod+Shift+6 { move-window-to-workspace 6 ; }
+Mod+Shift+7 { move-window-to-workspace 7 ; }
+Mod+Shift+8 { move-window-to-workspace 8 ; }
+Mod+Shift+9 { move-window-to-workspace 9 ; }
+
+//                                                                                              # Media keys
+XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "~/HyprlandScripts/volume_new.sh up"     ;}
+XF86AudioLowerVolume allow-when-locked=true { spawn-sh "~/HyprlandScripts/volume_new.sh down"   ;}
+XF86AudioMute allow-when-locked=true { spawn-sh "~/HyprlandScripts/volume_new.sh toggle"        ;}
+XF86MonBrightnessUp allow-when-locked=true { spawn-sh "~/HyprlandScripts/brightness3.sh up"     ;}
+XF86MonBrightnessDown allow-when-locked=true { spawn-sh "~/HyprlandScripts/brightness3.sh down" ;}
+Ctrl+Alt+BracketRight allow-when-locked=true { spawn-sh "~/HyprlandScripts/brightness3.sh up"   ;}
+Ctrl+Alt+BracketLeft allow-when-locked=true { spawn-sh "~/HyprlandScripts/brightness3.sh down"  ;}
+XF86AudioPlay { spawn-sh "playerctl play-pause"                                                 ;}
+XF86AudioNext { spawn-sh "playerctl next"                                                       ;}
+XF86AudioPrev { spawn-sh "playerctl previous"                                                   ;}
+
+//# Screenshot
+Print { spawn-sh "~/HyprlandScripts/nirirofishot.sh"      ;}
+Ctrl+Alt+S { spawn-sh "~/HyprlandScripts/nirirofishot.sh" ;}
+
+//Mod+N { spawn-sh "$(('eww get isnotiopen' == 'true' ? 'eww close notifications' : 'eww open notifications')) ";}
+Mod+N {
+    spawn-sh "
+        if [ \"$(eww get isnotiopen)\" = \"true\" ]; then
+            eww close notifications
+            eww update isnotiopen=false
+        else
+            eww open notifications
+            eww update isnotiopen=true
+        fi
+    ";
+}
+
+
+}
+
+
+animations {
+// Uncomment to turn off all animations.
+// You can also put "off" into each individual animation to disable it.
+// off
+
+// Slow down all animations by this factor. Values below 1 speed them up instead.
+// slowdown 3.0
+slowdown 1.10
+
+// Individual animations.
+
+workspace-switch {
+//duration-ms 250
+//curve "cubic-bezier" 0.52 1.68 0.64 0.15
+spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+}
+
+// window-open {
+// duration-ms 250
+//curve "ease-out-expo"
+// curve "ease-out-cubic"
+// }
+window-open {
+duration-ms 200
+curve "linear"
+custom-shader r"
+vec4 expanding_circle(vec3 coords_geo, vec3 size_geo) {
+vec3 coords_tex = niri_geo_to_tex * coords_geo                     ;
+vec4 color = texture2D(niri_tex, coords_tex.st)                    ;
+vec2 coords = (coords_geo.xy - vec2(0.5, 0.5)) * size_geo.xy * 2.0 ;
+coords = coords / length(size_geo.xy)                              ;
+float p = niri_clamped_progress                                    ;
+if (p * p <= dot(coords, coords)) color = vec4(0.0)                ;
+return color                                                       ;
+}
+vec4 open_color(vec3 coords_geo, vec3 size_geo) {
+return expanding_circle(coords_geo, size_geo)                      ;
+}
+"
+}
+window-close {
+duration-ms 150
+curve "ease-out-quad"
+}
+
+horizontal-view-movement {
+// duration-ms 380
+// curve "cubic-bezier" 0.10 0.15 0.20 1.0
+// curve "cubic-bezier" 0.39 1.29 0.35 0.98
+//curve "ease-out-cubic"
+spring damping-ratio=0.75 stiffness=50 epsilon=0.001
+}
+
+window-movement {
+spring damping-ratio=1.5 stiffness=600 epsilon=0.0001
+}
+
+window-resize {
+spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+}
+
+config-notification-open-close {
+spring damping-ratio=0.6 stiffness=1000 epsilon=0.001
+}
+
+exit-confirmation-open-close {
+spring damping-ratio=0.6 stiffness=500 epsilon=0.01
+}
+
+screenshot-ui-open {
+duration-ms 200
+curve "ease-out-quad"
+}
+
+overview-open-close {
+spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+}
+}
+
+environment {
+ELECTRON_OZONE_PLATFORM_HINT "auto"
+CURRENT_COMPOSITOR "niri"
+XDG_CURRENT_DESKTOP "Niri"
+XDG_SESSION_TYPE "wayland"
+XDG_SESSION_DESKTOP "Niri"
+INPUT_METHOD "fcitx"
+SDL_IM_MODULE "fcitx"
+GSK_RENDERER "vulkan"
+SDL_VIDEODRIVER "wayland"
+CLUTTER_BACKEND "wayland"
+GDK_BACKEND "wayland,x11,*"
+ELECTRON_OZONE_PLATFORM_HINT "auto"
+QT_QPA_PLATFORM "wayland;xcb"
+QT_QPA_PLATFORMTHEME "qt5ct"
+QT_AUTO_SCREEN_SCALE_FACTOR "1"
+QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+NVD_BACKEND "direct"
+MOZ_DISABLE_RDD_SANDBOX "1"
+//GTK_THEME "adw-gtk3"
+LIBVA_DRIVER_NAME "nvidia"
+GBM_BACKEND "nvidia-drm"
+__GLX_VENDOR_LIBRARY_NAME "nvidia"
+//__NV_PRIME_RENDER_OFFLOAD "1"
+}

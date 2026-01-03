@@ -1,0 +1,287 @@
+$surf: darken($color3,35%);
+$fg: lighten($color4,10%);
+$accent:darken($color3,1%);
+$icns:24px;
+
+.barcorner {
+    background: transparent;
+    padding: 40px;
+    border-radius: 24px;
+    &.top {
+        box-shadow: -16px -16px 0px 0px $surf;
+    }
+    &.bottom {
+        box-shadow: -16px 16px 0px 0px $surf;
+    }
+    &.topryt{
+        box-shadow: 16px -16px 0px 0px $surf;
+    }
+    &.bottomryt{
+        box-shadow: 16px 16px 0px 0px $surf;
+    }
+}
+
+.panel {
+    background: $surf;
+}
+
+.bar {
+    min-width: 58px;
+    background: $surf;
+    border-radius: 0px 0px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    transition: all 2s ease-in;
+}
+
+.launcher {
+  color: $fg;
+  font-size: $icns;
+  padding: 8px;
+  margin: 8px 0px;
+  border-radius: 24px;
+  transition: all 0.5s ease-out;
+    &:hover {
+    background: lighten($color5, 10%);
+    color: $color0;
+    }
+}
+
+.applauncher {
+  border-radius: 24px;
+    &:hover {
+    background: lighten($color5, 10%);
+    border: 1px solid $accent;
+    color: $color0;
+    }
+}
+
+.clock {
+    color: $fg;
+    font-size: $icns;
+    margin: 8px 0px;
+    font-weight: 900;
+    font-family: "Heavy Data Nerd Font", monospace;
+    // border: 2px solid $fg;
+    border-radius: 24px;
+    padding: 8px 0px;
+}
+
+.clock_hr {
+    padding: 6px;
+    margin-bottom: 0.25rem;
+    padding-bottom: 0px;
+  }
+  
+  .clock_min {
+    padding: 6px;
+    padding-top: 0px;
+    margin-top: .25rem;
+  }
+  
+  .clock_mer {
+    color: darken($color5,25%);
+    margin: 0rem;
+    padding: 0px;
+    font-family: monospace;
+  }
+  
+  .workspaces-bar {
+    border-radius: 24px;
+    background: darken($color5,7.5%);
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+  
+// Define invert-color function
+@function invert-color($color) {
+  @return rgb(255 - red($color), 255 - green($color), 255 - blue($color));
+}
+
+.ws {
+  color: transparentize($background, 0.5);
+  background: transparentize($background, 0.5);
+  border-radius: 24px;
+  min-width: 4px;
+  min-height:4px;
+  margin: 4px;
+  transition: all 0.2s ease-out;
+  
+  &.one {
+    padding: 0px;
+  }
+  &.two {
+    padding: 0px;
+  }
+  &.three {
+    padding: 0px;
+  }
+  &.four {
+    padding: 0px;
+  }
+  &.five {
+    padding: 0px;
+  }
+  
+  &.active {
+    color: invert-color($color10);
+    padding:12px 0px;
+    background: $accent;
+    border-radius: 24px;
+    min-height:8px;
+    transition: all 0.2s ease-out;
+  }
+  
+  &.inactive {
+    color: transparent;
+    padding:0px 0px;
+    min-height:2px;
+    transition: all 0.2s ease-out;
+  }
+}
+
+.wsbtn {
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 24px;
+}
+
+.wstxt {
+  margin: 0px;
+  padding: 0px;
+}
+
+.idler {
+  font-size: $icns;
+  margin: 8px 4px;
+  padding: 4px;
+  border-radius: 24px;
+  transition: all 0.3s ease;
+  color: lighten($color5, 25%);
+  background: inherit;
+  &.disabled {
+    background: transparentize($color1, 0.9);
+    color: $color1;
+    border: none;
+  }
+  &:hover {
+    background: lighten($color5, 10%);
+    color: $color0;
+  }
+}
+
+.backlightbox,.volumebox{
+  padding: 8px 0px;
+}
+
+.backlight_bar,.volume_bar {
+  border: 2px solid $color3;
+  min-height: 80px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 24px;
+  padding: 8px 0px;
+  transition: all 5s ease-out;
+}
+
+.backlight_bar trough,.volume_bar trough{
+  padding: 0px;
+  background: transparent;
+
+}
+
+.backlight_bar highlight,.volume_bar highlight{
+  border-top: 4px solid darken($color5,25%);
+  background: darken($color5,25%);
+  padding:0px;
+  margin : -8px 0px;
+  border-radius: 24px;
+  min-width: 18px;
+}
+.backlight_bar slider,.volume_bar slider{
+  background-color: $color3;
+  padding: 4px;
+  border-radius: 24px;
+}
+
+.backlight-widget,.volume-widget{
+  margin : 0px 0px;
+  padding: 0px;
+}
+.backlight-widget{ 
+  border-top: none;
+  border-radius: 0px 0px 24px 24px ;
+}
+.volume-widget{  
+  border-bottom: none;
+  border-radius: 24px 24px 0px 0px;
+}
+
+.volicon,.brighticon {
+  font-size: $icns;
+  //font-size: 16px;
+  color: $fg;
+}
+
+.logout {
+  color: $fg;
+  font-size: $icns;
+  padding: 8px;
+    margin: 8px 0px;
+    border-radius: 24px;
+    transition: all 0.5s ease-out;
+    &:hover {
+    background: lighten($color5, 10%);
+    color: $color0;
+    }
+}
+
+.systray {
+background: $accent;
+border-radius: 24px;
+padding: 8px 0px;
+margin: 8px;
+}
+
+.powermenu {
+  background: $surf;
+  border: 2px solid $color7;
+  border-left: none;
+  border-radius: 0px 24px 24px 0px;
+  &.btn {
+    border-radius: 60px;
+    border: 2px solid $color7;
+    background: darken($color5, $amount: 60);
+    color: $color5;
+    margin:10px 18px;
+  }
+}
+
+.powermenu:hover{
+  background: darken($color5, $amount: 30);
+  transition: all .5s ease-out;
+}
+.btn1icon {
+  font-size: 3.5rem;
+}
+
+.eventboxnotibtn {
+  padding-left: 360px;
+  padding-right: 360px;
+  border-radius: 24px;
+  &:hover {
+    background: lighten($color5, 10%);
+    border: 1px solid $accent;
+    color: $color0;
+    }
+}
+
+.trayarrow {
+  background: inherit;
+  font-size: $icns;
+  padding: 4px 0px 0px 0px ;
+}
+
+.systemtray {
+  padding: 10px 0px;
+}
