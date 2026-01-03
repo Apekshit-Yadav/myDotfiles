@@ -1,0 +1,28 @@
+{
+    "checksum": "cb4470f1780abb64977db31c3c9e1554",
+    "wallpaper": "/home/papa/.config/themes/active/wallpapers/shed.png",
+    "alpha": "100",
+    "special": {
+        "background": "#120a07",
+        "foreground": "#c3c1c1",
+        "cursor": "#c3c1c1"
+    },
+    "colors": {
+        "color0": "#120a07",
+        "color1": "#85784D",
+        "color2": "#728476",
+        "color3": "#9D945F",
+        "color4": "#73908E",
+        "color5": "#9BA9A5",
+        "color6": "#B5BFBC",
+        "color7": "#c3c1c1",
+        "color8": "#6a5c56",
+        "color9": "#85784D",
+        "color10": "#728476",
+        "color11": "#9D945F",
+        "color12": "#73908E",
+        "color13": "#9BA9A5",
+        "color14": "#B5BFBC",
+        "color15": "#c3c1c1"
+    }
+}

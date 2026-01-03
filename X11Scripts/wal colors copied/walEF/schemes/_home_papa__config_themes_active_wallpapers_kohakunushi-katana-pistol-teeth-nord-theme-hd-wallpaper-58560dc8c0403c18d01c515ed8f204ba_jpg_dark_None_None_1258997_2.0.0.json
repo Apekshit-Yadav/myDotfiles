@@ -1,0 +1,28 @@
+{
+    "checksum": "795fe5ef8b49a3ae1ef3901ae91d1f46",
+    "wallpaper": "/home/papa/.config/themes/active/wallpapers/kohakunushi-katana-pistol-teeth-nord-theme-hd-wallpaper-58560dc8c0403c18d01c515ed8f204ba.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#1a1e24",
+        "foreground": "#c5c6c8",
+        "cursor": "#c5c6c8"
+    },
+    "colors": {
+        "color0": "#1a1e24",
+        "color1": "#C5636C",
+        "color2": "#5A7393",
+        "color3": "#9E7689",
+        "color4": "#6B8CB0",
+        "color5": "#7EA1C1",
+        "color6": "#82A3C2",
+        "color7": "#c5c6c8",
+        "color8": "#626977",
+        "color9": "#C5636C",
+        "color10": "#5A7393",
+        "color11": "#9E7689",
+        "color12": "#6B8CB0",
+        "color13": "#7EA1C1",
+        "color14": "#82A3C2",
+        "color15": "#c5c6c8"
+    }
+}

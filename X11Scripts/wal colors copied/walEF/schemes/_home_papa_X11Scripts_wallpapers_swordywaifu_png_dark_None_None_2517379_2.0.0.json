@@ -1,0 +1,28 @@
+{
+    "checksum": "c5f786fb02190e97b17fc8be1bc34261",
+    "wallpaper": "/home/papa/X11Scripts/wallpapers/swordywaifu.png",
+    "alpha": "100",
+    "special": {
+        "background": "#121212",
+        "foreground": "#c3c3c3",
+        "cursor": "#c3c3c3"
+    },
+    "colors": {
+        "color0": "#121212",
+        "color1": "#494F72",
+        "color2": "#5A607E",
+        "color3": "#565D83",
+        "color4": "#5C638A",
+        "color5": "#666D96",
+        "color6": "#727BA5",
+        "color7": "#c3c3c3",
+        "color8": "#6e5959",
+        "color9": "#494F72",
+        "color10": "#5A607E",
+        "color11": "#565D83",
+        "color12": "#5C638A",
+        "color13": "#666D96",
+        "color14": "#727BA5",
+        "color15": "#c3c3c3"
+    }
+}

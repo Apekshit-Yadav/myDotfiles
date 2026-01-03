@@ -1,0 +1,28 @@
+{
+    "checksum": "466b9e47f21e6dbf6cf884a9d4a4865c",
+    "wallpaper": "/home/papa/.config/themes/Nord/wallpapers/street_blues.png",
+    "alpha": "100",
+    "special": {
+        "background": "#1b1e25",
+        "foreground": "#c6c6c8",
+        "cursor": "#c6c6c8"
+    },
+    "colors": {
+        "color0": "#1b1e25",
+        "color1": "#6A8AA1",
+        "color2": "#6D8FB5",
+        "color3": "#7FA0C0",
+        "color4": "#989EAA",
+        "color5": "#819FC0",
+        "color6": "#83A8C4",
+        "color7": "#c6c6c8",
+        "color8": "#626878",
+        "color9": "#6A8AA1",
+        "color10": "#6D8FB5",
+        "color11": "#7FA0C0",
+        "color12": "#989EAA",
+        "color13": "#819FC0",
+        "color14": "#83A8C4",
+        "color15": "#c6c6c8"
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "checksum": "72ef8c54230e9b01c3c1ffd017b4b32b",
+    "wallpaper": "/home/papa/.config/themes/active/wallpapers/mikasa.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0b1919",
+        "foreground": "#c2c5c5",
+        "cursor": "#c2c5c5"
+    },
+    "colors": {
+        "color0": "#0b1919",
+        "color1": "#75867B",
+        "color2": "#A38D76",
+        "color3": "#C48A78",
+        "color4": "#A59986",
+        "color5": "#B9B098",
+        "color6": "#BDB6A2",
+        "color7": "#c2c5c5",
+        "color8": "#5a6e6e",
+        "color9": "#75867B",
+        "color10": "#A38D76",
+        "color11": "#C48A78",
+        "color12": "#A59986",
+        "color13": "#B9B098",
+        "color14": "#BDB6A2",
+        "color15": "#c2c5c5"
+    }
+}

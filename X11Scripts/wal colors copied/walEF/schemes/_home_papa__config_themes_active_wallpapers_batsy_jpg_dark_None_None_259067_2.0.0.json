@@ -1,0 +1,28 @@
+{
+    "checksum": "f5a2a142634ca30893c8cca245e95905",
+    "wallpaper": "/home/papa/.config/themes/active/wallpapers/batsy.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#1d0c1d",
+        "foreground": "#c6c2c6",
+        "cursor": "#c6c2c6"
+    },
+    "colors": {
+        "color0": "#1d0c1d",
+        "color1": "#68473D",
+        "color2": "#90070D",
+        "color3": "#AF060D",
+        "color4": "#922B28",
+        "color5": "#CD050E",
+        "color6": "#EA0A14",
+        "color7": "#c6c2c6",
+        "color8": "#705c70",
+        "color9": "#68473D",
+        "color10": "#90070D",
+        "color11": "#AF060D",
+        "color12": "#922B28",
+        "color13": "#CD050E",
+        "color14": "#EA0A14",
+        "color15": "#c6c2c6"
+    }
+}

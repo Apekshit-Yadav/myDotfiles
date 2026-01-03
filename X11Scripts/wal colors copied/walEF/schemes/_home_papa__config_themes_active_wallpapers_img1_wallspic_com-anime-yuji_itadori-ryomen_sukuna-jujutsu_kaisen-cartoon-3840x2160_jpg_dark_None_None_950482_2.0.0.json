@@ -1,0 +1,28 @@
+{
+    "checksum": "09e0c98bffd0d6607e0d8bcc59e6fc84",
+    "wallpaper": "/home/papa/.config/themes/active/wallpapers/img1.wallspic.com-anime-yuji_itadori-ryomen_sukuna-jujutsu_kaisen-cartoon-3840x2160.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#130813",
+        "foreground": "#c4c1c4",
+        "cursor": "#c4c1c4"
+    },
+    "colors": {
+        "color0": "#130813",
+        "color1": "#699469",
+        "color2": "#AEA168",
+        "color3": "#4369A5",
+        "color4": "#49BED6",
+        "color5": "#9EA8A2",
+        "color6": "#C8C6AC",
+        "color7": "#c4c1c4",
+        "color8": "#6b576b",
+        "color9": "#699469",
+        "color10": "#AEA168",
+        "color11": "#4369A5",
+        "color12": "#49BED6",
+        "color13": "#9EA8A2",
+        "color14": "#C8C6AC",
+        "color15": "#c4c1c4"
+    }
+}

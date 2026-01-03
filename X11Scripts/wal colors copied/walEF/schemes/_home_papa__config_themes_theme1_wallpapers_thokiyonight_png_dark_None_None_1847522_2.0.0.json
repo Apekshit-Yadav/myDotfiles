@@ -1,0 +1,28 @@
+{
+    "checksum": "c94ba9758e9069feb29fd2361ed4296e",
+    "wallpaper": "/home/papa/.config/themes/theme1/wallpapers/thokiyonight.png",
+    "alpha": "100",
+    "special": {
+        "background": "#151722",
+        "foreground": "#c4c5c7",
+        "cursor": "#c4c5c7"
+    },
+    "colors": {
+        "color0": "#151722",
+        "color1": "#63687E",
+        "color2": "#967975",
+        "color3": "#5E6881",
+        "color4": "#6B718B",
+        "color5": "#7C849F",
+        "color6": "#868AA4",
+        "color7": "#c4c5c7",
+        "color8": "#5f6475",
+        "color9": "#63687E",
+        "color10": "#967975",
+        "color11": "#5E6881",
+        "color12": "#6B718B",
+        "color13": "#7C849F",
+        "color14": "#868AA4",
+        "color15": "#c4c5c7"
+    }
+}

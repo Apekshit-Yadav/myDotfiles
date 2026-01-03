@@ -1,0 +1,28 @@
+{
+    "checksum": "1416d8329248053592a213656d6862e9",
+    "wallpaper": "/home/papa/.config/themes/active/wallpapers/kanagawa-art-red.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#160909",
+        "foreground": "#c4c1c1",
+        "cursor": "#c4c1c1"
+    },
+    "colors": {
+        "color0": "#160909",
+        "color1": "#D01819",
+        "color2": "#E51B1C",
+        "color3": "#E61E20",
+        "color4": "#C25C5D",
+        "color5": "#958384",
+        "color6": "#C2A5A5",
+        "color7": "#c4c1c1",
+        "color8": "#6c5959",
+        "color9": "#D01819",
+        "color10": "#E51B1C",
+        "color11": "#E61E20",
+        "color12": "#C25C5D",
+        "color13": "#958384",
+        "color14": "#C2A5A5",
+        "color15": "#c4c1c1"
+    }
+}

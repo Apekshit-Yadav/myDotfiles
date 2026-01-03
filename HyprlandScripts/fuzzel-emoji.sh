@@ -1,20 +1,40 @@
 #!/bin/bash
+#!/usr/bin/env bash
 
-# Capture the window address of the currently focused window
-ACTIVE_WINDOW=$(hyprctl activewindow -j | jq -r '.address')
+# Detect current WM
+if [[ "$XDG_CURRENT_DESKTOP" =~ [Hh]yprland ]]; then
+    WINDOWMAN="Hyprland"
+elif [[ "$XDG_CURRENT_DESKTOP" =~ [Nn]iri ]]; then
+    WINDOWMAN="Niri"
+else
+    WINDOWMAN="Unknown"
+fi
 
-# Choose emoji
-EMOJI=$(sed '1,/^### DATA ###$/d' "$0" | fuzzel \
+# Capture the currently focused window
+if [[ $WINDOWMAN == "Hyprland" ]]; then
+    ACTIVE_WINDOW=$(hyprctl activewindow -j | jq -r '.address')
+elif [[ $WINDOWMAN == "Niri" ]]; then
+    ACTIVE_WINDOW=$(niri msg -j focused-window | jq -r '.id')
+else
+    ACTIVE_WINDOW=""
+fi
+
+# Choose fuzzel config depending on WM
+if [[ $WINDOWMAN == "Hyprland" ]]; then
+    FUZZELCMD=(fuzzel --background-color=1A151311)
+elif [[ $WINDOWMAN == "Niri" ]]; then
+    FUZZELCMD=(fuzzel --config ~/.config/fuzzel/fuzzelniri.ini --background-color=111111ff)
+else
+    FUZZELCMD=(fuzzel)
+fi
+
+# Run fuzzel menu
+EMOJI=$(sed '1,/^### DATA ###$/d' "$0" | "${FUZZELCMD[@]}" \
     --icon-theme=candy-icons \
-    --background-color=1A151311 \
     --text-color=F8D4D2ff \
     --match-color=FFB3B1ff \
     --border-width=2 \
     --border-radius=15 \
-    --border-color=EB8A89ff \
-    --selection-color=585b70ff \
-    --selection-text-color=F8D4D2ff \
-    --selection-match-color=FFB3B1ff \
     --font="Lexend" \
     --prompt=">> " \
     --dmenu | cut -d ' ' -f 1 | tr -d '\n')
@@ -22,15 +42,51 @@ EMOJI=$(sed '1,/^### DATA ###$/d' "$0" | fuzzel \
 [ -z "$EMOJI" ] && exit
 
 if [ "$1" = "type" ]; then
-    # Restore focus
-    hyprctl dispatch focuswindow address:$ACTIVE_WINDOW
-    sleep 0.1  # allow time for focus
+    # Restore focus + type emoji
+    if [[ $WINDOWMAN == "Hyprland" ]]; then
+        hyprctl dispatch focuswindow address:$ACTIVE_WINDOW
+    elif [[ $WINDOWMAN == "Niri" ]]; then
+        niri msg focus-window "$ACTIVE_WINDOW"
+    fi
+    sleep 0.1
     wtype "$EMOJI"
 else
     echo -n "$EMOJI" | wl-copy
 fi
 
 exit
+
+# # Capture the window address of the currently focused window
+# ACTIVE_WINDOW=$(hyprctl activewindow -j | jq -r '.address')
+
+# # Choose emoji
+# EMOJI=$(sed '1,/^### DATA ###$/d' "$0" | fuzzel \
+#     --icon-theme=candy-icons \
+#     --background-color=1A151311 \
+#     --text-color=F8D4D2ff \
+#     --match-color=FFB3B1ff \
+#     --border-width=2 \
+#     --border-radius=15 \
+#     --border-color=EB8A89ff \
+#     --selection-color=585b70ff \
+#     --selection-text-color=F8D4D2ff \
+#     --selection-match-color=FFB3B1ff \
+#     --font="Lexend" \
+#     --prompt=">> " \
+#     --dmenu | cut -d ' ' -f 1 | tr -d '\n')
+
+# [ -z "$EMOJI" ] && exit
+
+# if [ "$1" = "type" ]; then
+#     # Restore focus
+#     hyprctl dispatch focuswindow address:$ACTIVE_WINDOW
+#     sleep 0.1  # allow time for focus
+#     wtype "$EMOJI"
+# else
+#     echo -n "$EMOJI" | wl-copy
+# fi
+
+# exit
 ### DATA ###
 😀 grinning face face smile happy joy :D grin
 😃 grinning face with big eyes face happy joy haha :D :) smile funny

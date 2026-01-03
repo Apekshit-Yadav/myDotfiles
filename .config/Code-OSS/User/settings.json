@@ -1,23 +1,21 @@
 {
-    "workbench.colorTheme": "GitHub Dark High Contrast",
-    "window.menuBarVisibility": "toggle",
-    "editor.fontSize": 15,
-    "editor.scrollbar.vertical": "hidden",
-    "editor.scrollbar.verticalScrollbarSize": 0,
-    "security.workspace.trust.untrustedFiles": "newWindow",
-    "security.workspace.trust.startupPrompt": "never",
-    "security.workspace.trust.enabled": false,
-    "editor.minimap.side": "right",
-  "editor.fontFamily": "'JetbrainsMono Nerd Font','Maple Mono', monospace",
-    "extensions.autoUpdate": false,
-    "workbench.statusBar.visible": false,
-    "terminal.external.linuxExec": "kitty",
-    "terminal.explorerKind": "both",
-    "terminal.sourceControlRepositoriesKind": "both",
-    "telemetry.telemetryLevel": "off",
-    "workbench.activityBar.location": "top",
-    "window.customTitleBarVisibility": "auto",
-    "workbench.sideBar.location": "left",
-    "editor.minimap.enabled": false
-  }
-  
+    "editor.minimap.enabled": false,
+    "workbench.colorTheme": "MacOS Modern Dark - Ventura Xcode Civic",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "qt-core.additionalQtPaths": [
+        {
+            "name": "Qt-5.15.18-linux-g++_from_PATH",
+            "path": "/usr/bin/qtpaths"
+        }
+    ],
+    "workbench.iconTheme": "catppuccin-latte",
+    "workbench.editor.closeOnFileDelete": true,
+    "qt-qml.doNotAskForQmllsDownload": true,
+    "window.customTitleBarVisibility": "never",
+    "window.titleBarStyle": "native",
+    "security.workspace.trust.emptyWindow": false,
+    "python.pydev.askInstallDebugger": false,
+    "files.associations": {
+        "*.rasi": "css"
+    }
+}

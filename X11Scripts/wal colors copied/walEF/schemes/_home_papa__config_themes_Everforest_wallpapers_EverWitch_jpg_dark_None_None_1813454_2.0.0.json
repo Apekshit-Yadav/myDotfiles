@@ -1,0 +1,28 @@
+{
+    "checksum": "329a29b43b4f30627efb6fac8cb568f8",
+    "wallpaper": "/home/papa/.config/themes/Everforest/wallpapers/EverWitch.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0b121a",
+        "foreground": "#c2c3c5",
+        "cursor": "#c2c3c5"
+    },
+    "colors": {
+        "color0": "#0b121a",
+        "color1": "#38443B",
+        "color2": "#604834",
+        "color3": "#313A44",
+        "color4": "#635653",
+        "color5": "#A35318",
+        "color6": "#926C5C",
+        "color7": "#c2c3c5",
+        "color8": "#5a626f",
+        "color9": "#38443B",
+        "color10": "#604834",
+        "color11": "#313A44",
+        "color12": "#635653",
+        "color13": "#A35318",
+        "color14": "#926C5C",
+        "color15": "#c2c3c5"
+    }
+}

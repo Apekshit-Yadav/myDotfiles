@@ -1,0 +1,28 @@
+{
+    "checksum": "edef74f7f407d902ef7b7e7b4994daed",
+    "wallpaper": "/home/papa/X11Scripts/wallpapers/shyEVER.png",
+    "alpha": "100",
+    "special": {
+        "background": "#081414",
+        "foreground": "#c1c4c4",
+        "cursor": "#c1c4c4"
+    },
+    "colors": {
+        "color0": "#081414",
+        "color1": "#282c2c",
+        "color2": "#244c2c",
+        "color3": "#48482c",
+        "color4": "#444870",
+        "color5": "#546c5c",
+        "color6": "#8cb06c",
+        "color7": "#c1c4c4",
+        "color8": "#586b6b",
+        "color9": "#282c2c",
+        "color10": "#244c2c",
+        "color11": "#48482c",
+        "color12": "#444870",
+        "color13": "#546c5c",
+        "color14": "#8cb06c",
+        "color15": "#c1c4c4"
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "checksum": "b060e1388be1b6796698a83d0abe2ba2",
+    "wallpaper": "/home/papa/.config/themes/Everforest/wallpapers/cloudy-valley.png",
+    "alpha": "100",
+    "special": {
+        "background": "#1e1e1b",
+        "foreground": "#c6c6c6",
+        "cursor": "#c6c6c6"
+    },
+    "colors": {
+        "color0": "#1e1e1b",
+        "color1": "#82827D",
+        "color2": "#91938E",
+        "color3": "#9FA39E",
+        "color4": "#AEB2AD",
+        "color5": "#BDC1BC",
+        "color6": "#C1C4BE",
+        "color7": "#c6c6c6",
+        "color8": "#757560",
+        "color9": "#82827D",
+        "color10": "#91938E",
+        "color11": "#9FA39E",
+        "color12": "#AEB2AD",
+        "color13": "#BDC1BC",
+        "color14": "#C1C4BE",
+        "color15": "#c6c6c6"
+    }
+}

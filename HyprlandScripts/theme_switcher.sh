@@ -4,6 +4,27 @@ THEME_DIR="$HOME/.config/themes"
 ACTIVE_LINK="$THEME_DIR/active"
 DEFAULT_HYTHEME="$THEME_DIR/default/hytheme.conf"
 
+## Detect current Wayland compositor (Hyprland or Niri)
+if [[ "$XDG_CURRENT_DESKTOP" =~ [Hh]yprland ]]; then
+    WINDOWMAN="Hyprland"
+elif [[ "$XDG_CURRENT_DESKTOP" =~ [Nn]iri ]]; then
+    WINDOWMAN="Niri"
+elif [[ "$XDG_CURRENT_DESKTOP" =~ [Mm]ango ]]; then
+    WINDOWMAN="mango"
+else
+    # Fallback check (just in case)
+    if pgrep -x hyprland >/dev/null; then
+        WINDOWMAN="Hyprland"
+    elif pgrep -x niri >/dev/null; then
+        WINDOWMAN="Niri"
+    else
+        WINDOWMAN="Unknown"
+    fi
+fi
+
+echo "Current WM: $WINDOWMAN"
+
+
 entries=""
 
 # Collect all valid themes with their preview PNG
@@ -23,10 +44,23 @@ for dir in "$THEME_DIR"/*/; do
 done
 
 # Show Rofi with preview icons
-CHOICE=$(printf "$entries" | rofi -i -dmenu -config ~/HyprlandScripts/rofi_themer.rasi -p "🎨 Select Theme:" -show-icons)
-#CHOICE=$(printf "$entries" | rofi -dmenu -config ~/HyprlandScripts/theme_change.rasi -p "🎨 Select Theme:" -show-icons)
-#CHOICE=$(printf "$entries" | rofi -dmenu -config ~/testconfigs/thewe.rasi -p "🎨 Select Theme:" -show-icons)
-
+# Pick rofi config depending on WM
+if [[ $WINDOWMAN == "Hyprland" ]]; then
+    CHOICE=$(printf "$entries" | rofi -i -dmenu \
+        -config ~/HyprlandScripts/rofi_themer.rasi \
+        -p "🖼 Wallpaper:" -show-icons)
+elif [[ $WINDOWMAN == "Niri" ]]; then
+    CHOICE=$(printf "$entries" | rofi -i -dmenu \
+      -config ~/HyprlandScripts/niri_themer.rasi \
+      -p "🖼 Wallpaper:" -show-icons)
+elif [[ $WINDOWMAN == "mango" ]]; then
+    CHOICE=$(printf "$entries" | rofi -i -dmenu \
+      -config ~/HyprlandScripts/mango_themer.rasi \
+      -p "🖼 Wallpaper:" -show-icons)
+else
+    CHOICE=$(printf "$entries" | rofi -i -dmenu \
+        -p "🖼 Wallpaper:")
+fi
 # If nothing chosen, exit
 [[ -z "$CHOICE" ]] && exit 0
 
@@ -65,9 +99,14 @@ CHOICE_LOWER=$(echo "$CHOICE" | tr '[:upper:]' '[:lower:]')
 
 case "$CHOICE_LOWER" in
     mono)
-        wal -i "$(readlink .config/themes/active/wallpapers/current)" -n -b 000000
+        $HOME/HyprlandScripts/pywalbitheme.sh base16-grayscale
+        #wal -i "$(readlink .config/themes/active/wallpapers/current)" -n -b 000000
         ;;
+##      nord)
+##        $HOME/HyprlandScripts/pywalbitheme.sh base16-nord
+##        ;;
     # Add more lowercase theme keys here in the future
+    #
     *)
         wal -i "$(readlink .config/themes/active/wallpapers/current)" -n
         ;;
@@ -88,6 +127,18 @@ fi
 #~/HyprlandScripts/change_wallpaper_final.sh
 
 # Reload Hyprland just in case
-hyprctl reload
+if [[ $WINDOWMAN == "Hyprland" ]]; then
+  hyprctl reload
+fi
+  
+if pgrep -x eww >/dev/null; then
+    ~/HyprlandScripts/ewwStarter.sh bar
+fi
+
+
+# update gaps in waybar
+#HyprlandScripts/waybargaps.sh
+
+~/HyprlandScripts/ChromiumPywal/generate-theme.sh
 
 notify-send "🎨 Theme switched to '$CHOICE'"

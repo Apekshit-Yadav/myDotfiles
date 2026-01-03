@@ -74,7 +74,7 @@ CHOICE=$(printf "  Fullscreen\x00icon\x1f$ICON_DIR/recolored/fullscreen.svg\n
 # Actions
 case "$CHOICE" in
 *Fullscreen*)
-    hyprshot -m output -o "$OUTPUT_DIR"
+    hyprshot -m output -m eDP-1 -o "$OUTPUT_DIR"
     #notify-send "📸 Screenshot" "Fullscreen saved in $OUTPUT_DIR"
     ;;
 *Region*)

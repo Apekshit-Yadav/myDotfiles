@@ -1,0 +1,28 @@
+{
+    "checksum": "fea8a79200bb263814d9f801ae817f14",
+    "wallpaper": "/home/papa/.config/themes/active/wallpapers/IMG_20251031_164303_250.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#101925",
+        "foreground": "#c3c5c8",
+        "cursor": "#c3c5c8"
+    },
+    "colors": {
+        "color0": "#101925",
+        "color1": "#A48A61",
+        "color2": "#2C678B",
+        "color3": "#4D7293",
+        "color4": "#6199A0",
+        "color5": "#0CA5D9",
+        "color6": "#51ACC7",
+        "color7": "#c3c5c8",
+        "color8": "#5f6874",
+        "color9": "#A48A61",
+        "color10": "#2C678B",
+        "color11": "#4D7293",
+        "color12": "#6199A0",
+        "color13": "#0CA5D9",
+        "color14": "#51ACC7",
+        "color15": "#c3c5c8"
+    }
+}

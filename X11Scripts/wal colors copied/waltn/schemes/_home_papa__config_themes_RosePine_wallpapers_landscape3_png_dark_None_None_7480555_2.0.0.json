@@ -1,0 +1,28 @@
+{
+    "checksum": "0005f0aab220ff78eb57f87b196a5e2f",
+    "wallpaper": "/home/papa/.config/themes/RosePine/wallpapers/landscape3.png",
+    "alpha": "100",
+    "special": {
+        "background": "#10191e",
+        "foreground": "#c3c5c6",
+        "cursor": "#c3c5c6"
+    },
+    "colors": {
+        "color0": "#10191e",
+        "color1": "#AD916F",
+        "color2": "#517987",
+        "color3": "#8B7E81",
+        "color4": "#5A8C91",
+        "color5": "#A49E97",
+        "color6": "#DDAD93",
+        "color7": "#c3c5c6",
+        "color8": "#5d6a71",
+        "color9": "#AD916F",
+        "color10": "#517987",
+        "color11": "#8B7E81",
+        "color12": "#5A8C91",
+        "color13": "#A49E97",
+        "color14": "#DDAD93",
+        "color15": "#c3c5c6"
+    }
+}

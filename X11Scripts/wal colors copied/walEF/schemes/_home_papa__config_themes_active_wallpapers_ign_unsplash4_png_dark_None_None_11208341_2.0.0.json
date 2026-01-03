@@ -1,0 +1,28 @@
+{
+    "checksum": "428542c2c2ada8e54d054db1fea61cd6",
+    "wallpaper": "/home/papa/.config/themes/active/wallpapers/ign_unsplash4.png",
+    "alpha": "100",
+    "special": {
+        "background": "#121b27",
+        "foreground": "#c3c6c9",
+        "cursor": "#c3c6c9"
+    },
+    "colors": {
+        "color0": "#121b27",
+        "color1": "#79AAC4",
+        "color2": "#95A2A0",
+        "color3": "#ADB7B7",
+        "color4": "#A8BDC2",
+        "color5": "#95C5D4",
+        "color6": "#B9C5C7",
+        "color7": "#c3c6c9",
+        "color8": "#606975",
+        "color9": "#79AAC4",
+        "color10": "#95A2A0",
+        "color11": "#ADB7B7",
+        "color12": "#A8BDC2",
+        "color13": "#95C5D4",
+        "color14": "#B9C5C7",
+        "color15": "#c3c6c9"
+    }
+}

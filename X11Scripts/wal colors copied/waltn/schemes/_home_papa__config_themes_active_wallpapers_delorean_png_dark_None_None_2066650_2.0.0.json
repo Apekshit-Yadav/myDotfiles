@@ -1,0 +1,28 @@
+{
+    "checksum": "a2d2cc2662ced8431fb8577abe45c288",
+    "wallpaper": "/home/papa/.config/themes/active/wallpapers/delorean.png",
+    "alpha": "100",
+    "special": {
+        "background": "#1e181e",
+        "foreground": "#c6c5c6",
+        "cursor": "#c6c5c6"
+    },
+    "colors": {
+        "color0": "#1e181e",
+        "color1": "#5691B3",
+        "color2": "#5FAAD6",
+        "color3": "#66A7DB",
+        "color4": "#EDAEAC",
+        "color5": "#B3B6CD",
+        "color6": "#C69EC3",
+        "color7": "#c6c5c6",
+        "color8": "#745f74",
+        "color9": "#5691B3",
+        "color10": "#5FAAD6",
+        "color11": "#66A7DB",
+        "color12": "#EDAEAC",
+        "color13": "#B3B6CD",
+        "color14": "#C69EC3",
+        "color15": "#c6c5c6"
+    }
+}

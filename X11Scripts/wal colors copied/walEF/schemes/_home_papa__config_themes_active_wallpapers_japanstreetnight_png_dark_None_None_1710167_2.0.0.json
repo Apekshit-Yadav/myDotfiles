@@ -1,0 +1,28 @@
+{
+    "checksum": "a488318504f30118fb177045205322f8",
+    "wallpaper": "/home/papa/.config/themes/active/wallpapers/japanstreetnight.png",
+    "alpha": "100",
+    "special": {
+        "background": "#121622",
+        "foreground": "#c3c4c7",
+        "cursor": "#c3c4c7"
+    },
+    "colors": {
+        "color0": "#121622",
+        "color1": "#C9677C",
+        "color2": "#646B90",
+        "color3": "#98728D",
+        "color4": "#F0758C",
+        "color5": "#8A899F",
+        "color6": "#A89DB8",
+        "color7": "#c3c4c7",
+        "color8": "#5e6474",
+        "color9": "#C9677C",
+        "color10": "#646B90",
+        "color11": "#98728D",
+        "color12": "#F0758C",
+        "color13": "#8A899F",
+        "color14": "#A89DB8",
+        "color15": "#c3c4c7"
+    }
+}

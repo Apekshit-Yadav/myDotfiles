@@ -1,0 +1,28 @@
+{
+    "checksum": "f0dd377e091dcb77a23aa3f1e6681fb0",
+    "wallpaper": "/home/papa/X11Scripts/wallpapers/forestEf.png",
+    "alpha": "100",
+    "special": {
+        "background": "#111f18",
+        "foreground": "#c3c7c5",
+        "cursor": "#c3c7c5"
+    },
+    "colors": {
+        "color0": "#111f18",
+        "color1": "#585644",
+        "color2": "#685C47",
+        "color3": "#6E6553",
+        "color4": "#7B7266",
+        "color5": "#817C74",
+        "color6": "#7D8079",
+        "color7": "#c3c7c5",
+        "color8": "#5e7267",
+        "color9": "#585644",
+        "color10": "#685C47",
+        "color11": "#6E6553",
+        "color12": "#7B7266",
+        "color13": "#817C74",
+        "color14": "#7D8079",
+        "color15": "#c3c7c5"
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "checksum": "3848e52b3741436a0b9f5ea26e106726",
+    "wallpaper": "/home/papa/.config/themes/active/wallpapers/starwars-xwing.png",
+    "alpha": "100",
+    "special": {
+        "background": "#2e1e3a",
+        "foreground": "#cac6cd",
+        "cursor": "#cac6cd"
+    },
+    "colors": {
+        "color0": "#2e1e3a",
+        "color1": "#728A9C",
+        "color2": "#7892A1",
+        "color3": "#908F9A",
+        "color4": "#A29E9D",
+        "color5": "#93A6A5",
+        "color6": "#D2A092",
+        "color7": "#cac6cd",
+        "color8": "#776980",
+        "color9": "#728A9C",
+        "color10": "#7892A1",
+        "color11": "#908F9A",
+        "color12": "#A29E9D",
+        "color13": "#93A6A5",
+        "color14": "#D2A092",
+        "color15": "#cac6cd"
+    }
+}
